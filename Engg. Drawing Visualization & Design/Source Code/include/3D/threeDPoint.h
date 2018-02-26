@@ -9,8 +9,6 @@
 // included dependencies
 #include <cmath>
 
-//=================================
-// the actual class
 class threeDPoint
 {
   public:

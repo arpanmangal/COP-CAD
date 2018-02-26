@@ -10,8 +10,7 @@
 #include <vector>
 #include "threeDEdge.h" // required by length ()
 
-//=================================
-// the actual class
+
 class threeDObject
 {
   public:

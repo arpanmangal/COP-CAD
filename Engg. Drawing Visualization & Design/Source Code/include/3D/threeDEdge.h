@@ -9,8 +9,6 @@
 // included dependencies
 #include "threeDPoint.h" // required by length ()
 
-//=================================
-// the actual class
 class threeDEdge
 {
   public:
