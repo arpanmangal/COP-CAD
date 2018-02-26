@@ -1,24 +1,25 @@
-#ifndef _TwoDProjection_h_included_
-#define _TwoDProjection_h_included_
+#ifndef _twoDProjection_h
+#define _twoDProjection_h
 
-#include <bits/stdc++.h>
+#include <vector>
 #include "TwoDEdge.h"
+typedef std::vector<twoDPoint> PointVector2D;
+typedef std::vector<twoDEdge> EdgeVector2D;
 
-using namespace std;
-
-class TwoDProjection{
+class twoDProjection{
 	private:
-		vector<TwoDPoint> PointSet;
-		vector<TwoDEdge> EdgeSet;
+		VectorPoint2D PointSet;
+		EdgeVector2D EdgeSet;
 	public:
-		TwoDProjection();
-		~TwoDProjection();
+		twoDProjection();
+		~twoDProjection();
 
-	void add_point(TwoDPoint a);
+	void add_point(twoDPoint a);
 
-	void add_edge(TwoDEdge a);
+	void add_edge(twoDEdge a);
 
-	void delete_point(TwoDPoint a);
+	void delete_point(twoDPoint a);
 
-	void delete_edge(TwoDPoint a);
+	void delete_edge(twoDPoint a);
 };
+#endif

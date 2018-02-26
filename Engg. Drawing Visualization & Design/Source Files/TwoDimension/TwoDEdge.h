@@ -1,15 +1,16 @@
-#ifndef _TwoDEdge_h_included_
-#define _TwoDEdge_h_included_
+#ifndef _twoDEdge_h
+#define _twoDEdge_h
 
-#include <bits/stdc++.h>
-#include "TwoDEdge.h"
-using namespace std;
+#include <vector>
+#include "twoDEdge.h"
+typedef std::vector<twoDEdge> EdgeVector2D;
 
-class TwoDEdge{
+class twoDEdge{
 	private:
-		vector<TwoDPoint> points(2);
+		EdgeVector2D points(2);
 	public:
-		TwoDEdge();
-		TwoDEdge(TwoDPoint a, TwoDPoint b);
-		~TwoDEdge();	
+		twoDEdge();
+		twoDEdge(twoDPoint a, twoDPoint b);
+		~twoDEdge();	
 };
+#endif
