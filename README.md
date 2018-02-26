@@ -9,6 +9,6 @@ producing Orthgraphic Projections from a given solid object or Re-Constructing a
 ### *Components*:
 1. Mathematical Model
 2. UML Design
-3. Source Files
+3. Source Code
 4. Documentation
 
