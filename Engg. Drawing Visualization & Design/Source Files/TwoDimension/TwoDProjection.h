@@ -22,4 +22,5 @@ class twoDProjection{
 
 	void delete_edge(twoDPoint a);
 };
+
 #endif

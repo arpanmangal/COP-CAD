@@ -13,4 +13,5 @@ class twoDEdge{
 		twoDEdge(twoDPoint a, twoDPoint b);
 		~twoDEdge();
 };
+
 #endif

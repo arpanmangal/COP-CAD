@@ -1,11 +1,9 @@
-// twoDPoint.h
-//
+#ifndef _twoDPoint_h
+#define _twoDPoint_h
 
-#ifndef LZZ_twoDPoint_h
-#define LZZ_twoDPoint_h
 #include <vector>
-typedef std::vector<float> Coordinates;
-#define LZZ_INLINE inline
+typedef std::vector <float> Coordinates;
+
 class twoDPoint
 {
 private:
@@ -15,5 +13,5 @@ public:
   ~ twoDPoint ();
   Coordinates getcords ();
 };
-#undef LZZ_INLINE
+
 #endif
