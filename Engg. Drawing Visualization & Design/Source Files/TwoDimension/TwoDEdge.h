@@ -11,6 +11,6 @@ class twoDEdge{
 	public:
 		twoDEdge();
 		twoDEdge(twoDPoint a, twoDPoint b);
-		~twoDEdge();	
+		~twoDEdge();
 };
 #endif
