@@ -241,6 +241,12 @@ lib/*
 
 # Ignore any executables
 bin/*
+*.out
+*.exe
 
 # Ignore Mac specific files
 .DS_Store
+
+
+#Custom
+.vscode
