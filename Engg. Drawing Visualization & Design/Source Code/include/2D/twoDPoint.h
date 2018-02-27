@@ -2,14 +2,14 @@
 #define _twoDPoint_h
 
 #include <vector>
-typedef std::vector <float> Coordinates;
+typedef std::vector <double> Coordinates;
 
 class twoDPoint
 {
 private:
   Coordinates coordinates;
 public:
-  twoDPoint (int xcord = 0, int ycord = 0);
+  twoDPoint (double xcord = 0, double ycord = 0);
   ~ twoDPoint ();
   Coordinates getcords ();
 };

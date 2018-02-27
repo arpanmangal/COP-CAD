@@ -12,7 +12,7 @@ class isometricView;
 // included dependencies
 #include <vector>
 #include "threeDEdge.h"
-#include "../2D/twoDProjection"
+#include "../2D/twoDProjection.h"
 
 class threeDObject
 {

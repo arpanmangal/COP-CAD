@@ -2,13 +2,14 @@
 #define _twoDProjection_h
 
 #include <vector>
-#include "TwoDEdge.h"
+#include "twoDEdge.h"
+
 typedef std::vector<twoDPoint> PointVector2D;
 typedef std::vector<twoDEdge> EdgeVector2D;
 
 class twoDProjection{
 	private:
-		VectorPoint2D PointSet;
+		PointVector2D PointSet;
 		EdgeVector2D EdgeSet;
 	public:
 		twoDProjection();

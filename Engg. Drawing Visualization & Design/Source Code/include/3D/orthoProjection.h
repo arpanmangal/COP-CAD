@@ -8,11 +8,12 @@
 // forward declared dependencies
 class threeDdrawing;
 class twoDProjection;
+class plane;
 
 // included dependencies
 #include <vector>
 #include "threeDObject.h"
-#include "plane.h"
+// #include "plane.h"
 
 class orthoProjection
 {

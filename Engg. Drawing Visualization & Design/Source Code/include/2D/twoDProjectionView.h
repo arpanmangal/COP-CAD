@@ -3,6 +3,8 @@
 
 #include <vector>
 #include "twoDProjection.h"
+#include "../3D/threeDEdge.h"
+
 typedef std::vector<threeDPoint> PointVector3D;
 typedef std::vector<twoDEdge> EdgeVector2D;
 typedef std::vector<threeDEdge> EdgeVector3D;

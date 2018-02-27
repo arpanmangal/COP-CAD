@@ -2,12 +2,13 @@
 #define _twoDEdge_h
 
 #include <vector>
-#include "twoDEdge.h"
-typedef std::vector<twoDEdge> EdgeVector2D;
+#include "twoDPoint.h"
+
+typedef std::vector<twoDPoint> EdgeVector2D;
 
 class twoDEdge{
 	private:
-		EdgeVector2D points(2);
+		EdgeVector2D points; // in .cpp do a twoDEdge::twoDEdge() {points.resize(2)}
 	public:
 		twoDEdge();
 		twoDEdge(twoDPoint a, twoDPoint b);
