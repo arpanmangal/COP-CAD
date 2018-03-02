@@ -2,9 +2,9 @@ var searchData=
 [
   ['threeddrawing',['threeDdrawing',['../classthree_ddrawing.html',1,'threeDdrawing'],['../classthree_ddrawing.html#abcb1960e7f1f09f8c2bd84a9c866ab03',1,'threeDdrawing::THREEDDRAWING()']]],
   ['threeddrawing_2eh',['threeDdrawing.h',['../three_ddrawing_8h.html',1,'']]],
-  ['threededge',['threeDEdge',['../classthree_d_edge.html',1,'threeDEdge'],['../classthree_d_edge.html#ade7289399f86a1ba827fe89105a1d1fa',1,'threeDEdge::threeDEdge()']]],
+  ['threededge',['threeDEdge',['../classthree_d_edge.html',1,'threeDEdge'],['../classthree_d_point.html#a18cfb610f50f2a06a6ded8cbc4d38ebe',1,'threeDPoint::threeDEdge()'],['../classthree_d_edge.html#ade7289399f86a1ba827fe89105a1d1fa',1,'threeDEdge::threeDEdge()']]],
   ['threededge_2eh',['threeDEdge.h',['../three_d_edge_8h.html',1,'']]],
-  ['threedobject',['threeDObject',['../classthree_d_object.html',1,'']]],
+  ['threedobject',['threeDObject',['../classthree_d_object.html',1,'threeDObject'],['../classthree_d_object.html#a69e84abb7abdf3b08caa4ebb3262b381',1,'threeDObject::threeDObject()']]],
   ['threedobject_2eh',['threeDObject.h',['../three_d_object_8h.html',1,'']]],
   ['threedpoint',['threeDPoint',['../classthree_d_point.html',1,'threeDPoint'],['../classthree_d_point.html#a0905d27012da37aa4cde030459654677',1,'threeDPoint::threeDPoint()']]],
   ['threedpoint_2eh',['threeDPoint.h',['../three_d_point_8h.html',1,'']]],

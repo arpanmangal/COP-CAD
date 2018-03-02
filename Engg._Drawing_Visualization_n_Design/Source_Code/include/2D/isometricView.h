@@ -19,10 +19,8 @@ public:
   std::vector<twoDEdge> edgeSet; // Should ONLY have points from pointSet
 
   // functions
-  isometricView() 
-  {}
-  ~isometricView() 
-  {}
+  isometricView();
+  ~isometricView(); 
 
   void addPoint(twoDPoint *p)
   {
