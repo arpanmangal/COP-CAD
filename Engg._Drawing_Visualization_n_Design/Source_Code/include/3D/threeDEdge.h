@@ -6,28 +6,26 @@
 #define __THREEDEDGE_H_INCLUDED__
 
 //=================================
-// included dependencies
-#include "threeDPoint.h" // required by length ()
+// forward declared dependencies
+class threeDPoint;
 
 class threeDEdge
 {
-  public:
+  private:
     // data members
     threeDPoint *a;
     threeDPoint *b;
 
+  public:
     // functions
     // constructor
-    threeDEdge(threeDPoint *A, threeDPoint *B)
-    {
-        a = A;
-        b = B;
-    }
+    threeDEdge(threeDPoint *A, threeDPoint *B);
 
-    double length()
-    {
-        return sqrt(pow(a->x - b->x, 2) + pow(a->y - b->y, 2) + pow(a->z - b->z, 2));
-    }
+    // destructor
+    ~threeDEdge();
+
+    // returns the length of this edge 
+    double length();
 };
 
 #endif // __THREEDEDGE_H_INCLUDED__

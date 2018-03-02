@@ -12,3 +12,9 @@ producing Orthgraphic Projections from a given solid object or Re-Constructing a
 3. Source Code
 4. Documentation
 
+### *Running*:
+```
+$ make clean
+$ make
+$ ./bin/runner
+```
