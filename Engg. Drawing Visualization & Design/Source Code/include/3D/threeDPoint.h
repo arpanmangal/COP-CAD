@@ -5,31 +5,33 @@
 #ifndef __THREEDPOINT_H_INCLUDED__
 #define __THREEDPOINT_H_INCLUDED__
 
-//=================================
 // included dependencies
-#include <cmath>
+#include <vector>
 
 class threeDPoint
 {
-  public:
+  private:
     // data members
     double x;
     double y;
     double z;
 
+  public:
     // functions
     // constructor
-    threeDPoint (double X, double Y, double Z)
-    {
-        x = X;
-        y = Y;
-        z = Z;
-    }
+    threeDPoint (double X, double Y, double Z);
 
-    double norm()
-    {
-        return sqrt(x * x + y * y + z * z);
-    }
+    // Destructor
+    ~threeDPoint ();
+
+    // returns norm of the point
+    double norm ();
+
+    // return the point for viewing in as a vector
+    std::vector<double> getPoint();
+
+    // friend class
+    friend class threeDEdge;
 };
 
 #endif // __THREEDPOINT_H_INCLUDED__

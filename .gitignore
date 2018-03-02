@@ -240,7 +240,8 @@ build
 lib/*
 
 # Ignore any executables
-bin/*
+*/bin/*
+runner
 *.out
 *.exe
 
