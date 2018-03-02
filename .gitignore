@@ -234,7 +234,7 @@ TSWLatexianTemp*
 
 
 
-################################ For C / C++ Project ##############################3333
+################################ For C / C++ Project ##############################
 # Ignore the build and lib dirs
 build
 lib/*
