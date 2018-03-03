@@ -11,11 +11,11 @@
 #include <vector>
 #include "twoDPoint.h"
 
-typedef std::vector<twoDPoint> EdgeVector2D;
+// typedef std::vector<twoDPoint> EdgeVector2D;
 
 class twoDEdge{
 	private:
-		EdgeVector2D points; // in .cpp do a twoDEdge::twoDEdge() {points.resize(2)}
+		std::vector<twoDPoint> points; // in .cpp do a twoDEdge::twoDEdge() {points.resize(2)}
 	public:
 		//constructor and destructor
 		twoDEdge();

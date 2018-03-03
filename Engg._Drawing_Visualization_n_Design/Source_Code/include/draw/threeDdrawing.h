@@ -18,7 +18,7 @@ class threeDdrawing
 
     // functions
     // constructor
-    THREEDDRAWING(threeDPoint *A, threeDPoint *B)
+    threeDdrawing(threeDPoint *A, threeDPoint *B)
     {
         a = A;
         b = B;

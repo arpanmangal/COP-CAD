@@ -18,19 +18,19 @@ class threeDPoint
 
   public:
     // functions
-    // constructor
+    /** constructor */
     threeDPoint (double X, double Y, double Z);
 
-    // Destructor
+    /** Destructor */
     ~threeDPoint ();
 
-    // returns norm of the point
+    /** returns norm of the point */
     double norm ();
 
-    // return the point for viewing in as a vector
+    /** return the point for viewing in as a vector */
     std::vector<double> getPoint();
 
-    // friend class
+    /** friend class */
     friend class threeDEdge;
 };
 

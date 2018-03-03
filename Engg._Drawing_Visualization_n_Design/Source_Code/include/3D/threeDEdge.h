@@ -18,13 +18,13 @@ class threeDEdge
 
   public:
     // functions
-    // constructor
+    /** constructor */
     threeDEdge(threeDPoint *A, threeDPoint *B);
 
-    // destructor
+    /** destructor */
     ~threeDEdge();
 
-    // returns the length of this edge 
+    /** returns the length of this edge */ 
     double length();
 };
 
