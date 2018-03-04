@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['orthoprojection',['orthoProjection',['../classortho_projection.html#a18829d2c26aac2291d45225df2ff8b8e',1,'orthoProjection']]]
+  ['norm',['norm',['../classthree_d_point.html#ad99cd10381b45b95c7b21a26060cb8cc',1,'threeDPoint']]]
 ];

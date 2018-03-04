@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['Y',['../classplane.html#a6394c615c52535ba5120eadc7b9ae64d',1,'plane']]]
+  ['x',['X',['../classplane.html#a7d34e9d6c870fff34839762c4eb1010a',1,'plane']]]
 ];
