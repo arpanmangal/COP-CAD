@@ -1,5 +1,5 @@
-<map id="threeDEdge.h" name="threeDEdge.h">
-<area shape="rect" id="node2" href="$two_d_projection_view_8h.html" title="twoDProjectionView.h" alt="" coords="5,80,153,107"/>
-<area shape="rect" id="node3" href="$three_d_edge_8cpp.html" title="threeDEdge.cpp" alt="" coords="178,80,293,107"/>
-<area shape="rect" id="node4" href="$three_d_object_8cpp.html" title="threeDObject.cpp" alt="" coords="317,80,439,107"/>
+<map id="Source_Code/include/3D/threeDEdge.h" name="Source_Code/include/3D/threeDEdge.h">
+<area shape="rect" id="node2" href="$two_d_projection_view_8h.html" title="Source_Code/include\l/2D/twoDProjectionView.h" alt="" coords="5,95,177,136"/>
+<area shape="rect" id="node3" href="$three_d_edge_8cpp.html" title="Source_Code/src/3D\l/threeDEdge.cpp" alt="" coords="201,95,344,136"/>
+<area shape="rect" id="node4" href="$three_d_object_8cpp.html" title="Source_Code/src/3D\l/threeDObject.cpp" alt="" coords="368,95,511,136"/>
 </map>

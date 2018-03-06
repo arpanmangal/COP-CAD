@@ -1,10 +1,10 @@
-<map id="twoDPoint.h" name="twoDPoint.h">
-<area shape="rect" id="node2" href="$two_d_edge_8h.html" title="twoDEdge.h" alt="" coords="209,80,301,107"/>
-<area shape="rect" id="node3" href="$isometric_view_8h.html" title="isometricView.h" alt="" coords="113,155,228,181"/>
-<area shape="rect" id="node6" href="$two_d_projection_8h.html" title="twoDProjection.h" alt="" coords="263,155,383,181"/>
-<area shape="rect" id="node4" href="$isometric_view_8cpp.html" title="isometricView.cpp" alt="" coords="5,229,133,256"/>
-<area shape="rect" id="node5" href="$three_d_object_8cpp.html" title="threeDObject.cpp" alt="" coords="160,304,283,331"/>
-<area shape="rect" id="node7" href="$two_d_projection_view_8h.html" title="twoDProjectionView.h" alt="" coords="259,229,407,256"/>
-<area shape="rect" id="node8" href="$three_d_object_8h.html" title="threeDObject.h" alt="" coords="432,229,541,256"/>
-<area shape="rect" id="node9" href="$ortho_projection_8h.html" title="orthoProjection.h" alt="" coords="427,304,547,331"/>
+<map id="Source_Code/include/2D/twoDPoint.h" name="Source_Code/include/2D/twoDPoint.h">
+<area shape="rect" id="node2" href="$two_d_edge_8h.html" title="Source_Code/include\l/2D/twoDEdge.h" alt="" coords="224,95,369,136"/>
+<area shape="rect" id="node3" href="$isometric_view_8h.html" title="Source_Code/include\l/2D/isometricView.h" alt="" coords="113,184,259,225"/>
+<area shape="rect" id="node6" href="$two_d_projection_8h.html" title="Source_Code/include\l/2D/twoDProjection.h" alt="" coords="285,184,431,225"/>
+<area shape="rect" id="node4" href="$isometric_view_8cpp.html" title="Source_Code/src/2D\l/isometricView.cpp" alt="" coords="5,273,148,315"/>
+<area shape="rect" id="node5" href="$three_d_object_8cpp.html" title="Source_Code/src/3D\l/threeDObject.cpp" alt="" coords="165,363,308,404"/>
+<area shape="rect" id="node7" href="$two_d_projection_view_8h.html" title="Source_Code/include\l/2D/twoDProjectionView.h" alt="" coords="275,273,447,315"/>
+<area shape="rect" id="node8" href="$three_d_object_8h.html" title="Source_Code/include\l/3D/threeDObject.h" alt="" coords="471,273,616,315"/>
+<area shape="rect" id="node9" href="$ortho_projection_8h.html" title="Source_Code/include\l/3D/orthoProjection.h" alt="" coords="471,363,616,404"/>
 </map>
