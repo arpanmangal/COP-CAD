@@ -7,22 +7,21 @@
 #define _twoDEdge_h
 
 //=================================
-// included dependencies
-#include <vector>
-#include "twoDPoint.h"
-
-// typedef std::vector<twoDPoint> EdgeVector2D;
+// forward dependency
+class twoDPoint;
 
 class twoDEdge{
-	private:
-		std::vector<twoDPoint> points; // in .cpp do a twoDEdge::twoDEdge() {points.resize(2)}
 	public:
+		twoDPoint * start;
+		twoDPoint * end;
+
 		//constructor and destructor
-		twoDEdge();
-		twoDEdge(twoDPoint a, twoDPoint b){
-			points = {a,b};
-		}
+		twoDEdge(twoDPoint *a, twoDPoint *b);
 		~twoDEdge();
+
+		bool operator== (twoDEdge &e){
+			return ((start==e.start)&&(end==e.end))||((end==e.start)&&(start==e.end));
+		} 
 };
 
 #endif

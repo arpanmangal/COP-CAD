@@ -11,8 +11,8 @@ Defines a drawing as a set of points and edges*/
 #include <vector>
 #include "twoDEdge.h"
 
-typedef std::vector<twoDPoint> PointVector2D;
-typedef std::vector<twoDEdge> EdgeVector2D;
+typedef std::vector<twoDPoint *> PointVector2D;
+typedef std::vector<twoDEdge *> EdgeVector2D;
 
 class twoDProjection{
 	private:
