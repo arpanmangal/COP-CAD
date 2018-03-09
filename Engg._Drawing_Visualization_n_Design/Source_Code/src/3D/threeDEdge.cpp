@@ -3,13 +3,13 @@
 #include <3D/threeDPoint.h>
 #include <3D/threeDEdge.h>
 
-threeDEdge::threeDEdge(threeDPoint *A, threeDPoint *B)
+threeDEdge::threeDEdge(threeDPoint * const &A, threeDPoint * const &B)
 {
-    a = A;
-    b = B;
+    start = A;
+    end = B;
 }
 
-double threeDEdge::length()
+float threeDEdge::length()
 {
-    return sqrt(pow(a->x - b->x, 2) + pow(a->y - b->y, 2) + pow(a->z - b->z, 2));
+    return sqrt(pow(start->x - end->x, 2) + pow(start->y - end->y, 2) + pow(start->z - end->z, 2));
 }
