@@ -27,7 +27,8 @@ class twoDProjectionView{
 		twoDProjection * sideview;
 
 	public:
-		twoDProjectionView();
+		twoDProjectionView(twoDProjection *f, twoDProjection *t, twoDProjection *s);
+		twoDProjectionView(twoDProjection *f, twoDProjection *t);
 
 		/**projects a point in 3D space*/
 		PointVector3D pointReconstruction();

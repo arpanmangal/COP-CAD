@@ -22,9 +22,9 @@ class twoDProjection{
 	public:
 		twoDProjection(){}
 
-		add_pointSet(PointVector2D * a);
+		void add_pointSet(PointVector2D const & a);
 
-		add_edgeSet(PointVector3D * a);
+		void add_edgeSet(EdgeVector2D const & a);
 
 		friend class twoDProjectionView;
 };

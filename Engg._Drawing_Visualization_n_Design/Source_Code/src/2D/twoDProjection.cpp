@@ -1,12 +1,13 @@
 #include <vector>
 #include <2D/twoDPoint.h>
 #include <2D/twoDEdge.h>
+#include <2D/twoDProjection.h>
 
-twoDProjection::add_pointSet(PointVector2D const & a){
-	pointSet = a;
+void twoDProjection::add_pointSet(PointVector2D const & a){
+	PointSet = a;
 }
 
-twoDProjection::add_edgeSet(PointVector3D const & a){
+void twoDProjection::add_edgeSet(EdgeVector2D const & a){
 	EdgeSet = a;	
 }
 	
