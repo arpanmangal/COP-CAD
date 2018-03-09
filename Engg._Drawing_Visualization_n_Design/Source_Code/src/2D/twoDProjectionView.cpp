@@ -22,7 +22,16 @@ twoDProjectionView::twoDProjectionView(twoDProjection *f, twoDProjection *t){
 	sideview = NULL;
 }
 
-//PointVector3D pointReconstruction();
+PointVector3D twoDProjectionView::pointReconstruction(){
+	twoDPoint frontPointTemp;
+	twoDPoint topPointTemp;
+	twoDPoint sidePointTemp;
+	PointVector3D retVal;
+	if (sideview==NULL){
+		
+	}
+	
+}
 //EdgeVector3D edgeReconstruction(PointVector3D p, EdgeVector2D e);
 
 /**removes edges which are redundant*/
