@@ -1,4 +1,4 @@
-// Defines a 3 dimensional point
+/** Defines interface for a 3 dimensional point */
 
 //====================================
 // include guard
@@ -10,28 +10,22 @@
 
 class threeDPoint
 {
-  private:
-    // data members
-    double x;
-    double y;
-    double z;
-
   public:
+    // data members
+    float x;
+    float y;
+    float z;
+
     // functions
     /** constructor */
-    threeDPoint (double X, double Y, double Z);
+    threeDPoint (float X, float Y, float Z);
 
     /** Destructor */
     ~threeDPoint ();
 
     /** returns norm of the point */
-    double norm ();
+    float norm ();
 
-    /** return the point for viewing in as a vector */
-    std::vector<double> getPoint();
-
-    /** friend class */
-    friend class threeDEdge;
 };
 
 #endif // __THREEDPOINT_H_INCLUDED__

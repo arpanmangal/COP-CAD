@@ -1,4 +1,4 @@
-// Defines a 3 dimensional edge
+/** Defines interface for a 3 dimensional edge */
 
 //=================================
 // include guard
@@ -11,21 +11,20 @@ class threeDPoint;
 
 class threeDEdge
 {
-  private:
-    // data members
-    threeDPoint *a;
-    threeDPoint *b;
-
   public:
+    // data members
+    threeDPoint *start;
+    threeDPoint *end;
+
     // functions
     /** constructor */
-    threeDEdge(threeDPoint *A, threeDPoint *B);
+    threeDEdge(threeDPoint * const &A, threeDPoint * const &B);
 
     /** destructor */
     ~threeDEdge();
 
     /** returns the length of this edge */ 
-    double length();
+    float length();
 };
 
 #endif // __THREEDEDGE_H_INCLUDED__
