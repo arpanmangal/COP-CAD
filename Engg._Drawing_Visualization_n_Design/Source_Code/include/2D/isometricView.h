@@ -20,7 +20,6 @@ public:
 
   // functions
   isometricView();
-  ~isometricView(); 
 
   void addPoint(twoDPoint *p)
   {

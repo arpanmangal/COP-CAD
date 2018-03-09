@@ -15,9 +15,8 @@ class twoDEdge{
 		twoDPoint * start;
 		twoDPoint * end;
 
-		//constructor and destructor
+		//constructor
 		twoDEdge(twoDPoint *a, twoDPoint *b);
-		~twoDEdge();
 
 		bool operator== (twoDEdge &e){
 			return ((start==e.start)&&(end==e.end))||((end==e.start)&&(start==e.end));

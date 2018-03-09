@@ -9,7 +9,8 @@ Defines a drawing as a set of points and edges*/
 //=================================
 // included dependencies
 #include <vector>
-#include "twoDEdge.h"
+class twoDPoint;
+class twoDEdge;
 
 typedef std::vector<twoDPoint *> PointVector2D;
 typedef std::vector<twoDEdge *> EdgeVector2D;
@@ -19,16 +20,13 @@ class twoDProjection{
 		PointVector2D PointSet;
 		EdgeVector2D EdgeSet;
 	public:
-		twoDProjection();
-		~twoDProjection();
+		twoDProjection(){}
 
-	void add_point(twoDPoint a);
+		add_pointSet(PointVector2D * a);
 
-	void add_edge(twoDEdge a);
+		add_edgeSet(PointVector3D * a);
 
-	void delete_point(twoDPoint a);
-
-	void delete_edge(twoDPoint a);
+		friend class twoDProjectionView;
 };
 
 #endif

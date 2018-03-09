@@ -15,7 +15,6 @@ class twoDPoint{
 			x = xcord;
 			y = ycord;
 		}
-		~ twoDPoint ();
 
 		bool operator== (twoDPoint &b){
 			return (x==b.x)&&(y==b.y);

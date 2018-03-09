@@ -9,34 +9,37 @@ Uses three projection vies as data members */
 //=================================
 // included dependencies
 #include <vector>
-#include "twoDProjection.h"
-#include "../3D/threeDEdge.h"
 
-typedef std::vector<threeDPoint> PointVector3D;
-typedef std::vector<twoDEdge> EdgeVector2D;
-typedef std::vector<threeDEdge> EdgeVector3D;
+class twoDPoint;
+class twoDEdge;
+class twoDProjection;
+class threeDPoint;
+class threeDEdge;
+
+typedef std::vector<threeDPoint *> PointVector3D;
+typedef std::vector<twoDEdge *> EdgeVector2D;
+typedef std::vector<threeDEdge *> EdgeVector3D;
 
 class twoDProjectionView{
 	private:
-		twoDProjection frontview;
-		twoDProjection topview;
-		twoDProjection sideview;
+		twoDProjection * frontview;
+		twoDProjection * topview;
+		twoDProjection * sideview;
 
 	public:
 		twoDProjectionView();
-		~twoDProjectionView();
 
 		/**projects a point in 3D space*/
 		PointVector3D pointReconstruction();
 
-		/**finds all possible line segments in a 2D edge which can for edges in 3D*/
-		EdgeVector2D edgeSegmentation();
+		/*finds all possible line segments in a 2D edge which can for edges in 3D*/
+		//EdgeVector2D edgeSegmentation();
 
-		/**finds all possible line segments in a 2D edge which can for edges in 3D*/
-		EdgeVector2D edgeCollinearityCheck();
+		/*finds all possible line segments in a 2D edge which can for edges in 3D*/
+		//EdgeVector2D edgeCollinearityCheck();
 
-		/**finds edges which are compatible in all the three views*/
-		EdgeVector2D edgeIdentification();
+		/*finds edges which are compatible in all the three views*/
+		//EdgeVector2D edgeIdentification();
 
 		/**projects edges in 3D space*/
 		EdgeVector3D edgeReconstruction(PointVector3D p, EdgeVector2D e);
