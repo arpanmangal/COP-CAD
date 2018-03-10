@@ -9,6 +9,7 @@
 // class twoDProjection;
 class threeDPoint;
 class threeDEdge;
+class threeDObject;
 
 class twoDProjection;
 class isometricView;
@@ -18,40 +19,40 @@ class isometricView;
 
 class threeDInput
 {
-  private:
-    // data members
-    std::vector<threeDPoint *> pointSet;
-    std::vector<threeDEdge *> edgeSet; // Should ONLY have points from pointSet
+private:
+  // data members
+  std::vector<threeDPoint *> pointSet;
+  std::vector<threeDEdge *> edgeSet; // Should ONLY have points from pointSet
 
-    // functions
+  // functions
 
-    /** Add a point to the pointSet
+  /** Add a point to the pointSet
        Time Complexity: O ( length (pointSet) )
       Does not raise any exception */
-    void addPoint(threeDPoint * const &point);
+  void addPoint(threeDPoint *const &point);
 
-    /** Add an edge to the edgeSet
+  /** Add an edge to the edgeSet
        Time Complexity: O ( length (pointSet) )
       Throws an exception: Edge_Not_Valid if either end points of the edge are not in the point set */
-    void addEdge(threeDPoint * const &start, threeDPoint * const &end);
+  void addEdge(threeDPoint *const &start, threeDPoint *const &end);
 
-  public:
-    // functions
+public:
+  // functions
 
-    /** constructor: initialises pointSet and edgeSet to empty vectors */
-    threeDInput();
+  /** constructor: initialises pointSet and edgeSet to empty vectors */
+  threeDInput();
 
-    /** destructor: simply let pointSet and edgeSet go out of scope */
-    ~threeDInput();
+  /** destructor: simply let pointSet and edgeSet go out of scope */
+  ~threeDInput();
 
-    /** Function for taking points as input.
+  /** Function for taking points as input.
      * Has implementation of deleting a point if user wants. The point is deleted from pointSet and the corresponding edge is deleted from the edgeSet
      *  Will be calling the function addPoint and finally threeDObject::addPointSet() */
-    void inputPoints();
+  void inputPoints();
 
-    /** Function for taking edges as input.
+  /** Function for taking edges as input.
      * Will be calling the function addEdge and finally threeDObject::addEdgeSet() */
-    void inputEdges();
+  void inputEdges();
 };
 
 #endif // __THREE_D_INPUT__

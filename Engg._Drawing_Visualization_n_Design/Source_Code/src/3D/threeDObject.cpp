@@ -5,6 +5,17 @@
 #include <2D/twoDProjection.h>
 #include <2D/isometricView.h>
 
+// Constructor and Destructor
+threeDObject::threeDObject()
+{
+    // Empty Constructor
+}
+
+threeDObject::~threeDObject()
+{
+    // Empty Destructor
+}
+
 void threeDObject::addPointSet(std::vector<threeDPoint *> const &pSet)
 {
     pointSet = pSet;
@@ -33,7 +44,7 @@ void threeDObject::flip(int flipMatrix[][3])
     // Code here...
 }
 
-twoDProjection* threeDObject::genProjection(int projectionPlane){
+twoDProjection *threeDObject::genProjection(int projectionPlane){
     // This function takes a plane as input
     // The plane will always be one of XY, YZ, ZX which is achieved by appropriate rotation by the controller
     // For the corresponding projection it will simply remove the third component
