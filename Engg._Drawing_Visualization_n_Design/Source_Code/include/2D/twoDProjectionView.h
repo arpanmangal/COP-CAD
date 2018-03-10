@@ -52,7 +52,7 @@ class twoDProjectionView{
 		//EdgeVector2D edgeIdentification();
 
 		/**projects edges in 3D space*/
-		EdgeVector3D edgeReconstruction(PointVector3D const & p, EdgeVector2D const & e);
+		EdgeVector3D edgeReconstruction();
 
 		/**removes edges which are redundant*/
 		EdgeVector3D pruneEdges(EdgeVector3D const & e);

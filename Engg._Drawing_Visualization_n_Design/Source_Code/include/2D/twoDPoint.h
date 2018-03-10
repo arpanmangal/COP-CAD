@@ -11,7 +11,7 @@ class twoDPoint{
   		double b;
 	
 		//Constructor and destructor
-		twoDPoint (double xcord = 0, double ycord = 0){
+		twoDPoint (double xcord, double ycord){
 			a = xcord;
 			b = ycord;
 		}

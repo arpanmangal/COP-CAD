@@ -21,9 +21,9 @@ twoDProjectionView::twoDProjectionView(twoDProjection *f, twoDProjection *t){
 }
 
 PointVector3D twoDProjectionView::pointReconstruction(){
-	twoDPoint frontPointTemp;
-	twoDPoint topPointTemp;
-	twoDPoint sidePointTemp;
+	twoDPoint frontPointTemp = twoDPoint(0,0);
+	twoDPoint topPointTemp = twoDPoint(0,0);
+	twoDPoint sidePointTemp = twoDPoint(0,0);
 	threeDPoint retPoint = threeDPoint(0,0,0);
 	PointVector3D retVal;
 	if (sideview==NULL){
@@ -53,7 +53,15 @@ PointVector3D twoDProjectionView::pointReconstruction(){
 		return retVal;
 }
 
-//EdgeVector3D edgeReconstruction(PointVector3D p, EdgeVector2D e);
+EdgeVector3D twoDProjectionView::edgeReconstruction(){
+	twoDPoint frontPointTemp = twoDPoint(0,0);
+	twoDPoint topPointTemp = twoDPoint(0,0);
+	twoDPoint sidePointTemp = twoDPoint(0,0);
+	twoDEdge frontEdgeTemp = twoDEdge(&frontPointTemp,&frontPointTemp);
+	twoDEdge topEdgeTemp = twoDEdge(&frontPointTemp,&frontPointTemp);
+	twoDEdge sideEdgeTemp = twoDEdge(&frontPointTemp,&frontPointTemp);
+
+}
 
 /**removes edges which are redundant*/
 //EdgeVector3D pruneEdges(EdgeVector3D e);
