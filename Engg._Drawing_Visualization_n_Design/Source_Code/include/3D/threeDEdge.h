@@ -11,20 +11,20 @@ class threeDPoint;
 
 class threeDEdge
 {
-  public:
-    // data members
-    threeDPoint *start;
-    threeDPoint *end;
+public:
+  // data members
+  threeDPoint *start;
+  threeDPoint *end;
 
-    // functions
-    /** constructor */
-    threeDEdge(threeDPoint * const &A, threeDPoint * const &B);
+  // functions
+  /** constructor */
+  threeDEdge(threeDPoint *const &A, threeDPoint *const &B);
 
-    /** destructor */
-    ~threeDEdge();
+  /** destructor */
+  ~threeDEdge();
 
-    /** returns the length of this edge */ 
-    float length();
+  /** returns the length of this edge */
+  float length();
 };
 
 #endif // __THREEDEDGE_H_INCLUDED__

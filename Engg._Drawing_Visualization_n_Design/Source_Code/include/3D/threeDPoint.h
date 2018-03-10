@@ -10,22 +10,21 @@
 
 class threeDPoint
 {
-  public:
-    // data members
-    float x;
-    float y;
-    float z;
+public:
+  // data members
+  float x;
+  float y;
+  float z;
 
-    // functions
-    /** constructor */
-    threeDPoint (float X, float Y, float Z);
+  // functions
+  /** constructor */
+  threeDPoint(float X, float Y, float Z);
 
-    /** Destructor */
-    ~threeDPoint ();
+  /** Destructor */
+  ~threeDPoint();
 
-    /** returns norm of the point */
-    float norm ();
-
+  /** returns norm of the point */
+  float norm();
 };
 
 #endif // __THREEDPOINT_H_INCLUDED__
