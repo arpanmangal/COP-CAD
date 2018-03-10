@@ -5,40 +5,25 @@
 #include <2D/twoDProjection.h>
 #include <2D/isometricView.h>
 
-// Constructor
+// Constructor and Destructor
 threeDObject::threeDObject()
 {
-    // Initialise the point and edge set to empty sets
-    pointSet.resize(0);
-    edgeSet.resize(0);
+    // Empty Constructor
 }
 
-void threeDObject::addPoint(threeDPoint *point)
+threeDObject::~threeDObject()
 {
-    if (std::find(pointSet.begin(), pointSet.end(), point) != pointSet.end())
-    {
-        // Point is not inside the pointSet
-        pointSet.push_back(point);
-    }
+    // Empty Destructor
 }
 
-void threeDObject::addEdge(threeDPoint *a, threeDPoint *b)
+void threeDObject::addPointSet(std::vector<threeDPoint *> const &pSet)
 {
-    if (std::find(pointSet.begin(), pointSet.end(), a) == pointSet.end())
-    {
-        // point a not in point set => throw exception
-        throw "Edge_Not_Valid";
-    }
-    else if (std::find(pointSet.begin(), pointSet.end(), b) == pointSet.end())
-    {
-        // point b not in point set => throw exception
-        throw "Edge_Not_Valid";
-    }
-    else
-    {
-        // valid points a & b
-        edgeSet.push_back(new threeDEdge(a, b));
-    }
+    pointSet = pSet;
+}
+
+void threeDObject::addEdgeSet(std::vector<threeDEdge *> const &eSet)
+{
+    edgeSet = eSet;
 }
 
 // functions for changing the object
@@ -59,7 +44,7 @@ void threeDObject::flip(int flipMatrix[][3])
     // Code here...
 }
 
-twoDProjection threeDObject::genProjection(int projectionPlane){
+twoDProjection *threeDObject::genProjection(int projectionPlane){
     // This function takes a plane as input
     // The plane will always be one of XY, YZ, ZX which is achieved by appropriate rotation by the controller
     // For the corresponding projection it will simply remove the third component
