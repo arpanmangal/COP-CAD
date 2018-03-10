@@ -7,17 +7,17 @@
 
 class twoDPoint{
 	public:
-		double x;
-  		double y;
+		double a;
+  		double b;
 	
 		//Constructor and destructor
 		twoDPoint (double xcord = 0, double ycord = 0){
-			x = xcord;
-			y = ycord;
+			a = xcord;
+			b = ycord;
 		}
 
-		bool operator== (twoDPoint &b){
-			return (x==b.x)&&(y==b.y);
+		bool operator== (twoDPoint &p){
+			return (a==p.a)&&(b==p.b);
 		}
 };
 

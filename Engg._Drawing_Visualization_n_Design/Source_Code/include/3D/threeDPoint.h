@@ -21,7 +21,7 @@ class threeDPoint
     threeDPoint (float X, float Y, float Z);
 
     /** Destructor */
-    ~threeDPoint ();
+    ~threeDPoint (){}
 
     /** returns norm of the point */
     float norm ();
