@@ -10,10 +10,10 @@ Defines a drawing as a set of points and edges*/
 // included dependencies
 #include <vector>
 class twoDPoint;
-class twoDEdge;
+class Edge;
 
 typedef std::vector<twoDPoint *> PointVector2D;
-typedef std::vector<twoDEdge *> EdgeVector2D;
+typedef std::vector<Edge *> EdgeVector2D;
 
 class twoDProjection{
 	private:

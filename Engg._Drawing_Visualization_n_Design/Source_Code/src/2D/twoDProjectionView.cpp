@@ -2,11 +2,10 @@
 Uses three projection vies as data members */
 
 #include <2D/twoDPoint.h>
-#include <2D/twoDEdge.h>
+#include <2D/Edge.h>
 #include <2D/twoDProjection.h>
 #include <2D/twoDProjectionView.h>
 #include <3D/threeDPoint.h>
-#include <3D/threeDEdge.h>
 
 twoDProjectionView::twoDProjectionView(twoDProjection *f, twoDProjection *t, twoDProjection *s){
 	frontview = f;
@@ -53,13 +52,36 @@ PointVector3D twoDProjectionView::pointReconstruction(){
 		return retVal;
 }
 
+bool twoDProjectionView::checkEdgeCompatibility_2views(Edge & e){
+	if (*(topview->PointSet.at(e.start_index))==*(topview->PointSet.at(e.end_index))){
+		return true;
+	}
+	for (int i = 0;i<topview->EdgeSet.size();i++){
+		if (*(topview->EdgeSet.at(i))==e){
+			return true;
+		}
+	}
+	return false;
+
+}
+
 EdgeVector3D twoDProjectionView::edgeReconstruction(){
 	twoDPoint frontPointTemp = twoDPoint(0,0);
 	twoDPoint topPointTemp = twoDPoint(0,0);
 	twoDPoint sidePointTemp = twoDPoint(0,0);
-	twoDEdge frontEdgeTemp = twoDEdge(0,0);
-	twoDEdge topEdgeTemp = twoDEdge(0,0);
-	twoDEdge sideEdgeTemp = twoDEdge(0,0);
+	Edge frontEdgeTemp = Edge(0,0);
+	Edge topEdgeTemp = Edge(0,0);
+	Edge sideEdgeTemp = Edge(0,0);
+	Edge retEdge = Edge(0,0);
+	EdgeVector3D retVal;
+	if (sideview==NULL){
+		for (int i=0; i<frontview->EdgeSet.size();i++){
+			if (checkEdgeCompatibility_2views(*(frontview->EdgeSet.at(i)))){
+				retVal.push_back(frontview->EdgeSet.at(i));
+			}
+		}
+		return retVal;
+	}
 
 }
 

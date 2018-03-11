@@ -8,7 +8,7 @@
 // forward declared dependencies
 // class twoDProjection;
 class threeDPoint;
-// class threeDEdge;
+// class Edge;
 class threeDObject;
 
 class twoDProjection;

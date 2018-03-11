@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <3D/threeDPoint.h>
-#include <3D/threeDEdge.h>
+#include <2D/Edge.h>
 #include <3D/threeDObject.h>
 #include <3D/threeDInput.h>
 

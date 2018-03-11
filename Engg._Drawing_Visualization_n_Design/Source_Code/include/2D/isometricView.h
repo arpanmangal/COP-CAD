@@ -8,7 +8,7 @@
 //=================================
 // included dependencies
 #include <vector>
-#include "twoDEdge.h"
+#include "Edge.h"
 #include "twoDPoint.h"
 
 class isometricView
@@ -16,7 +16,7 @@ class isometricView
 public:
   // data members
   std::vector<twoDPoint> pointSet;
-  std::vector<twoDEdge> edgeSet; // Should ONLY have points from pointSet
+  std::vector<Edge> edgeSet; // Should ONLY have points from pointSet
 
   // functions
   isometricView();

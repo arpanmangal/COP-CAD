@@ -11,10 +11,10 @@ Uses three projection vies as data members */
 #include <vector>
 
 class twoDPoint;
-class twoDEdge;
+class Edge;
 class twoDProjection;
 class threeDPoint;
-class threeDEdge;
+class Edge;
 class threeDObject;
 
 class IncompatibleViews : public std::exception{  
@@ -26,8 +26,8 @@ class IncompatibleViews : public std::exception{
 }; 
 
 typedef std::vector<threeDPoint *> PointVector3D;
-typedef std::vector<twoDEdge *> EdgeVector2D;
-typedef std::vector<threeDEdge *> EdgeVector3D;
+typedef std::vector<Edge *> EdgeVector2D;
+typedef std::vector<Edge *> EdgeVector3D;
 
 class twoDProjectionView{
 	private:
@@ -50,6 +50,11 @@ class twoDProjectionView{
 
 		/*finds edges which are compatible in all the three views*/
 		//EdgeVector2D edgeIdentification();
+
+		/**checks whether an edge is compatible across projections*/
+		bool checkEdgeCompatibility_2views(Edge & e);
+
+		bool checkEdgeCompatibility_3views(Edge & e);
 
 		/**projects edges in 3D space*/
 		EdgeVector3D edgeReconstruction();
