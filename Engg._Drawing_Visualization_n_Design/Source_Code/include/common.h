@@ -19,4 +19,10 @@ typedef std::vector<Edge *> EdgeVector2D;
 typedef std::vector<threeDPoint *> PointVector3D;
 typedef std::vector<Edge *> EdgeVector3D;
 
+typedef PointVector3D::iterator iterPoint3d;
+typedef EdgeVector3D::iterator iterEdge3d;
+
+typedef PointVector2D::iterator iterPoint2d;
+typedef EdgeVector2D::iterator iterEdge2d;
+
 #endif // __COMMON_H__
