@@ -10,23 +10,23 @@ class threeDPoint;
 
 class plane
 {
-    public:
-        // data members
-        threeDPoint* origin;
+  public:
+    // data members
+    threeDPoint *origin;
 
-        // End points of X & Y axis
-        threeDPoint* X;
-        threeDPoint* Y;
+    // End points of X & Y axis
+    threeDPoint *X;
+    threeDPoint *Y;
 
-        // functions
-        plane ();
-        ~plane();
+    // functions
+    plane();
+    ~plane();
 
-    private:
-        // functions
+  private:
+    // functions
 
-        // check validity
-        bool isRightAngle();
+    // check validity
+    bool isRightAngle();
 };
 
-#endif  // __PLANE_H_INCLUDED__
+#endif // __PLANE_H_INCLUDED__

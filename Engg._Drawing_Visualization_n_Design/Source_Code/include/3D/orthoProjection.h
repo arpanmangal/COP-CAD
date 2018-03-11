@@ -17,28 +17,28 @@ class plane;
 
 class orthoProjection
 {
-  public:
-    // data members
-    threeDObject *obj;  // Object on which it operates
-    plane *projecPlane; //
+public:
+  // data members
+  threeDObject *obj;  // Object on which it operates
+  plane *projecPlane; //
 
-    // functions
+  // functions
 
-    // constructor and destructor
-    orthoProjection(){};
-    ~orthoProjection(){};
+  // constructor and destructor
+  orthoProjection(){};
+  ~orthoProjection(){};
 
-    // function for taking input of the form threeDdrawing and converting it to a threeDObject
-    // and a plane on which to take the projection
-    // return type is void since it sets the "obj" of this object to its output
-    void processInput (threeDdrawing drawing);
+  // function for taking input of the form threeDdrawing and converting it to a threeDObject
+  // and a plane on which to take the projection
+  // return type is void since it sets the "obj" of this object to its output
+  void processInput(threeDdrawing drawing);
 
-    // Below is the main controller
-    // takes a 3D object and a plane on which to project it
-    // Calculates the rotation matrix depending on the specifies plane
-    // calls the rotate function and retrives the new 3D object
-    // calls the genProjection method to compute the projection which it returns
-    twoDProjection controller ();
+  // Below is the main controller
+  // takes a 3D object and a plane on which to project it
+  // Calculates the rotation matrix depending on the specifies plane
+  // calls the rotate function and retrives the new 3D object
+  // calls the genProjection method to compute the projection which it returns
+  twoDProjection controller();
 };
 
 #endif // __ORTHOPROJECTION_H_INCLUDED__

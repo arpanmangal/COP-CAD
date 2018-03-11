@@ -1,5 +1,5 @@
-/**Defines interface for a 2D Projection drawing
-Defines a drawing as a set of points and edges*/
+/** Defines interface for a 2D Projection drawing
+ * Defines a drawing as a set of points and edges */
 
 //=================================
 // include guard
@@ -8,25 +8,22 @@ Defines a drawing as a set of points and edges*/
 
 //=================================
 // included dependencies
-#include <vector>
-class twoDPoint;
-class Edge;
+#include <common.h>
 
-typedef std::vector<twoDPoint *> PointVector2D;
-typedef std::vector<Edge *> EdgeVector2D;
+class twoDProjection
+{
+  private:
+	PointVector2D PointSet;
+	EdgeVector2D EdgeSet;
 
-class twoDProjection{
-	private:
-		PointVector2D PointSet;
-		EdgeVector2D EdgeSet;
-	public:
-		twoDProjection(){}
+  public:
+	twoDProjection() {}
 
-		void add_pointSet(PointVector2D const & a);
+	void add_pointSet(PointVector2D const &a);
 
-		void add_edgeSet(EdgeVector2D const & a);
+	void add_edgeSet(EdgeVector2D const &a);
 
-		friend class twoDProjectionView;
+	friend class twoDProjectionView;
 };
 
 #endif
