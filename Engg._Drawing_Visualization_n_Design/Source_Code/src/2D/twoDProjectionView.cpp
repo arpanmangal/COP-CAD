@@ -57,9 +57,9 @@ EdgeVector3D twoDProjectionView::edgeReconstruction(){
 	twoDPoint frontPointTemp = twoDPoint(0,0);
 	twoDPoint topPointTemp = twoDPoint(0,0);
 	twoDPoint sidePointTemp = twoDPoint(0,0);
-	twoDEdge frontEdgeTemp = twoDEdge(&frontPointTemp,&frontPointTemp);
-	twoDEdge topEdgeTemp = twoDEdge(&frontPointTemp,&frontPointTemp);
-	twoDEdge sideEdgeTemp = twoDEdge(&frontPointTemp,&frontPointTemp);
+	twoDEdge frontEdgeTemp = twoDEdge(0,0);
+	twoDEdge topEdgeTemp = twoDEdge(0,0);
+	twoDEdge sideEdgeTemp = twoDEdge(0,0);
 
 }
 

@@ -6,20 +6,17 @@
 #ifndef _twoDEdge_h
 #define _twoDEdge_h
 
-//=================================
-// forward dependency
-class twoDPoint;
 
 class twoDEdge{
 	public:
-		twoDPoint * start;
-		twoDPoint * end;
+		int start_index;
+		int end_index;
 
 		//constructor
-		twoDEdge(twoDPoint *a, twoDPoint *b);
+		twoDEdge(int s,int e);
 
 		bool operator== (twoDEdge &e){
-			return ((start==e.start)&&(end==e.end))||((end==e.start)&&(start==e.end));
+			return ((start_index==e.start_index)&&(end_index==e.end_index))||((end_index==e.start_index)&&(start_index==e.end_index));
 		} 
 };
 
