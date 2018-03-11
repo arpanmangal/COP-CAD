@@ -8,7 +8,7 @@
 // forward declared dependencies
 // class twoDProjection;
 class threeDPoint;
-class threeDEdge;
+// class threeDEdge;
 class threeDObject;
 
 class twoDProjection;
@@ -22,7 +22,7 @@ class threeDInput
 private:
   // data members
   std::vector<threeDPoint *> pointSet;
-  std::vector<threeDEdge *> edgeSet; // Should ONLY have points from pointSet
+  std::vector<std::pair <int, int>> edgeSet; // Should ONLY have points from pointSet
 
   // functions
 
@@ -34,7 +34,7 @@ private:
   /** Add an edge to the edgeSet
        Time Complexity: O ( length (pointSet) )
       Throws an exception: Edge_Not_Valid if either end points of the edge are not in the point set */
-  void addEdge(threeDPoint *const &start, threeDPoint *const &end);
+  void addEdge(int start, int end);
 
 public:
   // functions

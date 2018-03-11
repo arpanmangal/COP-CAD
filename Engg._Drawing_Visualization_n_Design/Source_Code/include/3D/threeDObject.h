@@ -8,7 +8,7 @@
 // forward declared dependencies
 // class twoDProjection;
 class threeDPoint;
-class threeDEdge;
+// class threeDEdge;
 
 class twoDProjection;
 class isometricView;
@@ -22,7 +22,7 @@ class threeDObject
 private:
   // data members
   std::vector<threeDPoint *> pointSet;
-  std::vector<threeDEdge *> edgeSet; // Should ONLY have points from pointSet
+  std::vector< std::pair<int, int> > edgeSet; // Should ONLY have points from pointSet
 
 public:
   // functions
@@ -45,7 +45,7 @@ public:
 
   void addPointSet (std::vector<threeDPoint *> const &pSet);
 
-  void addEdgeSet (std::vector<threeDEdge *> const &eSet);
+  void addEdgeSet (std::vector< std::pair<int, int> > const &eSet);
 
   /** The Rotate function takes a rotation matrix as input as a 3*3 array
      It applies the rotation matrix to each and every point of the point Set.
