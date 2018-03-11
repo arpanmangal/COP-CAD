@@ -94,29 +94,45 @@ bool twoDProjectionView::checkEdgeCompatibility_3views(Edge & e){
 }
 
 EdgeVector3D twoDProjectionView::edgeReconstruction(){
-	twoDPoint frontPointTemp = twoDPoint(0,0);
-	twoDPoint topPointTemp = twoDPoint(0,0);
-	twoDPoint sidePointTemp = twoDPoint(0,0);
-	Edge frontEdgeTemp = Edge(0,0);
-	Edge topEdgeTemp = Edge(0,0);
-	Edge sideEdgeTemp = Edge(0,0);
-	Edge retEdge = Edge(0,0);
-	EdgeVector3D retVal = Edge(0,0);
-	if (sideview == NULL)
-	{
-		for (int i = 0; i < frontview->EdgeSet.size(); i++)
-		{
+	Edge edgeTemp = Edge(0,0);
+	EdgeVector3D retVal;
+
+	if (sideview == NULL){
+		// adds edge visible in front view
+		for (int i = 0; i < frontview->EdgeSet.size(); i++){
 			if (checkEdgeCompatibility_2views(*(frontview->EdgeSet.at(i))))
-			{
 				retVal.push_back(frontview->EdgeSet.at(i));
+		}
+
+		// adds edge which are not visible in front view
+		for (int i=0; i < topview->EdgeSet.size(); i++){
+			edgeTemp = *(topview->EdgeSet.at(i));
+			if (*(frontview->PointSet.at(edgeTemp.start_index))==*(frontview->PointSet.at(edgeTemp.end_index))){
+				retVal.push_back(topview->EdgeSet.at(i));
 			}
 		}
+
 		return retVal;
 	}
+
+	// adds edge visible in front view
 	for (int i=0; i<frontview->EdgeSet.size();i++){
 		if (checkEdgeCompatibility_3views(*(frontview->EdgeSet.at(i)))){
 			retVal.push_back(frontview->EdgeSet.at(i));
 		}
+	}
+
+	// adds edge which are not visible in front view
+	for (int i=0; i < topview->EdgeSet.size(); i++){
+		edgeTemp = *(topview->EdgeSet.at(i));
+		if (*(frontview->PointSet.at(edgeTemp.start_index))==*(frontview->PointSet.at(edgeTemp.end_index))){
+			for (int j = 0;j<sideview->EdgeSet.size();j++){
+				if (*(sideview->EdgeSet.at(j))==edgeTemp){
+					retVal.push_back(topview->EdgeSet.at(i));
+					break;
+				}
+			}	
+		}	
 	}
 	return retVal;
 
