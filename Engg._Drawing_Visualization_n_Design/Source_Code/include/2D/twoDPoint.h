@@ -8,11 +8,11 @@
 class twoDPoint
 {
   public:
-	double a;
-	double b;
+	float a;
+	float b;
 
 	//Constructor and destructor
-	twoDPoint(double xcord, double ycord)
+	twoDPoint(float xcord, float ycord)
 	{
 		a = xcord;
 		b = ycord;
