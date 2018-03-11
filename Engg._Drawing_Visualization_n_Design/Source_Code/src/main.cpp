@@ -30,32 +30,35 @@ int main()
         std::cout<< "Enter data for front view"<<std::endl;
         frontIn.inputPoints();
         frontIn.inputEdges();
-        twoDProjection * frontView;
-        frontView->add_pointSet(frontIn.getPoints());
-        frontView->add_edgeSet(frontIn.getEdges());
+        twoDProjection frontView;
+        frontView.add_pointSet(frontIn.getPoints());
+        frontView.add_edgeSet(frontIn.getEdges());
 
         std::cout<< "Enter data for top view"<<std::endl;
         topIn.inputPoints();
         topIn.inputEdges();
-        twoDProjection * topView;
-        topView->add_pointSet(topIn.getPoints());
-        topView->add_edgeSet(topIn.getEdges());
+        twoDProjection topView;
+        topView.add_pointSet(topIn.getPoints());
+        topView.add_edgeSet(topIn.getEdges());
 
-        twoDProjection * sideView;
+        twoDProjection sideView;
+        twoDProjection * sideViewPointer;
         if (number_of_views==3)
         {
             std::cout<< "Enter data for side view"<<std::endl;
             sideIn.inputPoints();
             sideIn.inputEdges();
-            sideView->add_pointSet(sideIn.getPoints());
-            sideView->add_edgeSet(sideIn.getEdges());
+            sideView.add_pointSet(sideIn.getPoints());
+            sideView.add_edgeSet(sideIn.getEdges());
+            sideViewPointer = &sideView;
         }
         else
         {
-            sideView = NULL;
+            sideViewPointer = NULL;
         }
 
-        twoDProjectionView projectionDrawing(frontView,topView,sideView);
+        twoDProjectionView projectionDrawing(& frontView,& topView, sideViewPointer);
+        std::cout<<"Success at creating 2D ProjectionView";
     }
     else
     {

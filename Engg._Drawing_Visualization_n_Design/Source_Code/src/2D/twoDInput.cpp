@@ -46,7 +46,7 @@ void twoDInput::inputPoints()
 {
     int n = 0;
     float x, y;
-    std::cout << "Please Enter the Points as x, y Pairs:\n(Enter x = -3.1414 for stopping)" << std::endl;
+    std::cout << "Please Enter the Points as x, y Pairs:\n(Enter x = -1.25 for stopping)" << std::endl;
 
     // May need to do this => pointSet.resize(0);
 
@@ -64,7 +64,7 @@ void twoDInput::inputPoints()
 
         addPoint(&point);
 
-    } while (x != -3.1414);
+    }while (x!=-1.25);
 
     pointSet.pop_back();
 
