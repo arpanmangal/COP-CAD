@@ -1,23 +1,24 @@
 /**Defines interface for a 2D edge*/
 
-
 //=================================
 // include guard
-#ifndef _Edge_h
-#define _Edge_h
+#ifndef __EDGE_H__
+#define __EDGE_H__
 
+class Edge
+{
+  public:
+	int start_index;
+	int end_index;
 
-class Edge{
-	public:
-		int start_index;
-		int end_index;
+	/** Constructor */
+	Edge(int s, int e);
 
-		//constructor
-		Edge(int s,int e);
-
-		bool operator== (Edge &e){
-			return ((start_index==e.start_index)&&(end_index==e.end_index))||((end_index==e.start_index)&&(start_index==e.end_index));
-		} 
+	/** Overloaded bool operator == */
+	bool operator==(Edge &e)
+	{
+		return ((start_index == e.start_index) && (end_index == e.end_index)) || ((end_index == e.start_index) && (start_index == e.end_index));
+	}
 };
 
-#endif
+#endif // __EDGE_H__

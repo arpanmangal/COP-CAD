@@ -38,7 +38,7 @@ void threeDInput::addEdge(int start, int end)
     else
     {
         // valid points start and end
-        edgeSet.push_back(std::make_pair(start, end));
+        edgeSet.push_back(new Edge(start, end));
     }
 }
 

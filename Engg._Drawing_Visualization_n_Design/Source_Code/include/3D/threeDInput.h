@@ -15,14 +15,14 @@ class twoDProjection;
 class isometricView;
 
 // included dependencies
-#include <vector>
+#include <common.h>
 
 class threeDInput
 {
 private:
   // data members
-  std::vector<threeDPoint *> pointSet;
-  std::vector<std::pair <int, int>> edgeSet; // Should ONLY have points from pointSet
+  PointVector3D pointSet;
+  EdgeVector3D edgeSet; // Should ONLY have points from pointSet
 
   // functions
 

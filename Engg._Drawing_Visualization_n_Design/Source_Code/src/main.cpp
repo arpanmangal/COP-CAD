@@ -28,7 +28,7 @@ int main()
 
         // Take input for points
         threeDInput threeDin;
-        threeDin.inputPoints ();
-        threeDin.inputEdges ();
+        threeDin.inputPoints();
+        threeDin.inputEdges();
     }
 }

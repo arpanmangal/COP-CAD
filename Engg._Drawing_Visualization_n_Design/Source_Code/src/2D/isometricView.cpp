@@ -1,5 +1,6 @@
 #include <2D/isometricView.h>
 
-isometricView::isometricView() {
+isometricView::isometricView()
+{
     // Constructor
 }

@@ -3,11 +3,12 @@
 #include <2D/Edge.h>
 #include <2D/twoDProjection.h>
 
-void twoDProjection::add_pointSet(PointVector2D const & a){
+void twoDProjection::add_pointSet(PointVector2D const &a)
+{
 	PointSet = a;
 }
 
-void twoDProjection::add_edgeSet(EdgeVector2D const & a){
-	EdgeSet = a;	
+void twoDProjection::add_edgeSet(EdgeVector2D const &a)
+{
+	EdgeSet = a;
 }
-	

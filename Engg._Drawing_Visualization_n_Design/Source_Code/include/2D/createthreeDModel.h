@@ -12,4 +12,3 @@ class twoDProjectionView;
 class threeDObject;
 
 #endif
-
