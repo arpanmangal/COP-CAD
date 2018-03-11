@@ -1,14 +1,20 @@
 #include <cmath>
-#include <3D/threeDPoint.h>
+// #include <3D/threeDPoint.h>
 #include <3D/threeDEdge.h>
 
-threeDEdge::threeDEdge(threeDPoint * const &A, threeDPoint * const &B)
+threeDEdge::threeDEdge(int start, int end)
 {
-    start = A;
-    end = B;
+    start_index = start;
+    end_index = end;
 }
 
-float threeDEdge::length()
+// Destructor
+threeDEdge::~threeDEdge()
 {
-    return sqrt(pow(start->x - end->x, 2) + pow(start->y - end->y, 2) + pow(start->z - end->z, 2));
+    // Empty Destructor
 }
+
+// float threeDEdge::length()
+// {
+//     return sqrt(pow(start->x - end->x, 2) + pow(start->y - end->y, 2) + pow(start->z - end->z, 2));
+// }

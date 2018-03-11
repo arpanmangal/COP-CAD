@@ -13,18 +13,21 @@ class threeDEdge
 {
 public:
   // data members
-  threeDPoint *start;
-  threeDPoint *end;
+  int start_index;
+  int end_index;
 
   // functions
+
   /** constructor */
-  threeDEdge(threeDPoint *const &A, threeDPoint *const &B);
+  threeDEdge(int start, int end);
 
   /** destructor */
   ~threeDEdge();
 
-  /** returns the length of this edge */
-  float length();
+  bool operator==(threeDEdge &e)
+  {
+    return ((start_index == e.start_index) && (end_index == e.end_index)) || ((end_index == e.start_index) && (start_index == e.end_index));
+  }
 };
 
 #endif // __THREEDEDGE_H_INCLUDED__

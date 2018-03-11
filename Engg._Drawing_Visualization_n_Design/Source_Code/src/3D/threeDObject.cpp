@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <3D/threeDPoint.h>
-// #include <3D/threeDEdge.h>
+#include <3D/threeDEdge.h>
 #include <3D/threeDObject.h>
 #include <2D/twoDProjection.h>
 #include <2D/isometricView.h>
@@ -21,7 +21,7 @@ void threeDObject::addPointSet(std::vector<threeDPoint *> const &pSet)
     pointSet = pSet;
 }
 
-void threeDObject::addEdgeSet(std::vector< std::pair <int, int> > const &eSet)
+void threeDObject::addEdgeSet(std::vector<threeDEdge *> const &eSet)
 {
     edgeSet = eSet;
 }
