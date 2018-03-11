@@ -65,6 +65,22 @@ bool twoDProjectionView::checkEdgeCompatibility_2views(Edge & e){
 
 }
 
+bool twoDProjectionView::checkEdgeCompatibility_3views(Edge & e){
+	if (checkEdgeCompatibility_2views(e)){
+		if (*(sideview->PointSet.at(e.start_index))==*(sideview->PointSet.at(e.end_index))){
+			return true;
+		}
+		for (int i = 0;i<sideview->EdgeSet.size();i++){
+			if (*(sideview->EdgeSet.at(i))==e){
+				return true;
+			}
+		}
+		return false;
+	}
+	return false;
+
+}
+
 EdgeVector3D twoDProjectionView::edgeReconstruction(){
 	twoDPoint frontPointTemp = twoDPoint(0,0);
 	twoDPoint topPointTemp = twoDPoint(0,0);
@@ -82,6 +98,12 @@ EdgeVector3D twoDProjectionView::edgeReconstruction(){
 		}
 		return retVal;
 	}
+	for (int i=0; i<frontview->EdgeSet.size();i++){
+		if (checkEdgeCompatibility_3views(*(frontview->EdgeSet.at(i)))){
+			retVal.push_back(frontview->EdgeSet.at(i));
+		}
+	}
+	return retVal;
 
 }
 
