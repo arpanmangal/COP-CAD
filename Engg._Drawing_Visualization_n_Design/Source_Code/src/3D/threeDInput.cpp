@@ -27,22 +27,18 @@ void threeDInput::addPoint(threeDPoint *const &point)
 }
 
 // TODO: Check duplicate Edge
-void threeDInput::addEdge(threeDPoint *const &start, threeDPoint *const &end)
+void threeDInput::addEdge(int start, int end)
 {
-    if (std::find(pointSet.begin(), pointSet.end(), start) == pointSet.end())
+    int pointSet_size = pointSet.size();
+
+    if (start < 0 || end < 0 || start >= pointSet_size || end >= pointSet_size)
     {
-        // point a not in point set => throw exception
-        throw "Edge_Not_Valid";
-    }
-    else if (std::find(pointSet.begin(), pointSet.end(), end) == pointSet.end())
-    {
-        // point b not in point set => throw exception
         throw "Edge_Not_Valid";
     }
     else
     {
-        // valid points a & b
-        edgeSet.push_back(new threeDEdge(start, end));
+        // valid points start and end
+        edgeSet.push_back(std::make_pair(start, end));
     }
 }
 
@@ -113,15 +109,22 @@ void threeDInput::inputEdges()
             // End of Input
             break;
         }
-        else if (start > numPoints || end > numPoints)
+        else
         {
-            // invalid edge
-            std::cout << "Invalid Edge!!" << std::endl;
-            continue;
-        } else {
-            addEdge(pointSet.at(start - 1), pointSet.at(end - 1));
-            n++;
+            try
+            {
+                addEdge(start - 1, end - 1);
+            }
+            catch (std::string e)
+            {
+                // invalid edge
+
+                std::cout << "Invalid Edge!!" << std::endl;
+                continue;
+            }
         }
+
+        n++;
     } while (true);
 
     pointSet.pop_back();
