@@ -22,13 +22,13 @@ private:
   // functions
 
   /** Add a point to the pointSet
-       Time Complexity: O ( length (pointSet) )
-      Does not raise any exception */
+   * Time Complexity: O ( length (pointSet) )
+   * Does not raise any exception */
   void addPoint(threeDPoint *const &point);
 
   /** Add an edge to the edgeSet
-       Time Complexity: O ( length (pointSet) )
-      Throws an exception: Edge_Not_Valid if either end points of the edge are not in the point set */
+   * Time Complexity: O (1)
+   *  Throws an exception: Edge_Not_Valid if the given start and end indices are out of range */
   void addEdge(int start, int end);
 
 public:
@@ -41,12 +41,12 @@ public:
   ~threeDInput();
 
   /** Function for taking points as input.
-     * Has implementation of deleting a point if user wants. The point is deleted from pointSet and the corresponding edge is deleted from the edgeSet
-     *  Will be calling the function addPoint and finally threeDObject::addPointSet() */
+   * Has implementation of deleting a point if user wants. The point is deleted from pointSet and the corresponding edge is deleted from the edgeSet
+   *  Will be calling the function addPoint and finally threeDObject::addPointSet() */
   void inputPoints();
 
   /** Function for taking edges as input.
-     * Will be calling the function addEdge and finally threeDObject::addEdgeSet() */
+   * Will be calling the function addEdge and finally threeDObject::addEdgeSet() */
   void inputEdges();
 
   /** Return the object created, with edge set and point set as the corresponding sets of input object */
