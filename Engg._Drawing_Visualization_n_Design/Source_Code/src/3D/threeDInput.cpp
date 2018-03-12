@@ -33,6 +33,7 @@ void threeDInput::addEdge(int start, int end)
 
     if (start < 0 || end < 0 || start >= pointSet_size || end >= pointSet_size)
     {
+        std::cout << "Point set size is " << pointSet_size << " and you are entering " << start + 1 << " and " << end + 1 << std::endl;
         throw "Edge_Not_Valid";
     }
     else
@@ -131,4 +132,11 @@ void threeDInput::inputEdges()
 
     // Ask user whether he is satisfied with his choices.
     // If yes return, else retake the input;
+}
+
+// Generating the 3D Object
+void threeDInput::get3DObject(threeDObject *const &object)
+{
+    object->addPointSet(pointSet);
+    object->addEdgeSet(edgeSet);
 }
