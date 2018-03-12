@@ -1,6 +1,6 @@
 <map id="Source_Code/include/2D/twoDProjection.h" name="Source_Code/include/2D/twoDProjection.h">
-<area shape="rect" id="node2" href="$two_d_projection_view_8h.html" title="Source_Code/include\l/2D/twoDProjectionView.h" alt="" coords="5,95,177,136"/>
-<area shape="rect" id="node3" href="$three_d_object_8h.html" title="Source_Code/include\l/3D/threeDObject.h" alt="" coords="201,95,347,136"/>
-<area shape="rect" id="node5" href="$three_d_object_8cpp.html" title="Source_Code/src/3D\l/threeDObject.cpp" alt="" coords="313,184,456,225"/>
-<area shape="rect" id="node4" href="$ortho_projection_8h.html" title="Source_Code/include\l/3D/orthoProjection.h" alt="" coords="144,184,289,225"/>
+<area shape="rect" id="node2" href="$two_d_projection_8cpp.html" title="Source_Code/src/2D\l/twoDProjection.cpp" alt="" coords="5,95,148,136"/>
+<area shape="rect" id="node3" href="$two_d_projection_view_8cpp.html" title="Source_Code/src/2D\l/twoDProjectionView.cpp" alt="" coords="172,95,339,136"/>
+<area shape="rect" id="node4" href="$three_d_object_8cpp.html" title="Source_Code/src/3D\l/threeDObject.cpp" alt="" coords="363,95,505,136"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="Source_Code/src/main.cpp" alt="" coords="530,102,709,129"/>
 </map>

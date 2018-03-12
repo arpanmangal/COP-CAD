@@ -1,6 +1,4 @@
 <map id="Source_Code/include/3D/orthoProjection.h" name="Source_Code/include/3D/orthoProjection.h">
 <area shape="rect" id="node3" href="$three_d_object_8h.html" title="threeDObject.h" alt="" coords="70,95,179,121"/>
-<area shape="rect" id="node4" href="$two_d_projection_8h.html" title="../2D/twoDProjection.h" alt="" coords="121,169,273,196"/>
-<area shape="rect" id="node5" href="$two_d_edge_8h.html" title="twoDEdge.h" alt="" coords="172,244,264,271"/>
-<area shape="rect" id="node6" href="$two_d_point_8h.html" title="twoDPoint.h" alt="" coords="223,319,315,345"/>
+<area shape="rect" id="node4" href="$common_8h.html" title="common.h" alt="" coords="77,169,159,196"/>
 </map>

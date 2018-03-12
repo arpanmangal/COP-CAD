@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['plane',['plane',['../classplane.html',1,'']]]
+  ['orthoprojection',['orthoProjection',['../classortho_projection.html',1,'']]]
 ];

@@ -59,6 +59,9 @@ int main()
 
         twoDProjectionView projectionDrawing(& frontView,& topView, sideViewPointer);
         std::cout<<"Success at creating 2D ProjectionView";
+
+        threeDObject my3d = *projectionDrawing.create3Dmodel();
+        my3d.printer();
     }
     else
     {
@@ -77,5 +80,6 @@ int main()
 
         // Generate 2-D projection
         twoDProjection * projection = object.genProjection(1);
+        projection->printer();
     }
 }

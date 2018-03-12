@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isometricview',['isometricView',['../classisometric_view.html',1,'']]]
+  ['edge',['Edge',['../class_edge.html',1,'']]]
 ];

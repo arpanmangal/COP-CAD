@@ -19,7 +19,7 @@ threeDInput::~threeDInput()
 
 void threeDInput::addPoint(threeDPoint *const &point)
 {
-    if (pointSet.empty() || std::find(pointSet.begin(), pointSet.end(), point) != pointSet.end())
+    if (pointSet.empty() || std::find(pointSet.begin(), pointSet.end(), point) == pointSet.end())
     {
         // Point is not inside the pointSet
         pointSet.push_back(point);
@@ -69,12 +69,17 @@ void threeDInput::inputPoints()
 
         point = new threeDPoint(x, y, z);
 
-        addPoint(&point);
+        addPoint(point);
 
     } while (x != -1.25);
 
     pointSet.pop_back();
-
+    std::cout<<"\nPrinting points\n";
+    threeDPoint *p;
+    for (int i=0;i<pointSet.size();i++){
+        p = pointSet.at(i);
+        std::cout<<i<<" "<<p->x<<" "<<p->y<<" "<<p->z<<"\n";
+    }
     // Ask user whether he is satisfied with his choices.
     // If yes return, else retake the input;
 }
@@ -129,7 +134,7 @@ void threeDInput::inputEdges()
         n++;
     } while (true);
 
-    pointSet.pop_back();
+    edgeSet.pop_back();
 
     // Ask user whether he is satisfied with his choices.
     // If yes return, else retake the input;

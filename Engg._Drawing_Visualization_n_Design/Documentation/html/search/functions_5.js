@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['genisoview',['genIsoView',['../classthree_d_object.html#ab7d62e1e612981b2cc5bc27cc7088870',1,'threeDObject']]],
-  ['genprojection',['genProjection',['../classthree_d_object.html#af5e7c1786628eb5b2d5f50ae25936b6c',1,'threeDObject']]],
-  ['getcoords',['getCoords',['../classtwo_d_point.html#aaaa36c1e2bd865a6882bc040c416acdd',1,'twoDPoint']]],
-  ['getpoint',['getPoint',['../classthree_d_point.html#ab86d2c8fd2efc25c80edc3fa0d668823',1,'threeDPoint']]]
+  ['inputedges',['inputEdges',['../classtwo_d_input.html#a294f471afc5c676875eb724909aaeebb',1,'twoDInput::inputEdges()'],['../classthree_d_input.html#a26aca86d07f5b3093a8eb246d064ccf2',1,'threeDInput::inputEdges()']]],
+  ['inputpoints',['inputPoints',['../classtwo_d_input.html#a58ab4f26b8ab1f8242ac868e518f16af',1,'twoDInput::inputPoints()'],['../classthree_d_input.html#ac7ed7b2793210e1ff69200954efa09be',1,'threeDInput::inputPoints()']]],
+  ['isometricview',['isometricView',['../classisometric_view.html#ae4d2c4a2a3314fde51743a8eb89324e0',1,'isometricView']]]
 ];

@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['a',['a',['../classthree_ddrawing.html#af236544f121e0e59e38ced2f9a89a5a1',1,'threeDdrawing']]],
-  ['add_5fedge',['add_edge',['../classtwo_d_projection.html#ab366aaa82dcce0146203fab5d471da1c',1,'twoDProjection']]],
-  ['add_5fpoint',['add_point',['../classtwo_d_projection.html#a0c5fa45fd9342a6bd6233855a2fe1c16',1,'twoDProjection']]],
-  ['addedge',['addEdge',['../classthree_d_object.html#a6a9fe85b9481af98f86d8eded8785b21',1,'threeDObject']]],
-  ['addpoint',['addPoint',['../classisometric_view.html#a4ad5a8bce1893600f2ff4c0acee9bd6a',1,'isometricView::addPoint()'],['../classthree_d_object.html#acc3cd271bcdeddc8433d8fb15bdb8c52',1,'threeDObject::addPoint()']]]
+  ['a',['a',['../classtwo_d_point.html#a21d50ab793ce32e8dc056aef992c3186',1,'twoDPoint::a()'],['../classthree_ddrawing.html#af236544f121e0e59e38ced2f9a89a5a1',1,'threeDdrawing::a()']]],
+  ['add_5fedgeset',['add_edgeSet',['../classtwo_d_projection.html#ac462b849dc85683ca06d266956e729ed',1,'twoDProjection']]],
+  ['add_5fpointset',['add_pointSet',['../classtwo_d_projection.html#a908f900803e85be25d98ea62b3877dd8',1,'twoDProjection']]],
+  ['addedgeset',['addEdgeSet',['../classthree_d_object.html#aa8f84d81b45e26d158eaf855dd7baa85',1,'threeDObject']]],
+  ['addpoint',['addPoint',['../classisometric_view.html#a4ad5a8bce1893600f2ff4c0acee9bd6a',1,'isometricView']]],
+  ['addpointset',['addPointSet',['../classthree_d_object.html#a015e19ec0e7b18d9cf6ca60455db7577',1,'threeDObject']]]
 ];

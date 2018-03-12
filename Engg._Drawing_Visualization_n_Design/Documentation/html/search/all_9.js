@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]]
+  ['norm',['norm',['../classthree_d_point.html#a8a95fef6622c0cc602e5bdbfba13653e',1,'threeDPoint']]]
 ];

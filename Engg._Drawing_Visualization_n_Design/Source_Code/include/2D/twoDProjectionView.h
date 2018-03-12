@@ -33,7 +33,7 @@ class twoDProjectionView
 	twoDProjectionView(twoDProjection *f, twoDProjection *t, twoDProjection *s);
 	twoDProjectionView(twoDProjection *f, twoDProjection *t);
 
-	/**projects a point in 3D space*/
+	/**Projects a point in 3D space*/
 	PointVector3D pointReconstruction();
 
 	/*finds all possible line segments in a 2D edge which can for edges in 3D*/
@@ -45,18 +45,19 @@ class twoDProjectionView
 	/*finds edges which are compatible in all the three views*/
 	//EdgeVector2D edgeIdentification();
 
-	/**checks whether an edge is compatible across projections*/
+	/**Checks whether an edge is compatible across projections*/
 	bool checkEdgeCompatibility_2views(Edge &e);
 
+	/**Checks whether an edge is compatible across projections*/
 	bool checkEdgeCompatibility_3views(Edge &e);
 
-	/**projects edges in 3D space*/
+	/**Projects edges in 3D space*/
 	EdgeVector3D edgeReconstruction();
 
-	/**removes edges which are redundant*/
+	/**Removes edges which are redundant*/
 	EdgeVector3D pruneEdges(EdgeVector3D const &e);
 
-	/**function to convert an Orthographic Porojections Drawing to 3D Model*/
+	/**Function to convert an Orthographic Porojections Drawing to 3D Model*/
 	threeDObject *create3Dmodel();
 };
 #endif

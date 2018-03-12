@@ -6,6 +6,8 @@ Uses three projection vies as data members */
 #include <2D/twoDProjection.h>
 #include <2D/twoDProjectionView.h>
 #include <3D/threeDPoint.h>
+#include <3D/threeDObject.h>
+#include <iostream>
 
 twoDProjectionView::twoDProjectionView(twoDProjection *f, twoDProjection *t, twoDProjection *s)
 {
@@ -140,3 +142,10 @@ EdgeVector3D twoDProjectionView::edgeReconstruction(){
 
 /**removes edges which are redundant*/
 //EdgeVector3D pruneEdges(EdgeVector3D e);
+
+threeDObject * twoDProjectionView::create3Dmodel(){
+	threeDObject * retVal = new threeDObject();
+	retVal->addPointSet(pointReconstruction());
+	retVal->addEdgeSet(edgeReconstruction());
+	return retVal;
+}

@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iostream>
 #include <3D/threeDPoint.h>
 #include <2D/twoDPoint.h>
 #include <2D/Edge.h>
@@ -138,4 +139,19 @@ isometricView *threeDObject::genIsoView()
 
     // Code here ...
     return new isometricView();
+}
+
+void threeDObject::printer(){
+    
+	threeDPoint *p;
+	Edge *e;
+    for (int i=0;i<pointSet.size();i++){
+        p = pointSet.at(i);
+        std::cout<<i<<" "<<p->x<<" "<<p->y<<" "<<p->z<<"\n";
+    }
+	for (int i=0;i<edgeSet.size();i++){
+		e = edgeSet.at(i);
+		std::cout<<e->start_index<<" "<<e->end_index<<"\n";
+	}
+
 }

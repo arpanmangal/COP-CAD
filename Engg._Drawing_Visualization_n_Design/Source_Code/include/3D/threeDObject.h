@@ -54,6 +54,7 @@ public:
   /** Yet to decide how flip matrix will look */
   void flip(int flipMatrix[][3]);
 
+  void printer();
 
   /* Projections */
 

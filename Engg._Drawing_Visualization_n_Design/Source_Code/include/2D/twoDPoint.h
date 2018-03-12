@@ -11,13 +11,14 @@ class twoDPoint
 	float a;
 	float b;
 
-	//Constructor and destructor
+	//Constructor
 	twoDPoint(float xcord, float ycord)
 	{
 		a = xcord;
 		b = ycord;
 	}
 
+	/** Overloaded bool operator == */
 	bool operator==(twoDPoint &p)
 	{
 		return (a == p.a) && (b == p.b);

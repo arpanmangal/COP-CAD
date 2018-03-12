@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['orthoprojection',['orthoProjection',['../classortho_projection.html',1,'']]]
+  ['incompatibleviews',['IncompatibleViews',['../class_incompatible_views.html',1,'']]],
+  ['isometricview',['isometricView',['../classisometric_view.html',1,'']]]
 ];

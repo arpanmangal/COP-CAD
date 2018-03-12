@@ -19,9 +19,18 @@ class twoDProjection
   public:
 	twoDProjection() {}
 
+	/**Accepts a vector of twoDPoints and assigns it to the PointSet of the projection*/
 	void add_pointSet(PointVector2D const &a);
 
+	/**Accepts a vector of Edges and assigns it to the EdgeSet of the projection*/
 	void add_edgeSet(EdgeVector2D const &a);
+
+	//void cleanPointSet();
+
+	//void cleanEdgeSet();
+
+	/**Prints EdgeSet and PointSet of the projection*/
+	void printer();
 
 	friend class twoDProjectionView;
 };

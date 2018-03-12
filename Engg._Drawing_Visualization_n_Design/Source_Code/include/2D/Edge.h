@@ -1,4 +1,4 @@
-/**Defines interface for a 2D edge*/
+/**Defines interface for Edges (both 3D and 2D)*/
 
 //=================================
 // include guard
@@ -11,7 +11,7 @@ class Edge
 	int start_index;
 	int end_index;
 
-	/** Constructor */
+	/** Constructor: Accepts the start index and the end index of points in the vector PointSet defining the edge*/
 	Edge(int s, int e);
 
 	/** Overloaded bool operator == */

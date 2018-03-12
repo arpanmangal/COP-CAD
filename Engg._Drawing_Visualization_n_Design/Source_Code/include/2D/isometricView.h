@@ -1,4 +1,4 @@
-// Defines isometric View
+/** Defines interface Isometric View*/
 
 //=================================
 // include guard

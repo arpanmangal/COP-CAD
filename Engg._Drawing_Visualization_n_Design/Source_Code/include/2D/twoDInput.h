@@ -1,4 +1,4 @@
-/** Defines front-end interface for a inputing a 2 dimensional projections */
+/** Defines front-end interface for a inputing 2 dimensional projections */
 
 //=================================
 // include guard
@@ -21,22 +21,21 @@ private:
   // functions
 
   /** Add a point to the pointSet
-       Time Complexity: O ( length (pointSet) )
-      Does not raise any exception */
+       Time Complexity: O ( 1 ) */
   void addPoint(twoDPoint *const &point);
 
   /** Add an edge to the edgeSet
-       Time Complexity: O ( length (pointSet) )
-      Throws an exception: Edge_Not_Valid if either end points of the edge are not in the point set */
+      Time Complexity: O ( 1 )
+      Throws an exception: Edge_Not_Valid if the index doesn't exist in the pointSet */
   void addEdge(int start, int end);
 
 public:
   // functions
 
-  /** constructor: initialises pointSet and edgeSet to empty vectors */
+  /** Constructor: Initialises pointSet and edgeSet to empty vectors */
   twoDInput();
 
-  /** destructor: simply let pointSet and edgeSet go out of scope */
+  /** Destructor: Simply let pointSet and edgeSet go out of scope */
   ~twoDInput();
 
   /** Function for taking points as input.
