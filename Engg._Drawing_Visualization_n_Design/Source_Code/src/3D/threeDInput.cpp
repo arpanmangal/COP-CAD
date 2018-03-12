@@ -33,6 +33,7 @@ void threeDInput::addEdge(int start, int end)
 
     if (start < 0 || end < 0 || start >= pointSet_size || end >= pointSet_size)
     {
+        std::cout << "Point set size is " << pointSet_size << " and you are entering " << start + 1 << " and " << end + 1 << std::endl;
         throw "Edge_Not_Valid";
     }
     else
