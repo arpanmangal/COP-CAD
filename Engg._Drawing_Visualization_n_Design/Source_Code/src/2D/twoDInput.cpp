@@ -18,11 +18,7 @@ twoDInput::~twoDInput()
 
 void twoDInput::addPoint(twoDPoint *const &point)
 {
-    if (pointSet.empty() || std::find(pointSet.begin(), pointSet.end(), point) != pointSet.end())
-    {
-        // Point is not inside the pointSet
-        pointSet.push_back(point);
-    }
+   pointSet.push_back(point);   
 }
 
 // TODO: Check duplicate Edge
@@ -32,7 +28,7 @@ void twoDInput::addEdge(int start, int end)
 
     if (start < 0 || end < 0 || start >= pointSet_size || end >= pointSet_size)
     {
-        throw "Edge_Not_Valid";
+        std::cout << "Point set size is " << pointSet_size << " and you are entering " << start + 1 << " and " << end + 1 << std::endl;
     }
     else
     {
@@ -49,7 +45,7 @@ void twoDInput::inputPoints()
     std::cout << "Please Enter the Points as x, y Pairs:\n(Enter x = -1.25 for stopping)" << std::endl;
 
     // May need to do this => pointSet.resize(0);
-
+    twoDPoint * point;
     do
     {
         std::cout << "\nEnter " + std::to_string(++n) + "th point:" << std::endl;
@@ -60,13 +56,18 @@ void twoDInput::inputPoints()
         std::cout << "Enter y: ";
         std::cin >> y;
 
-        twoDPoint point(x, y);
+        point = new twoDPoint(x, y);
 
-        addPoint(&point);
+        addPoint(point);
 
     }while (x!=-1.25);
 
     pointSet.pop_back();
+    twoDPoint *p;
+    for (int i=0;i<pointSet.size();i++){
+        p = pointSet.at(i);
+        std::cout<<i<<" "<<p->a<<" "<<p->b<<"\n";
+    }
 
     // Ask user whether he is satisfied with his choices.
     // If yes return, else retake the input;
@@ -86,7 +87,6 @@ void twoDInput::inputEdges()
     if (numPoints < 2)
     {
         std::cout << "\nGo Away!!" << std::endl;
-        ;
         return;
     }
 
@@ -122,8 +122,6 @@ void twoDInput::inputEdges()
 
         n++;
     } while (true);
-
-    pointSet.pop_back();
 
     // Ask user whether he is satisfied with his choices.
     // If yes return, else retake the input;
