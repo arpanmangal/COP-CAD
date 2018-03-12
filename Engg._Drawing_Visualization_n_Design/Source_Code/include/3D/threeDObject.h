@@ -34,7 +34,7 @@ public:
   /** Set the point set of the object to pSet */
   void addPointSet(PointVector3D const &pSet);
 
-  /** Set the edge set of the object to eSet) */
+  /** Set the edge set of the object to eSet*/
   void addEdgeSet(EdgeVector3D const &eSet);
 
 
