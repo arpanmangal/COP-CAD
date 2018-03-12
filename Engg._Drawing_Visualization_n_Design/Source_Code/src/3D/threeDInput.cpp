@@ -34,7 +34,7 @@ void threeDInput::addEdge(int start, int end)
     if (start < 0 || end < 0 || start >= pointSet_size || end >= pointSet_size)
     {
         std::cout << "Point set size is " << pointSet_size << " and you are entering " << start + 1 << " and " << end + 1 << std::endl;
-        throw "Edge_Not_Valid";
+        //throw "Edge_Not_Valid";
     }
     else
     {
@@ -52,6 +52,8 @@ void threeDInput::inputPoints()
 
     // May need to do this => pointSet.resize(0);
 
+    threeDPoint * point;
+
     do
     {
         std::cout << "\nEnter " + std::to_string(++n) + "th point:" << std::endl;
@@ -65,7 +67,7 @@ void threeDInput::inputPoints()
         std::cout << "Enter z: ";
         std::cin >> z;
 
-        threeDPoint point(x, y, z);
+        point = new threeDPoint(x, y, z);
 
         addPoint(&point);
 
@@ -91,7 +93,6 @@ void threeDInput::inputEdges()
     if (numPoints < 2)
     {
         std::cout << "\nGo Away!!" << std::endl;
-        ;
         return;
     }
 
