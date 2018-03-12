@@ -132,3 +132,10 @@ void threeDInput::inputEdges()
     // Ask user whether he is satisfied with his choices.
     // If yes return, else retake the input;
 }
+
+// Generating the 3D Object
+void threeDInput::get3DObject(threeDObject *const &object)
+{
+    object->addPointSet(pointSet);
+    object->addEdgeSet(edgeSet);
+}

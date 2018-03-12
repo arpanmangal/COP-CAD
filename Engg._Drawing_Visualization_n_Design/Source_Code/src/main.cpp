@@ -71,5 +71,11 @@ int main()
         threeDInput threeDin;
         threeDin.inputPoints();
         threeDin.inputEdges();
+
+        // add the point set and edge set to the object
+        threeDin.get3DObject(&object);
+
+        // Generate 2-D projection
+        twoDProjection * projection = object.genProjection(1);
     }
 }

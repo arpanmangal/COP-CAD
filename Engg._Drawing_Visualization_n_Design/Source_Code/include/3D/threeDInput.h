@@ -6,13 +6,8 @@
 #define __THREE_D_INPUT__
 
 // forward declared dependencies
-// class twoDProjection;
-class threeDPoint;
-// class Edge;
 class threeDObject;
-
 class twoDProjection;
-class isometricView;
 
 // included dependencies
 #include <common.h>
@@ -53,6 +48,9 @@ public:
   /** Function for taking edges as input.
      * Will be calling the function addEdge and finally threeDObject::addEdgeSet() */
   void inputEdges();
+
+  /** Return the object created, with edge set and point set as the corresponding sets of input object */
+  void get3DObject (threeDObject * const &object); 
 };
 
 #endif // __THREE_D_INPUT__

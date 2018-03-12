@@ -75,7 +75,7 @@ twoDProjection *threeDObject::genProjection(int projectionPlane)
 {
 
     // Throw exception for invalid plane choice
-    if (projectionPlane < 0 || projectionPlane)
+    if (projectionPlane < 0 || projectionPlane > 3)
     {
         throw "Invalid_Plane";
     }
