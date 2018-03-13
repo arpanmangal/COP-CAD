@@ -4,8 +4,12 @@ using namespace std;
 
 int main() {
 	cout<<"hello";
-   ifstream ifs( "unitcube_3d.txt" );       // note no mode needed
-   if ( ! ifs.is_open() ) {                 
+   ifstream ifs;
+   ifs.open( "unitcube.txt" ,ios::in);  
+   char c;
+   ifs>>c;
+   cout<<c;     // note no mode needed
+   if ( !ifs.is_open() ) {                 
       cout <<" Failed to open" << endl;
    }
    else {
