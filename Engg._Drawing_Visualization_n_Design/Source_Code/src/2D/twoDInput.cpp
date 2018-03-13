@@ -4,6 +4,9 @@
 #include <2D/twoDInput.h>
 #include <2D/Edge.h>
 #include <2D/twoDPoint.h>
+#include <fstream>
+#include <string>
+using namespace std;
 
 // Constructor and Destructor
 twoDInput::twoDInput()
@@ -18,7 +21,7 @@ twoDInput::~twoDInput()
 
 void twoDInput::addPoint(twoDPoint *const &point)
 {
-   pointSet.push_back(point);   
+    pointSet.push_back(point);
 }
 
 // TODO: Check duplicate Edge
@@ -28,7 +31,7 @@ void twoDInput::addEdge(int start, int end)
 
     if (start < 0 || end < 0 || start >= pointSet_size || end >= pointSet_size)
     {
-        std::cout << "Point set size is " << pointSet_size << " and you are entering " << start + 1 << " and " << end + 1 << std::endl;
+        cout << "Point set size is " << pointSet_size << " and you are entering " << start + 1 << " and " << end + 1 << std::endl;
     }
     else
     {
@@ -42,31 +45,32 @@ void twoDInput::inputPoints()
 {
     int n = 0;
     float x, y;
-    std::cout << "Please Enter the Points as x, y Pairs:\n(Enter x = -1.25 for stopping)" << std::endl;
+    //cout << "Please Enter the Points as x, y Pairs:\n(Enter x = -1.25 for stopping)" << std::endl;
 
     // May need to do this => pointSet.resize(0);
-    twoDPoint * point;
+    twoDPoint *point;
     do
     {
-        std::cout << "\nEnter " + std::to_string(++n) + "th point:" << std::endl;
+        cout << "\nEnter " + std::to_string(++n) + "th point:" << std::endl;
 
-        std::cout << "Enter x: ";
-        std::cin >> x;
+        cout << "Enter x: ";
+        cin >> x;
 
-        std::cout << "Enter y: ";
-        std::cin >> y;
+        cout << "Enter y: ";
+        cin >> y;
 
         point = new twoDPoint(x, y);
 
-        addPoint(point);
+        pointSet.push_back(point);
 
-    }while (x!=-1.25);
+    } while (x != -1.25);
 
     pointSet.pop_back();
     twoDPoint *p;
-    for (int i=0;i<pointSet.size();i++){
+    for (int i = 0; i < pointSet.size(); i++)
+    {
         p = pointSet.at(i);
-        std::cout<<i<<" "<<p->a<<" "<<p->b<<"\n";
+        cout << i << " " << p->a << " " << p->b << "\n";
     }
 
     // Ask user whether he is satisfied with his choices.
@@ -78,7 +82,7 @@ void twoDInput::inputEdges()
 {
     int n = 0;
     int start, end;
-    std::cout << "Please Enter the Edges as (start, end) Pairs:\n(Enter start = end for stopping)" << std::endl;
+    cout << "Please Enter the Edges as (start, end) Pairs" << endl;
 
     // May need to do this => edgeSet.resize(0);
 
@@ -86,19 +90,19 @@ void twoDInput::inputEdges()
 
     if (numPoints < 2)
     {
-        std::cout << "\nGo Away!!" << std::endl;
+        cout << "\nGo Away!!" << std::endl;
         return;
     }
 
     do
     {
-        std::cout << "\nEnter " + std::to_string(n + 1) + "th edge:" << std::endl;
+        cout << "\nEnter " + std::to_string(n + 1) + "th edge:" << std::endl;
 
-        std::cout << "Enter start: ";
-        std::cin >> start;
+        cout << "Enter start: ";
+        cin >> start;
 
-        std::cout << "Enter end: ";
-        std::cin >> end;
+        cout << "Enter end: ";
+        cin >> end;
 
         if (start == end)
         {
@@ -115,7 +119,7 @@ void twoDInput::inputEdges()
             {
                 // invalid edge
 
-                std::cout << "Invalid Edge!!" << std::endl;
+                cout << "Invalid Edge!!" << std::endl;
                 continue;
             }
         }
@@ -127,10 +131,63 @@ void twoDInput::inputEdges()
     // If yes return, else retake the input;
 }
 
-PointVector2D twoDInput::getPoints(){
+void twoDInput::inputData()
+{
+    string path;
+    ifstream file;
+    do
+    {
+        cout << "Enter the file name for input\n";
+        cin >> path;
+        file.open(path);
+    } while (!file.is_open());
+    int number_of_points, number_of_edges;
+    file >> number_of_points;
+    float x, y;
+    twoDPoint *point;
+    for (int i = 0; i < number_of_points; i++)
+    {
+        file>>x>>y;
+        point = new twoDPoint(x,y);
+        pointSet.push_back(point);
+    }
+
+    for (int i = 0; i < pointSet.size(); i++)
+    {
+        point = pointSet.at(i);
+        cout << i << " " << point->a << " " << point->b << "\n";
+    }
+
+    int start,end;
+    if (number_of_points< 2)
+    {
+        cout << "\nGo Away! Too Less points !!" << std::endl;
+        return;
+    }
+
+    file>>number_of_edges;
+    for (int i=0;i<number_of_edges;i++){
+        file>>start>>end;
+        try
+        {
+            addEdge(start - 1, end - 1);
+        }
+        catch (std::string e)
+        {
+            // invalid edge
+
+            cout << "Invalid Edge!!" << std::endl;
+            continue;
+        }
+    }
+}
+
+PointVector2D twoDInput::getPoints()
+{
     return pointSet;
 }
 
-EdgeVector2D twoDInput::getEdges(){
+EdgeVector2D twoDInput::getEdges()
+{
     return edgeSet;
 }

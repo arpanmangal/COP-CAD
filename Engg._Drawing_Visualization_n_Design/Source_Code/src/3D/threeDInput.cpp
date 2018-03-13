@@ -5,6 +5,9 @@
 #include <2D/Edge.h>
 #include <3D/threeDObject.h>
 #include <3D/threeDInput.h>
+#include <fstream>
+#include <string>
+using namespace std;
 
 // Constructor and Destructor
 threeDInput::threeDInput()
@@ -138,6 +141,58 @@ void threeDInput::inputEdges()
 
     // Ask user whether he is satisfied with his choices.
     // If yes return, else retake the input;
+}
+
+void threeDInput::inputData()
+{
+    string path;
+    ifstream file;
+    do
+    {
+        cout << "Enter the file name for input\n";
+        cin >> path;
+        cout<<"Chosen file is "<<path<<endl;
+        file.open("unitcube_3d.txt");
+    } while (!file.is_open());
+    int number_of_points, number_of_edges;
+    file >> number_of_points;
+    float x, y,z;
+    threeDPoint *point;
+    for (int i = 0; i < number_of_points; i++)
+    {
+        file>>x>>y>>z;
+        point = new threeDPoint(x,y,z);
+        addPoint(point);
+    }
+
+    for (int i = 0; i < pointSet.size(); i++)
+    {
+        point = pointSet.at(i);
+        cout << i << " " << point->x << " " << point->y <<" "<<point->z<< "\n";
+    }
+
+    int start,end;
+    if (number_of_points< 2)
+    {
+        cout << "\nGo Away! Too Less points !!" << std::endl;
+        return;
+    }
+
+    file>>number_of_edges;
+    for (int i=0;i<number_of_edges;i++){
+        file>>start>>end;
+        try
+        {
+            addEdge(start - 1, end - 1);
+        }
+        catch (std::string e)
+        {
+            // invalid edge
+
+            cout << "Invalid Edge!!" << std::endl;
+            continue;
+        }
+    }
 }
 
 // Generating the 3D Object

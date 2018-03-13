@@ -47,6 +47,9 @@ public:
      * Will be calling the function addEdge and finally threeDObject::add_edgeSet() */
   void inputEdges();
 
+  /**Functions takes file as input and constructs point and edge sets */
+  void inputData();
+
   PointVector2D getPoints();
   EdgeVector2D getEdges();
 };

@@ -12,6 +12,7 @@ void twoDProjection::add_pointSet(PointVector2D const &a)
 void twoDProjection::add_edgeSet(EdgeVector2D const &a)
 {
 	EdgeSet = a;
+	edgeCollinearityCheck();
 }
 
 // void twoDProjection::cleanPointSet()
@@ -39,6 +40,40 @@ void twoDProjection::add_edgeSet(EdgeVector2D const &a)
 // 		}
 // 	}
 // }
+
+void twoDProjection::edgeCollinearityCheck(){
+	int start_ind,end_ind;
+	twoDPoint *start,*end;
+	Edge *temp;
+	EdgeVector2D detailedEdgeSet;
+	for (int i=0;i<EdgeSet.size();i++){
+		detailedEdgeSet.push_back(EdgeSet.at(i));
+		start_ind=EdgeSet.at(i)->start_index;
+		start = PointSet.at(start_ind);
+		end_ind=EdgeSet.at(i)->end_index;
+		end = PointSet.at(end_ind);
+		for (int j=start_ind+1;j<PointSet.size();j++){
+			if (*start==*PointSet.at(j))
+			{	
+				temp = new Edge(j,end_ind);
+				detailedEdgeSet.push_back(temp);
+			}
+			if (*end==*PointSet.at(j))
+			{
+				temp = new Edge(start_ind,j);
+				detailedEdgeSet.push_back(temp);
+			}
+		} 
+	}
+	EdgeSet = detailedEdgeSet;
+	Edge *e;
+	for (int i = 0; i < EdgeSet.size(); i++)
+	{
+		e = EdgeSet.at(i);
+		std::cout << e->start_index << " " << e->end_index << "\n";
+	}
+	
+}
 
 void twoDProjection::printer()
 {

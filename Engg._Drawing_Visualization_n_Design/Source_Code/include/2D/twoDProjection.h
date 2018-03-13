@@ -28,6 +28,11 @@ class twoDProjection
 	//void cleanPointSet();
 
 	//void cleanEdgeSet();
+	/*finds all possible line segments in a 2D edge which can for edges in 3D*/
+	//EdgeVector2D edgeSegmentation();
+
+	/*finds all possible line segments in a 2D edge which can for edges in 3D*/
+	void edgeCollinearityCheck();
 
 	/**Prints EdgeSet and PointSet of the projection*/
 	void printer();

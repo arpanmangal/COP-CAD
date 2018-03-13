@@ -36,12 +36,6 @@ class twoDProjectionView
 	/**Projects a point in 3D space*/
 	PointVector3D pointReconstruction();
 
-	/*finds all possible line segments in a 2D edge which can for edges in 3D*/
-	//EdgeVector2D edgeSegmentation();
-
-	/*finds all possible line segments in a 2D edge which can for edges in 3D*/
-	//EdgeVector2D edgeCollinearityCheck();
-
 	/*finds edges which are compatible in all the three views*/
 	//EdgeVector2D edgeIdentification();
 

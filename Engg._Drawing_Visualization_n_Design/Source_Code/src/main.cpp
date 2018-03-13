@@ -28,15 +28,17 @@ int main()
         twoDInput frontIn,topIn,sideIn;
 
         std::cout<< "Enter data for front view"<<std::endl;
-        frontIn.inputPoints();
-        frontIn.inputEdges();
+        //frontIn.inputPoints();
+        //frontIn.inputEdges();
+        frontIn.inputData();
         twoDProjection frontView;
         frontView.add_pointSet(frontIn.getPoints());
         frontView.add_edgeSet(frontIn.getEdges());
 
         std::cout<< "Enter data for top view"<<std::endl;
-        topIn.inputPoints();
-        topIn.inputEdges();
+        //topIn.inputPoints();
+        //topIn.inputEdges();
+        topIn.inputData();
         twoDProjection topView;
         topView.add_pointSet(topIn.getPoints());
         topView.add_edgeSet(topIn.getEdges());
@@ -46,8 +48,9 @@ int main()
         if (number_of_views==3)
         {
             std::cout<< "Enter data for side view"<<std::endl;
-            sideIn.inputPoints();
-            sideIn.inputEdges();
+            //sideIn.inputPoints();
+            //sideIn.inputEdges();
+            sideIn.inputData();
             sideView.add_pointSet(sideIn.getPoints());
             sideView.add_edgeSet(sideIn.getEdges());
             sideViewPointer = &sideView;
@@ -72,9 +75,9 @@ int main()
 
         // Take input for points
         threeDInput threeDin;
-        threeDin.inputPoints();
-        threeDin.inputEdges();
-
+        //threeDin.inputPoints();
+        //threeDin.inputEdges();
+        threeDin.inputData();
         // add the point set and edge set to the object
         threeDin.get3DObject(&object);
 
