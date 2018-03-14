@@ -21,7 +21,7 @@ class twoDPoint
 	/** Overloaded bool operator == */
 	bool operator==(twoDPoint &p)
 	{
-		return (a == p.a) && (b == p.b);
+		return ((a-p.a)<0.01||(p.a-a)<0.01) && ((b- p.b)<0.01||(p.b-b)<0.01);
 	}
 };
 
