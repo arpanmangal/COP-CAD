@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "include/QT/exitconfirm.h"
 namespace Ui {
 class MainWindow;
 }
@@ -29,7 +28,6 @@ private:
     Ui::MainWindow *ui;
 
     void closeEvent(QCloseEvent *event);
-    ExitConfirm *exitDialog;
 };
 
 #endif // MAINWINDOW_H
