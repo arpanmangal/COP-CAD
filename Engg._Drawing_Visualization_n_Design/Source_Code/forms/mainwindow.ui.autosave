@@ -55,15 +55,15 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="action_Exit">
+  <action name="action_Help">
    <property name="text">
-    <string>Exit</string>
+    <string>Help</string>
    </property>
    <property name="toolTip">
-    <string>Exit</string>
+    <string>Help</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Q</string>
+    <string>Ctrl+H</string>
    </property>
   </action>
  </widget>

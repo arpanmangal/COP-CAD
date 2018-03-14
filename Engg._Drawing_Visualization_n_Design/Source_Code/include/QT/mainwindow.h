@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "include/QT/mydialog.h"
+#include "include/QT/exitconfirm.h"
 namespace Ui {
 class MainWindow;
 }
@@ -15,13 +15,21 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+// private slots:
+//     void on_actionNew_Window_triggered();
+
 private slots:
-    void on_actionNew_Window_triggered();
+    void on_action_Exit_triggered();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
 
-    MyDialog *myDialog;
+    void closeEvent(QCloseEvent *event);
+    ExitConfirm *exitDialog;
 };
 
 #endif // MAINWINDOW_H
