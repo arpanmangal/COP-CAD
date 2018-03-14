@@ -152,7 +152,7 @@ void threeDInput::inputData()
         cout << "Enter the file name for input\n";
         cin >> path;
         cout<<"Chosen file is "<<path<<endl;
-        file.open("unitcube_3d.txt");
+        file.open(path,ios::in);
     } while (!file.is_open());
     int number_of_points, number_of_edges;
     file >> number_of_points;

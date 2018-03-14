@@ -17,12 +17,8 @@ public:
   EdgeVector2D edgeSet; // Should ONLY have points from pointSet
 
   // functions
-  isometricView();
+  isometricView(PointVector3D const & p, EdgeVector3D const & e);
 
-  void addPoint(twoDPoint *p)
-  {
-    // pointSet.push_back(p);
-  }
 };
 
 #endif // __ISOMETRICVIEW_H_INCLUDED__
