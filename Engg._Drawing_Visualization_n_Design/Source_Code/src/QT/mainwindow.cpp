@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    delete paint2d;
 }
 
 //void MainWindow::on_actionNew_Window_triggered()

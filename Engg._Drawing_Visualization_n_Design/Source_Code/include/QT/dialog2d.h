@@ -5,6 +5,8 @@
 #include <QtGui>
 #include <QtCore>
 
+#include <include/common.h>
+
 namespace Ui
 {
 class Dialog2D;
@@ -27,6 +29,8 @@ private:
   QPen dottedPen;
   QPen pointPen;
 
+  void test();
+  void makeDrawing(PointVector2D points, EdgeVector2D edges);
   void drawStrLine(QPoint p1, QPoint p2);
   void drawDottedLine(QPoint p1, QPoint p2);
   void drawPoint(QPoint p);
