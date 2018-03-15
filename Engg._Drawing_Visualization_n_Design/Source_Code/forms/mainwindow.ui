@@ -16,9 +16,16 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QFormLayout" name="formLayout">
     <item row="0" column="0">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="help">
       <property name="text">
        <string>Help</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="genOrthoProjec">
+      <property name="text">
+       <string>Generate Orthographic Projections</string>
       </property>
      </widget>
     </item>
@@ -37,14 +44,17 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAbout_QT"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
-     <string>Exit</string>
+     <string>File</string>
     </property>
+    <addaction name="actionExit"/>
    </widget>
-   <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -55,15 +65,28 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="action_Exit">
+  <action name="actionExit">
    <property name="text">
-    <string>Exit</string>
-   </property>
-   <property name="toolTip">
     <string>Exit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actionAbout_QT">
+   <property name="text">
+    <string>About QT</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+H</string>
    </property>
   </action>
  </widget>

@@ -38,19 +38,33 @@ void MainWindow::closeEvent(QCloseEvent *event)  // show prompt when user wants 
 
 }
 
-void MainWindow::on_action_Exit_triggered()
+// Menus
+void MainWindow::on_actionExit_triggered()
 {
     std::cout << "triggered";
     QApplication::quit();
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::about(this, tr("About Menu"),
+                       tr("The <b>Menu</b> example shows how to create "
+                          "menu-bar menus and context menus."));
+}
+
+void MainWindow::on_actionAbout_QT_triggered()
+{
 
 }
 
-void MainWindow::on_pushButton_clicked()
+// Buttons
+void MainWindow::on_help_clicked()
 {
     QMessageBox::information(this, "Help", "About");
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_genOrthoProjec_clicked()
 {
-
+     paint2d = new Dialog2D;
+     paint2d->show();
 }
