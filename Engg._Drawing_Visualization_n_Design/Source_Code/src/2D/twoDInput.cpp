@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 #include <string>
 #include <2D/twoDInput.h>
@@ -6,6 +5,9 @@
 #include <2D/twoDPoint.h>
 #include <fstream>
 #include <string>
+#include <2D/twoDProjection.h>
+#include <2D/twoDProjectionView.h>
+
 using namespace std;
 
 // Constructor and Destructor
@@ -131,7 +133,7 @@ void twoDInput::inputEdges()
     // If yes return, else retake the input;
 }
 
-void twoDInput::inputData()
+twoDProjectionView *twoDInput::getProjectionDrawing(int number_of_views)
 {
     string path;
     ifstream file;
@@ -139,16 +141,21 @@ void twoDInput::inputData()
     {
         cout << "Enter the file name for input\n";
         cin >> path;
-        file.open(path,ios::in);
+        file.open(path, ios::in);
     } while (!file.is_open());
+
     int number_of_points, number_of_edges;
-    file >> number_of_points;
+    twoDProjection *frontview, *topview, *sideview;
+    int start, end;
     float x, y;
     twoDPoint *point;
+
+    //reading frontview
+    file >> number_of_points;
     for (int i = 0; i < number_of_points; i++)
     {
-        file>>x>>y;
-        point = new twoDPoint(x,y);
+        file >> x >> y;
+        point = new twoDPoint(x, y);
         pointSet.push_back(point);
     }
 
@@ -158,16 +165,17 @@ void twoDInput::inputData()
         cout << i << " " << point->a << " " << point->b << "\n";
     }
 
-    int start,end;
-    if (number_of_points< 2)
+    
+    if (number_of_points < 2)
     {
         cout << "\nGo Away! Too Less points !!" << std::endl;
-        return;
+        return nullptr;
     }
 
-    file>>number_of_edges;
-    for (int i=0;i<number_of_edges;i++){
-        file>>start>>end;
+    file >> number_of_edges;
+    for (int i = 0; i < number_of_edges; i++)
+    {
+        file >> start >> end;
         try
         {
             addEdge(start - 1, end - 1);
@@ -180,14 +188,108 @@ void twoDInput::inputData()
             continue;
         }
     }
-}
 
-PointVector2D twoDInput::getPoints()
-{
-    return pointSet;
-}
+    frontview = new twoDProjection();
+    frontview->add_edgeSet(edgeSet);
+    frontview->add_pointSet(pointSet);
 
-EdgeVector2D twoDInput::getEdges()
-{
-    return edgeSet;
+    //reading top view
+    edgeSet = EdgeVector2D();
+    pointSet = PointVector2D();
+
+    file >> number_of_points;
+    for (int i = 0; i < number_of_points; i++)
+    {
+        file >> x >> y;
+        point = new twoDPoint(x, y);
+        pointSet.push_back(point);
+    }
+
+    for (int i = 0; i < pointSet.size(); i++)
+    {
+        point = pointSet.at(i);
+        cout << i << " " << point->a << " " << point->b << "\n";
+    }
+
+    if (number_of_points < 2)
+    {
+        cout << "\nGo Away! Too Less points !!" << std::endl;
+        return nullptr;
+    }
+
+    file >> number_of_edges;
+    for (int i = 0; i < number_of_edges; i++)
+    {
+        file >> start >> end;
+        try
+        {
+            addEdge(start - 1, end - 1);
+        }
+        catch (std::string e)
+        {
+            // invalid edge
+
+            cout << "Invalid Edge!!" << std::endl;
+            continue;
+        }
+    }
+
+    topview = new twoDProjection();
+    topview->add_edgeSet(edgeSet);
+    topview->add_pointSet(pointSet);
+
+    //reading side view
+    if (number_of_views == 3)
+    {
+        edgeSet = EdgeVector2D();
+        pointSet = PointVector2D();
+
+        file >> number_of_points;
+        for (int i = 0; i < number_of_points; i++)
+        {
+            file >> x >> y;
+            point = new twoDPoint(x, y);
+            pointSet.push_back(point);
+        }
+
+        for (int i = 0; i < pointSet.size(); i++)
+        {
+            point = pointSet.at(i);
+            cout << i << " " << point->a << " " << point->b << "\n";
+        }
+
+        int start, end;
+        if (number_of_points < 2)
+        {
+            cout << "\nGo Away! Too Less points !!" << std::endl;
+            return nullptr;
+        }
+
+        file >> number_of_edges;
+        for (int i = 0; i < number_of_edges; i++)
+        {
+            file >> start >> end;
+            try
+            {
+                addEdge(start - 1, end - 1);
+            }
+            catch (std::string e)
+            {
+                // invalid edge
+                cout << "Invalid Edge!!" << std::endl;
+                continue;
+            }
+        }
+
+        sideview = new twoDProjection();
+        sideview->add_edgeSet(edgeSet);
+        sideview->add_pointSet(pointSet);
+    }
+    else
+    {
+        sideview = NULL;
+    }
+
+    twoDProjectionView * retVal = new twoDProjectionView(frontview,topview,sideview);
+    return retVal;
 }

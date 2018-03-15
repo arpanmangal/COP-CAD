@@ -7,6 +7,7 @@
 
 // forward declared dependencies
 class twoDProjection;
+class twoDProjectionView;
 
 // included dependencies
 #include <common.h>
@@ -48,10 +49,8 @@ public:
   void inputEdges();
 
   /**Functions takes file as input and constructs point and edge sets */
-  void inputData();
+  twoDProjectionView * getProjectionDrawing(int number_of_views);
 
-  PointVector2D getPoints();
-  EdgeVector2D getEdges();
 };
 
 #endif 

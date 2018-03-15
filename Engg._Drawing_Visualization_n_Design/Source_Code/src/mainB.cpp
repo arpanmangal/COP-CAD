@@ -25,42 +25,8 @@ int main()
         std::cout<< "Enter how many views you wish to enter(2 or 3)" <<std::endl;
         std::cin>>number_of_views;
 
-        twoDInput frontIn,topIn,sideIn;
-
-        std::cout<< "Enter data for front view"<<std::endl;
-        //frontIn.inputPoints();
-        //frontIn.inputEdges();
-        frontIn.inputData();
-        twoDProjection frontView;
-        frontView.add_pointSet(frontIn.getPoints());
-        frontView.add_edgeSet(frontIn.getEdges());
-
-        std::cout<< "Enter data for top view"<<std::endl;
-        //topIn.inputPoints();
-        //topIn.inputEdges();
-        topIn.inputData();
-        twoDProjection topView;
-        topView.add_pointSet(topIn.getPoints());
-        topView.add_edgeSet(topIn.getEdges());
-
-        twoDProjection sideView;
-        twoDProjection * sideViewPointer;
-        if (number_of_views==3)
-        {
-            std::cout<< "Enter data for side view"<<std::endl;
-            //sideIn.inputPoints();
-            //sideIn.inputEdges();
-            sideIn.inputData();
-            sideView.add_pointSet(sideIn.getPoints());
-            sideView.add_edgeSet(sideIn.getEdges());
-            sideViewPointer = &sideView;
-        }
-        else
-        {
-            sideViewPointer = NULL;
-        }
-
-        twoDProjectionView projectionDrawing(& frontView,& topView, sideViewPointer);
+        twoDInput reader = twoDInput();
+        twoDProjectionView projectionDrawing = *reader.getProjectionDrawing(number_of_views);
         std::cout<<"Success at creating 2D ProjectionView";
 
         threeDObject my3d = *projectionDrawing.create3Dmodel();

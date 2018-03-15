@@ -133,16 +133,12 @@ twoDProjection *threeDObject::genProjection(int projectionPlane)
 
 isometricView *threeDObject::genIsoView()
 {
-    // generats the isometric view of the object
-    // generated with respect to standard viewing of the object
-    // rotate the object in case of getting different view
-
-    // Code here ...
-    return new isometricView();
+    isometricView * retVal = new isometricView(pointSet,edgeSet);
+    return retVal;
 }
 
-void threeDObject::printer(){
-    
+void threeDObject::printer()
+{  
 	threeDPoint *p;
 	Edge *e;
     for (int i=0;i<pointSet.size();i++){
