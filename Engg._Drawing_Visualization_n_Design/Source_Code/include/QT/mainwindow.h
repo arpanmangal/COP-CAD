@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "include/QT/dialog2d.h"
+#include "include/QT/mydialog.h"
+#include "include/QT/twoDWindow.h"
 
 namespace Ui
 {

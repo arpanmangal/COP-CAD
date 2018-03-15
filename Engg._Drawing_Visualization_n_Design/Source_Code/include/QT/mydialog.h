@@ -2,7 +2,7 @@
 #define MYDIALOG_H
 
 #include <QDialog>
-
+#include "include/QT/frontview.h"
 namespace Ui {
 class MyDialog;
 }
@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::MyDialog *ui;
+
+    FrontView* front_view_widget;
 };
 
 #endif // MYDIALOG_H

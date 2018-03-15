@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT += widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,6 +31,6 @@ RCC_DIR     = ./build/qrc
 UI_DIR      = ./build/uic
 
 SOURCES += src/*.cpp src/QT/*.cpp src/2D/Edge.cpp
-HEADERS += include/QT/*.h include/common.h src/2D/Edge.h
+HEADERS += include/QT/*.h include/common.h include/2D/Edge.h
 
 FORMS += forms/*.ui

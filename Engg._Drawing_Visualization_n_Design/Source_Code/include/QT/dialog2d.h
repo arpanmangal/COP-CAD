@@ -17,7 +17,7 @@ class Dialog2D : public QDialog
   Q_OBJECT
 
 public:
-  explicit Dialog2D(QWidget *parent = 0);
+  explicit Dialog2D(QWidget *parent = 0, int halogen = 9);
   ~Dialog2D();
 
 private:

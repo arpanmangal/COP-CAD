@@ -67,6 +67,15 @@ void MainWindow::on_help_clicked()
 
 void MainWindow::on_genOrthoProjec_clicked()
 {
-     paint2d = new Dialog2D;
-     paint2d->show();
+    //  paint2d = new Dialog2D(this);
+    //  paint2d->show();
+
+    //  MyDialog *dia = new MyDialog;
+    //  dia->show();
+
+    //  MainWindow *win2 = new MainWindow();
+    //  win2->show();
+
+    twoDWindow *win = new twoDWindow();
+    win->show();
 }

@@ -4,7 +4,7 @@
 #include "include/2D/twoDPoint.h"
 #include "include/2D/Edge.h"
 
-Dialog2D::Dialog2D(QWidget *parent) : QDialog(parent),
+Dialog2D::Dialog2D(QWidget *parent, int halogen) : QDialog(parent),
                                       ui(new Ui::Dialog2D)
 {
     ui->setupUi(this);
