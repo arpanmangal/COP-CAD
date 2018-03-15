@@ -27,7 +27,7 @@ int main()
 
         twoDInput reader = twoDInput();
         twoDProjectionView projectionDrawing = *reader.getProjectionDrawing(number_of_views);
-        std::cout<<"Success at creating 2D ProjectionView";
+        std::cout<<"Success at creating 2D ProjectionView\n";
 
         threeDObject my3d = *projectionDrawing.create3Dmodel();
         my3d.printer();

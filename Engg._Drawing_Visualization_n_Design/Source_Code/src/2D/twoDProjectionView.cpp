@@ -28,7 +28,7 @@ PointVector3D twoDProjectionView::pointReconstruction()
 	twoDPoint frontPointTemp = twoDPoint(0, 0);
 	twoDPoint topPointTemp = twoDPoint(0, 0);
 	twoDPoint sidePointTemp = twoDPoint(0, 0);
-	threeDPoint retPoint = threeDPoint(0, 0, 0);
+	threeDPoint * retPoint;
 	PointVector3D retVal;
 	if (sideview == NULL)
 	{
@@ -36,10 +36,10 @@ PointVector3D twoDProjectionView::pointReconstruction()
 		{
 			frontPointTemp = *(frontview->PointSet.at(i));
 			topPointTemp = *(topview->PointSet.at(i));
-			if (frontPointTemp.a == topPointTemp.b)
+			if (abs(frontPointTemp.a - topPointTemp.b)<0.01)
 			{
-				retPoint = threeDPoint(topPointTemp.a, frontPointTemp.a, frontPointTemp.b);
-				retVal.push_back(&retPoint);
+				retPoint = new threeDPoint(topPointTemp.a, frontPointTemp.a, frontPointTemp.b);
+				retVal.push_back(retPoint);
 			}
 			else
 			{
@@ -54,10 +54,10 @@ PointVector3D twoDProjectionView::pointReconstruction()
 		frontPointTemp = *(frontview->PointSet.at(i));
 		topPointTemp = *(topview->PointSet.at(i));
 		sidePointTemp = *(sideview->PointSet.at(i));
-		if ((frontPointTemp.a == topPointTemp.b) && (frontPointTemp.b == sidePointTemp.b) && (sidePointTemp.a == topPointTemp.a))
+		if ((abs(frontPointTemp.a - topPointTemp.b)<0.001) && (abs(frontPointTemp.b - sidePointTemp.b)<0.001) && (abs(sidePointTemp.a - topPointTemp.a)<0.001))
 		{
-			retPoint = threeDPoint(topPointTemp.a, frontPointTemp.a, frontPointTemp.b);
-			retVal.push_back(&retPoint);
+			retPoint = new threeDPoint(topPointTemp.a, frontPointTemp.a, frontPointTemp.b);
+			retVal.push_back(retPoint);
 		}
 	}
 	return retVal;
@@ -98,7 +98,6 @@ bool twoDProjectionView::checkEdgeCompatibility_3views(Edge & e){
 EdgeVector3D twoDProjectionView::edgeReconstruction(){
 	Edge edgeTemp = Edge(0,0);
 	EdgeVector3D retVal;
-
 	if (sideview == NULL){
 		// adds edge visible in front view
 		for (int i = 0; i < frontview->EdgeSet.size(); i++){

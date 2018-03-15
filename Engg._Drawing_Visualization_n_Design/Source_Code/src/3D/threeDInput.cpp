@@ -123,7 +123,7 @@ void threeDInput::inputEdges()
         {
             try
             {
-                addEdge(start - 1, end - 1);
+                addEdge(start, end);
             }
             catch (std::string e)
             {
@@ -151,7 +151,6 @@ void threeDInput::inputData()
     {
         cout << "Enter the file name for input\n";
         cin >> path;
-        cout<<"Chosen file is "<<path<<endl;
         file.open(path,ios::in);
     } while (!file.is_open());
     int number_of_points, number_of_edges;

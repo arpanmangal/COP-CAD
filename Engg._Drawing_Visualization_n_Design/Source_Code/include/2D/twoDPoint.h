@@ -4,7 +4,7 @@
 // include guard
 #ifndef _twoDPoint_h
 #define _twoDPoint_h
-
+#include <cmath>
 class twoDPoint
 {
   public:
@@ -21,7 +21,7 @@ class twoDPoint
 	/** Overloaded bool operator == */
 	bool operator==(twoDPoint &p)
 	{
-		return ((a-p.a)<0.01||(p.a-a)<0.01) && ((b- p.b)<0.01||(p.b-b)<0.01);
+		return ((abs(a-p.a)<0.001) && (abs(b- p.b)<0.001));
 	}
 };
 
