@@ -3,7 +3,8 @@
 
 #include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class ChooseFile;
 }
 
@@ -11,15 +12,20 @@ class ChooseFile : public QWidget
 {
     Q_OBJECT
 
-public:
-    explicit ChooseFile(QWidget *parent, int mode);
+  public:
+    explicit ChooseFile(int mode, QWidget *parent = 0);
     ~ChooseFile();
 
-private:
+  private slots:
+    void on_select_File_clicked();
+
+    void on_Cancel_clicked();
+
+  private:
     Ui::ChooseFile *ui;
 
-    QWidget *my_parent;
     int mode;
+    QString type;
 };
 
 #endif // CHOOSEFILE_H

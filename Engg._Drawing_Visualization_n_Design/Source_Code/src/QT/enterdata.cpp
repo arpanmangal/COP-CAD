@@ -1,12 +1,12 @@
 #include "include/QT/enterdata.h"
 #include "ui_enterdata.h"
 
-EnterData::EnterData(QWidget *parent, int mode) : QWidget(parent),
+EnterData::EnterData(int mode, QWidget *parent) : QWidget(parent),
                                                   ui(new Ui::EnterData)
 {
     ui->setupUi(this);
+    setWindowTitle(tr("Enter Data"));
 
-    my_parent = parent;
     this->mode = mode;
 }
 

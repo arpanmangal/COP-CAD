@@ -4,12 +4,12 @@
 #include "include/QT/choosefile.h"
 #include "include/QT/enterdata.h"
 
-InputMode::InputMode(QWidget *parent, int mode) : QWidget(parent),
+InputMode::InputMode(int mode, QWidget *parent) : QWidget(parent),
                                                   ui(new Ui::InputMode)
 {
     ui->setupUi(this);
+    setWindowTitle(tr("Input Mode"));
 
-    my_parent = parent;
     this->mode = mode;
 }
 
@@ -25,13 +25,13 @@ void InputMode::on_submit_clicked()
     if (input_mode == 0)
     {
         // The User wants to read from a file
-        ChooseFile *fileRead = new ChooseFile(my_parent, mode);
+        ChooseFile *fileRead = new ChooseFile(mode);
         fileRead->show();
     }
     else
     {
         // The User wants to enter the data manually
-        EnterData *enter_data = new EnterData(my_parent, mode);
+        EnterData *enter_data = new EnterData(mode);
         enter_data->show();
     }
 

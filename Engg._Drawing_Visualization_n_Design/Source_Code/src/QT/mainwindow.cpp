@@ -84,7 +84,7 @@ void MainWindow::on_threeDInput_clicked()
     //     QTextStream cout(stdout);
     // cout << point;
 
-    InputMode *mode = new InputMode(0, 3);
+    InputMode *mode = new InputMode(2);
     mode->show();
     // QStringList commands = {"Q", "W", "E", "R"};
     // QComboBox *combo = new QComboBox(this);

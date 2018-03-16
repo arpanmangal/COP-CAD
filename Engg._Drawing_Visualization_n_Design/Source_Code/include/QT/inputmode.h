@@ -12,7 +12,7 @@ class InputMode : public QWidget
     Q_OBJECT
 
 public:
-    explicit InputMode(QWidget *parent, int mode);
+    explicit InputMode(int mode, QWidget *parent = 0);
     ~InputMode();
 
 private slots:
@@ -22,7 +22,6 @@ private:
     Ui::InputMode *ui;
     
     int mode;
-    QWidget *my_parent;
 };
 
 #endif // INPUTMODE_H

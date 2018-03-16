@@ -12,7 +12,7 @@ class EnterData : public QWidget
     Q_OBJECT
 
 public:
-    explicit EnterData(QWidget *parent, int mode);
+    explicit EnterData(int mode, QWidget *parent = 0);
     ~EnterData();
 
 private:
