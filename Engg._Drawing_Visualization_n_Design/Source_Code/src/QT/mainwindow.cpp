@@ -2,12 +2,13 @@
 #include <ui_mainwindow.h>
 #include <QCloseEvent>
 #include <QMessageBox>
+#include <QInputDialog>
+#include <QComboBox>
 
 #include <iostream>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
+                                          ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 }
@@ -29,15 +30,13 @@ MainWindow::~MainWindow()
 //    exitDialog->show();
 //}
 
-
-void MainWindow::closeEvent(QCloseEvent *event)  // show prompt when user wants to close app
+void MainWindow::closeEvent(QCloseEvent *event) // show prompt when user wants to close app
 {
     event->ignore();
     if (QMessageBox::Yes == QMessageBox::question(this, "Close Confirmation", "Exit?", QMessageBox::Yes | QMessageBox::No))
     {
         event->accept();
     }
-
 }
 
 // Menus
@@ -56,7 +55,6 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_actionAbout_QT_triggered()
 {
-
 }
 
 // Buttons
@@ -79,3 +77,34 @@ void MainWindow::on_genOrthoProjec_clicked()
     twoDWindow *win = new twoDWindow();
     win->show();
 }
+
+void MainWindow::on_threeDInput_clicked()
+{
+    // double point = QInputDialog::getDouble(this, "lsf", "dl", 1.0);
+    //     QTextStream cout(stdout);
+    // cout << point;
+
+    InputMode *mode = new InputMode(0, 3);
+    mode->show();
+    // QStringList commands = {"Q", "W", "E", "R"};
+    // QComboBox *combo = new QComboBox(this);
+    // combo->addItems(commands);
+    // connect(combo, &QComboBox::currentTextChanged, this, &MainWindow::commandChanged);
+}
+
+void MainWindow::commandChanged(const QString &command_text)
+{
+    //Do the logic based on command_text
+}
+
+
+  /*   ui->setupUi(this);
+    mode = new QComboBox();
+
+    QString file = "Choose a File";
+    QString enter = "Enter Point set and Edge Set";
+
+    mode->addItem(file);
+    mode->addItem(enter);
+
+    mode->showPopup(); */

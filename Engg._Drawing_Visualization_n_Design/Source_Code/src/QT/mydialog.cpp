@@ -7,13 +7,13 @@ MyDialog::MyDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    front_view_widget = new FrontView(this);
-    front_view_widget->show();
+    // front_view_widget = new FrontView(this);
+    // front_view_widget->show();
 }
 
 MyDialog::~MyDialog()
 {
     delete ui;
 
-    delete front_view_widget;
+    // delete front_view_widget;
 }

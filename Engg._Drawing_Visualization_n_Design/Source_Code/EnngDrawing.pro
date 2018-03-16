@@ -30,7 +30,7 @@ OBJECTS_DIR = ./build/obj
 RCC_DIR     = ./build/qrc
 UI_DIR      = ./build/uic
 
-SOURCES += src/*.cpp src/QT/*.cpp src/2D/Edge.cpp
+SOURCES += src/*.cpp src/QT/*.cpp src/2D/Edge.cpp 
 HEADERS += include/QT/*.h include/common.h include/2D/Edge.h
 
-FORMS += forms/*.ui
+FORMS += forms/*.ui \
