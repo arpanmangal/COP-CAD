@@ -38,3 +38,9 @@ void InputMode::on_submit_clicked()
     // Destroy Self
     this->~InputMode();
 }
+
+void InputMode::on_goBack_clicked()
+{
+    // Delete this object
+    this->~InputMode();
+}

@@ -5,12 +5,15 @@
 #include <QInputDialog>
 #include <QComboBox>
 
-#include <iostream>
+#include <QTextStream>
+QTextStream cout(stdout);
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
                                           ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    setWindowTitle(tr("COP-CAD"));
 }
 
 MainWindow::~MainWindow()
@@ -42,7 +45,7 @@ void MainWindow::closeEvent(QCloseEvent *event) // show prompt when user wants t
 // Menus
 void MainWindow::on_actionExit_triggered()
 {
-    std::cout << "triggered";
+    cout << "\nExiting the Application\n";
     QApplication::quit();
 }
 
@@ -63,6 +66,17 @@ void MainWindow::on_help_clicked()
     QMessageBox::information(this, "Help", "About");
 }
 
+/*   ui->setupUi(this);
+    mode = new QComboBox();
+
+    QString file = "Choose a File";
+    QString enter = "Enter Point set and Edge Set";
+
+    mode->addItem(file);
+    mode->addItem(enter);
+
+    mode->showPopup(); */
+
 void MainWindow::on_genOrthoProjec_clicked()
 {
     //  paint2d = new Dialog2D(this);
@@ -74,37 +88,17 @@ void MainWindow::on_genOrthoProjec_clicked()
     //  MainWindow *win2 = new MainWindow();
     //  win2->show();
 
-    twoDWindow *win = new twoDWindow();
-    win->show();
+    // twoDWindow *win = new twoDWindow();
+    // win->show();
+
+    // Take 3D Input
+    InputMode *mode = new InputMode(3);
+    mode->show();
 }
 
-void MainWindow::on_threeDInput_clicked()
+void MainWindow::on_threeDReconstruction_clicked()
 {
-    // double point = QInputDialog::getDouble(this, "lsf", "dl", 1.0);
-    //     QTextStream cout(stdout);
-    // cout << point;
-
+    // Take 2D Input
     InputMode *mode = new InputMode(2);
     mode->show();
-    // QStringList commands = {"Q", "W", "E", "R"};
-    // QComboBox *combo = new QComboBox(this);
-    // combo->addItems(commands);
-    // connect(combo, &QComboBox::currentTextChanged, this, &MainWindow::commandChanged);
 }
-
-void MainWindow::commandChanged(const QString &command_text)
-{
-    //Do the logic based on command_text
-}
-
-
-  /*   ui->setupUi(this);
-    mode = new QComboBox();
-
-    QString file = "Choose a File";
-    QString enter = "Enter Point set and Edge Set";
-
-    mode->addItem(file);
-    mode->addItem(enter);
-
-    mode->showPopup(); */

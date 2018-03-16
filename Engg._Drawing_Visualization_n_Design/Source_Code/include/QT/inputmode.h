@@ -18,6 +18,8 @@ public:
 private slots:
     void on_submit_clicked();
 
+    void on_goBack_clicked();
+
 private:
     Ui::InputMode *ui;
     

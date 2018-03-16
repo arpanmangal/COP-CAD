@@ -31,19 +31,19 @@ class MainWindow : public QMainWindow
 
     void on_actionAbout_QT_triggered();
 
-    void on_help_clicked();
-
+    /** Prompt the user to provide a 3D Object, and then does the reconstruction work */
     void on_genOrthoProjec_clicked();
 
-    void on_threeDInput_clicked();
+    /** Prompt the user to provide a 2D Object, then proceeds with reconstruction */
+    void on_threeDReconstruction_clicked();
+
+    /** Give a detailed Help about the Usage of the Software */
+    void on_help_clicked();
 
 private:
     Ui::MainWindow *ui;
     Dialog2D *paint2d;
     void closeEvent(QCloseEvent *event);
-
-    void commandChanged(const QString& command_text);
-
 };
 
 #endif // MAINWINDOW_H

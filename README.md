@@ -14,7 +14,7 @@ producing Orthgraphic Projections from a given solid object or Re-Constructing a
 
 ### *Running*:
 ```
-$ make clean
+$ qmake EnngDrawing.pro
 $ make
-$ ./bin/runner
+$ bin/CopCAD
 ```
