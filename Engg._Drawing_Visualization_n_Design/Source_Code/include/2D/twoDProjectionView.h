@@ -53,5 +53,8 @@ class twoDProjectionView
 
 	/**Function to convert an Orthographic Porojections Drawing to 3D Model*/
 	threeDObject *create3Dmodel();
+
+	/**Writes the object to file*/
+	void filewriter(const char * path);
 };
 #endif

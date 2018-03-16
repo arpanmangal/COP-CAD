@@ -70,6 +70,9 @@ public:
      generated with respect to standard viewing of the object
     rotate the object in case of getting different view */
   isometricView *genIsoView();
+
+  /**Writes the object to file*/
+	void filewriter(const char * path);
 };
 
 #endif // __THREEDOBJECT_H_INCLUDED__

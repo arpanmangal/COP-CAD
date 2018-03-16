@@ -4,7 +4,6 @@
 #include <2D/Edge.h>
 #include <2D/twoDPoint.h>
 #include <fstream>
-#include <string>
 #include <2D/twoDProjection.h>
 #include <2D/twoDProjectionView.h>
 

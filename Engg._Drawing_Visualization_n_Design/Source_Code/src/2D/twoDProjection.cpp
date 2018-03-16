@@ -1,8 +1,10 @@
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include <2D/twoDPoint.h>
 #include <2D/Edge.h>
 #include <2D/twoDProjection.h>
+using namespace std;
 
 void twoDProjection::add_pointSet(PointVector2D const &a)
 {
@@ -13,6 +15,10 @@ void twoDProjection::add_edgeSet(EdgeVector2D const &a)
 {
 	EdgeSet = a;
 	edgeCollinearityCheck();
+}
+
+void twoDProjection::add_edgeSetfrom3D(EdgeVector2D const &a){
+	EdgeSet =a;
 }
 
 // void twoDProjection::cleanPointSet()
@@ -139,4 +145,22 @@ void twoDProjection::printer()
 		e = EdgeSet.at(i);
 		std::cout << e->start_index << " " << e->end_index << "\n";
 	}
+}
+
+void twoDProjection::filewriter(const char * path)
+{
+	ofstream file;
+	file.open(path,ios::out);
+	file<<PointSet.size();
+	for (int i= 0;i<PointSet.size();i++)
+	{
+		file<<"\n"<<PointSet.at(i)->a<<" "<<PointSet.at(i)->b;
+	}
+	file<<endl;
+	file<<EdgeSet.size();
+	for (int i=0; i<EdgeSet.size();i++)
+	{
+		file<<"\n"<<EdgeSet.at(i)->start_index<<" "<<EdgeSet.at(i)->end_index;
+	}
+	file.close();
 }

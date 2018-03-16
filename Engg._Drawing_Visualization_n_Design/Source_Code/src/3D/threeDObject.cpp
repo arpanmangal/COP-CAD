@@ -6,6 +6,8 @@
 #include <3D/threeDObject.h>
 #include <2D/twoDProjection.h>
 #include <2D/isometricView.h>
+#include <fstream>
+using namespace std;
 
 // Constructor and Destructor
 threeDObject::threeDObject()
@@ -18,12 +20,12 @@ threeDObject::~threeDObject()
     // Empty Destructor
 }
 
-void threeDObject::addPointSet(std::vector<threeDPoint *> const &pSet)
+void threeDObject::addPointSet(vector<threeDPoint *> const &pSet)
 {
     pointSet = pSet;
 }
 
-void threeDObject::addEdgeSet(std::vector<Edge *> const &eSet)
+void threeDObject::addEdgeSet(vector<Edge *> const &eSet)
 {
     edgeSet = eSet;
 }
@@ -125,7 +127,7 @@ twoDProjection *threeDObject::genProjection(int projectionPlane)
     // Construct a Projection Object
     twoDProjection *projection = new twoDProjection();
     projection->add_pointSet(pointSet2D);
-    projection->add_edgeSet(edgeSet2D);
+    projection->add_edgeSetfrom3D(edgeSet2D);
 
     // Return the projection
     return projection;
@@ -143,11 +145,28 @@ void threeDObject::printer()
 	Edge *e;
     for (int i=0;i<pointSet.size();i++){
         p = pointSet.at(i);
-        std::cout<<i<<" "<<p->x<<" "<<p->y<<" "<<p->z<<"\n";
+        cout<<i<<" "<<p->x<<" "<<p->y<<" "<<p->z<<"\n";
     }
 	for (int i=0;i<edgeSet.size();i++){
 		e = edgeSet.at(i);
-		std::cout<<e->start_index<<" "<<e->end_index<<"\n";
+		cout<<e->start_index<<" "<<e->end_index<<"\n";
 	}
 
+}
+
+void threeDObject::filewriter(const char * path)
+{
+	ofstream file;
+	file.open(path,ios::out);
+	file<<pointSet.size();
+	for (int i= 0;i<pointSet.size();i++)
+	{
+		file<<"\n"<<pointSet.at(i)->x<<" "<<pointSet.at(i)->y<<" "<<pointSet.at(i)->z;	}
+	file<<endl;
+	file<<edgeSet.size();
+	for (int i=0; i<edgeSet.size();i++)
+	{
+		file<<"\n"<<edgeSet.at(i)->start_index<<" "<<edgeSet.at(i)->end_index;
+	}
+	file.close();
 }
