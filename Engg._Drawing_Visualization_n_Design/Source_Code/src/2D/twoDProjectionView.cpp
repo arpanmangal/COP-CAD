@@ -1,12 +1,12 @@
 /**Defines interface for Orthographic Projections.
 Uses three projection vies as data members */
 
-#include <2D/twoDPoint.h>
-#include <2D/Edge.h>
-#include <2D/twoDProjection.h>
-#include <2D/twoDProjectionView.h>
-#include <3D/threeDPoint.h>
-#include <3D/threeDObject.h>
+#include "include/2D/twoDPoint.h"
+#include "include/2D/Edge.h"
+#include "include/2D/twoDProjection.h"
+#include "include/2D/twoDProjectionView.h"
+#include "include/3D/threeDPoint.h"
+#include "include/3D/threeDObject.h"
 #include <iostream>
 
 twoDProjectionView::twoDProjectionView(twoDProjection *f, twoDProjection *t, twoDProjection *s)

@@ -1,8 +1,8 @@
 #include <vector>
 #include <iostream>
-#include <2D/twoDPoint.h>
-#include <2D/Edge.h>
-#include <2D/twoDProjection.h>
+#include "include/2D/twoDPoint.h"
+#include "include/2D/Edge.h"
+#include "include/2D/twoDProjection.h"
 
 void twoDProjection::add_pointSet(PointVector2D const &a)
 {

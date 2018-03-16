@@ -13,17 +13,30 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QLabel" name="instruction">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>110</y>
+     <x>190</x>
+     <y>60</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="start">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>150</y>
      <width>89</width>
      <height>25</height>
     </rect>
    </property>
    <property name="text">
-    <string>heelhe</string>
+    <string>Enter Data</string>
    </property>
   </widget>
  </widget>

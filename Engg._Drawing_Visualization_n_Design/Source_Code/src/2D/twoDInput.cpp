@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <2D/twoDInput.h>
-#include <2D/Edge.h>
-#include <2D/twoDPoint.h>
+#include "include/2D/twoDInput.h"
+#include "include/2D/Edge.h"
+#include "include/2D/twoDPoint.h"
 #include <fstream>
 #include <string>
 using namespace std;

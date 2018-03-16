@@ -1,12 +1,12 @@
 // #include <3D/threeDPoint.h>
-#include <3D/threeDObject.h>
-#include <3D/threeDInput.h>
-#include <2D/twoDProjectionView.h>
-#include <2D/twoDProjection.h>
-#include <2D/twoDInput.h>
+#include "include/3D/threeDObject.h"
+#include "include/3D/threeDInput.h"
+#include "include/2D/twoDProjectionView.h"
+#include "include/2D/twoDProjection.h"
+#include "include/2D/twoDInput.h"
 #include <iostream>
 
-int main()
+int maein()
 {
     int mode;
     std::cout << "Enter Mode: ";

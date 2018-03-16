@@ -1,10 +1,10 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <3D/threeDPoint.h>
-#include <2D/Edge.h>
-#include <3D/threeDObject.h>
-#include <3D/threeDInput.h>
+#include "include/3D/threeDPoint.h"
+#include "include/2D/Edge.h"
+#include "include/3D/threeDObject.h"
+#include "include/3D/threeDInput.h"
 #include <fstream>
 #include <string>
 using namespace std;
