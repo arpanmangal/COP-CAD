@@ -7,6 +7,9 @@
 
 #include <QInputDialog>
 #include <QMessageBox>
+#include <QFileDialog>
+
+#include <QTextStream>
 
 EnterData::EnterData(int mode, QWidget *parent) : QWidget(parent),
                                                   ui(new Ui::EnterData)
@@ -97,10 +100,99 @@ void EnterData::enter3DObject()
     PointVector3D pointSet3D = enter3DPointSet();
     QMessageBox::information(0, "Enter Edges", "Now please enter edges as a pair of start and end points");
     EdgeVector3D edgeSet3D = enter3DEdgeSet(pointSet3D.size());
+
+    int saveToFile = QMessageBox::question(0, "Save to File", "Save the Input to a File?", QMessageBox::Yes | QMessageBox::No);
+    if (saveToFile == QMessageBox::Yes)
+    {
+        QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "3D File (*.cop3D)");
+        QTextStream cout(stdout);
+        cout << filename;
+    }
+}
+
+// 2D Input
+twoDPoint *EnterData::enter2DPoint(int index)
+{
+    float x = QInputDialog::getDouble(0, "Enter 2D Point: " + QString::number(index), "Enter X", 0.0);
+    float y = QInputDialog::getDouble(0, "Enter 2D Point: " + QString::number(index), "Enter Y", 0.0);
+
+    return new twoDPoint(x, y);
+}
+
+PointVector2D EnterData::enter2DPointSet()
+{
+    PointVector2D pointSet2D;
+    int point_count = 1;
+    int answer = 0;
+
+    pointSet2D.push_back(enter2DPoint(point_count));
+    point_count++;
+    do
+    {
+        pointSet2D.push_back(enter2DPoint(point_count));
+
+        answer = QMessageBox::question(0, "", "Enter More Points?", QMessageBox::Yes | QMessageBox::No);
+        point_count++;
+    } while (answer == QMessageBox::Yes);
+
+    return pointSet2D;
+}
+
+EdgeVector2D EnterData::enter2DEdgeSet(int pointSetSize)
+{
+    EdgeVector2D edgeSet2D;
+    int edge_count = 1;
+    int answer = 0;
+    do
+    {
+        edgeSet2D.push_back(enterEdge(edge_count, pointSetSize));
+
+        answer = QMessageBox::question(0, "", "Enter More Edges?", QMessageBox::Yes | QMessageBox::No);
+        edge_count++;
+    } while (answer == QMessageBox::Yes);
+
+    return edgeSet2D;
+}
+
+void EnterData::enter2DProjection()
+{
+    QMessageBox::information(0, "Enter Points", "Please enter 2D points as (x, y) pairs");
+    PointVector2D pointSet2D = enter2DPointSet();
+    QMessageBox::information(0, "Enter Edges", "Now please enter edges as a pair of start and end points");
+    EdgeVector2D edgeSet2D = enter2DEdgeSet(pointSet2D.size());
+
+    int saveToFile = QMessageBox::question(0, "Save to File", "Save the Input Projection to a File?", QMessageBox::Yes | QMessageBox::No);
+    if (saveToFile == QMessageBox::Yes)
+    {
+        QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "2D File (*.cop3D)");
+        QTextStream cout(stdout);
+        cout << filename;
+    }
+}
+
+void EnterData::enter2DOrthographicViews()
+{
+    // Ask the user for the number of views
+    int num_views = 0;
+    while (num_views != 2 && num_views != 3)
+    {
+        num_views = QInputDialog::getInt(0, "View Count", "Please enter number of views: (2 or 3)", 2);
+    }
+
+    enter2DProjection();
 }
 
 void EnterData::on_start_clicked()
 {
     // Take User Data
-    enter3DObject();
+    if (mode == 3)
+    {
+        // Take 3D input
+        enter3DObject();
+    }
+    else
+    {
+        // Take 2D input
+        enter2DOrthographicViews();
+    }
 }
