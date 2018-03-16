@@ -5,10 +5,11 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT += widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Window
+TARGET = CopCAD
 DESTDIR = bin/
 TEMPLATE = app
 
@@ -29,9 +30,7 @@ OBJECTS_DIR = ./build/obj
 RCC_DIR     = ./build/qrc
 UI_DIR      = ./build/uic
 
-SOURCES += src/*.cpp src/QT/*.cpp
-
-HEADERS += include/QT/*.h
-#INCLUDEPATH += include/*
+SOURCES += src/*.cpp src/QT/*.cpp src/2D/Edge.cpp
+HEADERS += include/QT/*.h include/common.h include/2D/Edge.h
 
 FORMS += forms/*.ui
