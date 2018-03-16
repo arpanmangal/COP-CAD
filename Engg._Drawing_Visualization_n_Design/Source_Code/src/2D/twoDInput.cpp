@@ -186,6 +186,7 @@ twoDProjectionView *twoDInput::getProjectionDrawing(int number_of_views)
     frontview = new twoDProjection();
     frontview->add_pointSet(pointSet);
     frontview->add_edgeSet(edgeSet);
+    frontview->printer();
     std::cout<<"Added front view\n";
 
     //reading top view
@@ -232,6 +233,7 @@ twoDProjectionView *twoDInput::getProjectionDrawing(int number_of_views)
     topview = new twoDProjection();
     topview->add_pointSet(pointSet);
     topview->add_edgeSet(edgeSet);
+    topview->printer();
     std::cout<<"Added top view\n";
 
     //reading side view
