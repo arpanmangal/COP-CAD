@@ -132,7 +132,7 @@ void twoDInput::inputEdges()
     // If yes return, else retake the input;
 }
 
-twoDProjectionView *twoDInput::getProjectionDrawing(int number_of_views)
+twoDProjectionView *twoDInput::getProjectionDrawing()
 {
     string path;
     ifstream file;
@@ -143,11 +143,13 @@ twoDProjectionView *twoDInput::getProjectionDrawing(int number_of_views)
         file.open(path, ios::in);
     } while (!file);
 
-    int number_of_points, number_of_edges;
+    int number_of_views,number_of_points, number_of_edges;
     twoDProjection *frontview, *topview, *sideview;
     int start, end;
     float x, y;
     twoDPoint *point;
+
+    file>>number_of_views;
 
     //reading frontview
     file >> number_of_points;

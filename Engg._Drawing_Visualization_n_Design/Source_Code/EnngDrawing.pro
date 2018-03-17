@@ -24,13 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-
 MOC_DIR     = ./build/moc
 OBJECTS_DIR = ./build/obj
 RCC_DIR     = ./build/qrc
 UI_DIR      = ./build/uic
 
-SOURCES += src/*.cpp src/QT/*.cpp src/2D/*.cpp src/3D/*.cpp
-HEADERS += include/QT/*.h include/common.h include/2D/*.h include/3D/*.h
+SOURCES += ./src/*.cpp ./src/QT/*.cpp ./src/2D/*.cpp ./src/3D/*.cpp
+HEADERS += ./include/QT/*.h ./include/common.h ./include/2D/*.h ./include/3D/*.h
 
-FORMS += forms/*.ui \
+FORMS += ./forms/*.ui \

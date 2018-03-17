@@ -49,7 +49,7 @@ public:
   void inputEdges();
 
   /**Functions takes file as input and constructs point and edge sets */
-  twoDProjectionView * getProjectionDrawing(int number_of_views);
+  twoDProjectionView * getProjectionDrawing();
 
 };
 

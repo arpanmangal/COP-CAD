@@ -171,7 +171,13 @@ void twoDProjectionView::filewriter(const char *path)
 	ofstream file;
 	file.open(path, ios::out);
 	
+	if (sideview!=NULL)
+		file<<"2\n";
+	else
+		file<<"3\n";
+	
 	//printing frontview
+
 	twoDProjection temp = *frontview;
 	file << temp.PointSet.size();
 	for (int i = 0; i < temp.PointSet.size(); i++)
