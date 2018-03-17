@@ -12,7 +12,7 @@ class plane;
 
 // included dependencies
 #include <vector>
-#include "threeDObject.h"
+#include "include/3D/threeDObject.h"
 // #include "plane.h"
 
 class orthoProjection

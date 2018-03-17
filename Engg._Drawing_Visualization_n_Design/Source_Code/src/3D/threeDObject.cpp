@@ -1,11 +1,11 @@
 #include <algorithm>
 #include <iostream>
-#include <3D/threeDPoint.h>
-#include <2D/twoDPoint.h>
-#include <2D/Edge.h>
-#include <3D/threeDObject.h>
-#include <2D/twoDProjection.h>
-#include <2D/isometricView.h>
+#include "include/3D/threeDPoint.h"
+#include "include/2D/twoDPoint.h"
+#include "include/2D/Edge.h"
+#include "include/3D/threeDObject.h"
+#include "include/2D/twoDProjection.h"
+#include "include/2D/isometricView.h"
 #include <fstream>
 using namespace std;
 

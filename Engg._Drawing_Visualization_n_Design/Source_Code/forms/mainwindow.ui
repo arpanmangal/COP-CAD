@@ -6,26 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>698</width>
+    <height>218</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QFormLayout" name="formLayout">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="help">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="genOrthoProjec">
       <property name="text">
-       <string>Help</string>
+       <string>Orthographic Projections</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="genOrthoProjec">
+    <item>
+     <widget class="QPushButton" name="threeDReconstruction">
       <property name="text">
-       <string>Generate Orthographic Projections</string>
+       <string>3D Reconstruction</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="help">
+      <property name="text">
+       <string>Help</string>
       </property>
      </widget>
     </item>
@@ -36,7 +43,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>698</width>
      <height>22</height>
     </rect>
    </property>

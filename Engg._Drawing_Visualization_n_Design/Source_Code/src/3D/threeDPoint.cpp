@@ -1,5 +1,5 @@
 #include <cmath>
-#include <3D/threeDPoint.h>
+#include "include/3D/threeDPoint.h"
 
 // Constructor and Destructor
 threeDPoint::threeDPoint(float X, float Y, float Z)

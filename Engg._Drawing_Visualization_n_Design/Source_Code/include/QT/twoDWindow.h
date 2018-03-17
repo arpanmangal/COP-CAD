@@ -2,7 +2,7 @@
 #define twoD_Window_H
 
 #include <QWidget>
-#include "include/QT/frontview.h"
+#include "include/QT/projectionWidget.h"
 
 class twoDWindow : public QWidget
 {
@@ -10,7 +10,6 @@ class twoDWindow : public QWidget
 
 public:
     twoDWindow();
-
 };
 
 #endif // twoD_Window_H

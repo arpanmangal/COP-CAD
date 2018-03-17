@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
-#include <2D/twoDInput.h>
-#include <2D/Edge.h>
-#include <2D/twoDPoint.h>
+#include "include/2D/twoDInput.h"
+#include "include/2D/Edge.h"
+#include "include/2D/twoDPoint.h"
 #include <fstream>
-#include <2D/twoDProjection.h>
-#include <2D/twoDProjectionView.h>
+#include "include/2D/twoDProjection.h"
+#include "include/2D/twoDProjectionView.h"
 
 using namespace std;
 

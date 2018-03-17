@@ -5,6 +5,7 @@
 #include "include/QT/dialog2d.h"
 #include "include/QT/mydialog.h"
 #include "include/QT/twoDWindow.h"
+#include "include/QT/inputmode.h"
 
 namespace Ui
 {
@@ -30,9 +31,14 @@ class MainWindow : public QMainWindow
 
     void on_actionAbout_QT_triggered();
 
-    void on_help_clicked();
-
+    /** Prompt the user to provide a 3D Object, and then does the reconstruction work */
     void on_genOrthoProjec_clicked();
+
+    /** Prompt the user to provide a 2D Object, then proceeds with reconstruction */
+    void on_threeDReconstruction_clicked();
+
+    /** Give a detailed Help about the Usage of the Software */
+    void on_help_clicked();
 
 private:
     Ui::MainWindow *ui;
