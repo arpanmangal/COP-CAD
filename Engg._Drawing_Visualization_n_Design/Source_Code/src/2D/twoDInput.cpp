@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include "include/2D/twoDInput.h"
 #include "include/2D/Edge.h"
 #include "include/2D/twoDPoint.h"

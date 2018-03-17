@@ -144,14 +144,12 @@ void threeDInput::inputEdges()
 
 void threeDInput::inputData()
 {
-    string path;
-    ifstream file;
-    do
+   ifstream file;
+    file.open(path, ios::in);
+    if (!file)
     {
-        cout << "Enter the file name for input\n";
-        cin >> path;
-        file.open(path,ios::in);
-    } while (!file.is_open());
+     cout<<"File not found\n";   
+    }
     int number_of_points, number_of_edges;
     file >> number_of_points;
     float x, y,z;

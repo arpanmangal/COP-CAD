@@ -50,7 +50,7 @@ public:
   void inputEdges();
 
   /**Functions takes file as input and constructs point and edge sets */
-  void inputData();
+  void inputData(const char* path);
 
   /** Return the object created, with edge set and point set as the corresponding sets of input object */
   void get3DObject (threeDObject * const &object); 
