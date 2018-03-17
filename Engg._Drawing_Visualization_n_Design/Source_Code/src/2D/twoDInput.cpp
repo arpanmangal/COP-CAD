@@ -132,16 +132,14 @@ void twoDInput::inputEdges()
     // If yes return, else retake the input;
 }
 
-twoDProjectionView *twoDInput::getProjectionDrawing()
+twoDProjectionView *twoDInput::getProjectionDrawing(const char * path)
 {
-    string path;
     ifstream file;
-    do
+    file.open(path, ios::in);
+    if (!file)
     {
-        cout << "Enter the file name for input\n";
-        cin >> path;
-        file.open(path, ios::in);
-    } while (!file);
+     cout<<"File not found\n";   
+    }
 
     int number_of_views,number_of_points, number_of_edges;
     twoDProjection *frontview, *topview, *sideview;
