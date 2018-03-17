@@ -16,8 +16,14 @@ EnterData::EnterData(int mode, QWidget *parent) : QWidget(parent),
 {
     ui->setupUi(this);
     setWindowTitle(tr("Enter Data"));
-    ui->instruction->setText("Please enter points and edges for the object");
+
     this->mode = mode;
+
+QString type = (mode == 3) ? "3D Object" : "2D Orthographic Views";
+    QString instruction = ("<h3>Enter Data for " + type + " </h3>" +
+            "<br>" + 
+            "Please enter point set and edge set for the " + type + "<br>after clicking 'Enter Data' ");
+    ui->instruction->setText(instruction);
 }
 
 EnterData::~EnterData()
@@ -105,6 +111,11 @@ void EnterData::enter3DObject()
     if (saveToFile == QMessageBox::Yes)
     {
         QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "3D File (*.cop3D)");
+
+        if (!filename.endsWith(".cop3D"))
+        {
+            filename = filename + ".cop3D";
+        }
         QTextStream cout(stdout);
         cout << filename;
     }
@@ -164,7 +175,12 @@ void EnterData::enter2DProjection()
     int saveToFile = QMessageBox::question(0, "Save to File", "Save the Input Projection to a File?", QMessageBox::Yes | QMessageBox::No);
     if (saveToFile == QMessageBox::Yes)
     {
-        QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "2D File (*.cop3D)");
+        QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "2D File (*.cop2D)");
+
+        if (!filename.endsWith(".cop2D"))
+        {
+            filename = filename + ".cop2D";
+        }
         QTextStream cout(stdout);
         cout << filename;
     }
