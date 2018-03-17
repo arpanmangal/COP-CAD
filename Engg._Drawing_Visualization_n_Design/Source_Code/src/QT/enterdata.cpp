@@ -5,6 +5,10 @@
 #include "include/2D/twoDPoint.h"
 #include "include/2D/Edge.h"
 
+#include "include/3D/threeDObject.h"
+#include "include/2D/twoDProjection.h"
+#include "include/2D/twoDProjectionView.h"
+
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QFileDialog>
@@ -19,10 +23,10 @@ EnterData::EnterData(int mode, QWidget *parent) : QWidget(parent),
 
     this->mode = mode;
 
-QString type = (mode == 3) ? "3D Object" : "2D Orthographic Views";
+    QString type = (mode == 3) ? "3D Object" : "2D Orthographic Views";
     QString instruction = ("<h3>Enter Data for " + type + " </h3>" +
-            "<br>" + 
-            "Please enter point set and edge set for the " + type + "<br>after clicking 'Enter Data' ");
+                           "<br>" +
+                           "Please enter point set and edge set for the " + type + "<br>after clicking 'Enter Data' ");
     ui->instruction->setText(instruction);
 }
 
@@ -100,12 +104,17 @@ EdgeVector3D EnterData::enter3DEdgeSet(int pointSetSize)
     return edgeSet3D;
 }
 
-void EnterData::enter3DObject()
+threeDObject *EnterData::enter3DObject()
 {
     QMessageBox::information(0, "Enter Points", "Please enter 3D points as (x, y, z) pairs");
     PointVector3D pointSet3D = enter3DPointSet();
     QMessageBox::information(0, "Enter Edges", "Now please enter edges as a pair of start and end points");
     EdgeVector3D edgeSet3D = enter3DEdgeSet(pointSet3D.size());
+
+    // Construct a 3D Object
+    threeDObject *object = new threeDObject();
+    object->addPointSet(pointSet3D);
+    object->addEdgeSet(edgeSet3D);
 
     int saveToFile = QMessageBox::question(0, "Save to File", "Save the Input to a File?", QMessageBox::Yes | QMessageBox::No);
     if (saveToFile == QMessageBox::Yes)
@@ -118,7 +127,12 @@ void EnterData::enter3DObject()
         }
         QTextStream cout(stdout);
         cout << filename;
+
+        // Write the data to the file
+        object->filewriter(qPrintable(filename));
     }
+
+    return object;
 }
 
 // 2D Input
@@ -165,28 +179,52 @@ EdgeVector2D EnterData::enter2DEdgeSet(int pointSetSize)
     return edgeSet2D;
 }
 
-void EnterData::enter2DProjection()
+twoDProjection *EnterData::enter2DProjection(int view)
 {
-    QMessageBox::information(0, "Enter Points", "Please enter 2D points as (x, y) pairs");
+    QString viewName;
+    switch (view)
+    {
+    case 1:
+        viewName = "Front View";
+        break;
+    case 2:
+        viewName = "Top View";
+        break;
+    default:
+        viewName = "Side View";
+    }
+
+    QMessageBox::information(0, "Enter Points for " + viewName, "Please enter 2D points as (x, y) pairs");
     PointVector2D pointSet2D = enter2DPointSet();
-    QMessageBox::information(0, "Enter Edges", "Now please enter edges as a pair of start and end points");
+    QMessageBox::information(0, "Enter Edges for " + viewName, "Now please enter edges as a pair of start and end points");
     EdgeVector2D edgeSet2D = enter2DEdgeSet(pointSet2D.size());
+
+    // Construct the 2D Projection
+    twoDProjection *projection = new twoDProjection();
+    projection->add_pointSet(pointSet2D);
+    projection->add_edgeSet(edgeSet2D);
 
     int saveToFile = QMessageBox::question(0, "Save to File", "Save the Input Projection to a File?", QMessageBox::Yes | QMessageBox::No);
     if (saveToFile == QMessageBox::Yes)
     {
-        QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "2D File (*.cop2D)");
+        QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "2D Projection (*.cop2DProj)");
 
-        if (!filename.endsWith(".cop2D"))
+        if (!filename.endsWith(".cop2DProj"))
         {
-            filename = filename + ".cop2D";
+            filename = filename + ".cop2DProj";
         }
+
         QTextStream cout(stdout);
         cout << filename;
+
+        // Write the data to the file
+        projection->filewriter(qPrintable(filename));
     }
+
+    return projection;
 }
 
-void EnterData::enter2DOrthographicViews()
+twoDProjectionView* EnterData::enter2DOrthographicViews()
 {
     // Ask the user for the number of views
     int num_views = 0;
@@ -195,7 +233,41 @@ void EnterData::enter2DOrthographicViews()
         num_views = QInputDialog::getInt(0, "View Count", "Please enter number of views: (2 or 3)", 2);
     }
 
-    enter2DProjection();
+    // Projection View Object
+    twoDProjectionView *orthoProjections;
+
+    twoDProjection *frontView = enter2DProjection(1);
+    twoDProjection *topView = enter2DProjection(2);
+
+    if (num_views == 3)
+    {
+        twoDProjection *sideView = enter2DProjection(3);
+        orthoProjections = new twoDProjectionView(frontView, topView, sideView);
+    }
+    else
+    {
+        orthoProjections = new twoDProjectionView(frontView, topView);
+    }
+
+    // Ask for saving in the file
+    int saveToFile = QMessageBox::question(0, "Save to File", "Save the Input Orthographic Views to a File?", QMessageBox::Yes | QMessageBox::No);
+    if (saveToFile == QMessageBox::Yes)
+    {
+        QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "2D Orthographic Views (*.cop2D)");
+
+        if (!filename.endsWith(".cop2D"))
+        {
+            filename = filename + ".cop2D";
+        }
+
+        QTextStream cout(stdout);
+        cout << filename;
+
+        // Write the data to the file
+        orthoProjections->filewriter(qPrintable(filename));
+    }
+
+    return orthoProjections;
 }
 
 void EnterData::on_start_clicked()

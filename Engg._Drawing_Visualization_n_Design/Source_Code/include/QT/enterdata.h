@@ -4,6 +4,10 @@
 #include <QWidget>
 #include "include/common.h"
 
+class threeDObject;
+class twoDProjection;
+class twoDProjectionView;
+
 namespace Ui
 {
 class EnterData;
@@ -39,7 +43,7 @@ class EnterData : public QWidget
     EdgeVector3D enter3DEdgeSet(int pointSetSize);
 
     /** Prompts User for Entering 3D Object. Calls other functions such as input 3D edges and points*/
-    void enter3DObject();
+    threeDObject* enter3DObject();
 
     /** Prompts User for entering a 2D Point */
     twoDPoint *enter2DPoint(int index);
@@ -51,10 +55,10 @@ class EnterData : public QWidget
     EdgeVector2D enter2DEdgeSet(int pointSetSize);
 
     /** Prompts User for Entering 2D Projection. Calls other functions such as input 2D edges and points */
-    void enter2DProjection();
+    twoDProjection* enter2DProjection(int view);
 
     /** Prompts user to enter orthographic projections of an object. Calls the enter2DProjection funtion */
-    void enter2DOrthographicViews();
+    twoDProjectionView* enter2DOrthographicViews();
 };
 
 #endif // ENTERDATA_H
