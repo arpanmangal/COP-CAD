@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <iostream>
-#include <string>
 #include "include/3D/threeDPoint.h"
 #include "include/2D/Edge.h"
 #include "include/3D/threeDObject.h"
@@ -142,7 +141,7 @@ void threeDInput::inputEdges()
     // If yes return, else retake the input;
 }
 
-void threeDInput::inputData()
+void threeDInput::inputData(const char * path)
 {
    ifstream file;
     file.open(path, ios::in);
