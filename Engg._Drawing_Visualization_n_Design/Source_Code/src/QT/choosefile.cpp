@@ -8,8 +8,11 @@
 #include "include/2D/twoDInput.h"
 #include "include/QT/twoDWindow.h"
 
+#include "include/QT/projectionwindow.h"
 #include <QFileDialog>
 #include <QMessageBox>
+
+#include <iostream>
 
 ChooseFile::ChooseFile(int mode, QWidget *parent) : QWidget(parent),
                                                     ui(new Ui::ChooseFile)
@@ -42,8 +45,6 @@ ChooseFile::~ChooseFile()
 
 void ChooseFile::on_select_File_clicked()
 {
-
-/*
     // Open a Select File Menu
     QString filename = QFileDialog::getOpenFileName(
         this,
@@ -64,6 +65,8 @@ void ChooseFile::on_select_File_clicked()
             threeDInput input3d;
             twoDInput input2d;
 
+            std::cout << "Mode is " << mode << std::endl;
+
             switch (mode)
             {
             case 3:
@@ -77,12 +80,17 @@ void ChooseFile::on_select_File_clicked()
             // Destroy itself
             this->~ChooseFile();
         }
-    }*/
+    }
 }
 
 void ChooseFile::chosenObject(threeDObject *object)
 {
     // Chosen Object
+    isometricView* isoView = object->genIsoView();
+
+    // Draw the isometric view
+    ProjectionWindow *window = new ProjectionWindow(NULL, isoView);
+    window->show();
 }
 
 void ChooseFile::chosenProjection(twoDProjectionView *projection)
@@ -90,8 +98,8 @@ void ChooseFile::chosenProjection(twoDProjectionView *projection)
     // Chosen Projection
 
     // See the projection
-    // ProjectionWindow *window = new ProjectionWindow(this);
-    // window->show();
+    ProjectionWindow *window = new ProjectionWindow(projection);
+    window->show();
 }
 
 void ChooseFile::on_Cancel_clicked()

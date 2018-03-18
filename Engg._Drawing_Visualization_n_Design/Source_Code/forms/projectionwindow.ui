@@ -35,12 +35,12 @@
        <item>
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Front View</string>
+          <string>Top View</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="ProjectionWidget" name="FrontView" native="true"/>
+        <widget class="ProjectionWidget" name="TopView" native="true"/>
        </item>
       </layout>
      </item>
@@ -80,12 +80,12 @@
        <item>
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>Top View</string>
+          <string>Front View</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="ProjectionWidget" name="TopView" native="true"/>
+        <widget class="ProjectionWidget" name="FrontView" native="true"/>
        </item>
       </layout>
      </item>

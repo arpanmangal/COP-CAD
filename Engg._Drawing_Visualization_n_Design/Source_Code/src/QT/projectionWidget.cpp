@@ -11,7 +11,7 @@ ProjectionWidget::ProjectionWidget(QWidget *parent)
 {
     setFixedSize(700, 450);
 
-
+    setPens();
 }
 
 void ProjectionWidget::paintEvent(QPaintEvent *event)
@@ -43,15 +43,15 @@ void ProjectionWidget::setEdgeSet(EdgeVector2D const &edgeVect)
 // Functions for Painting
 void ProjectionWidget::setPens()
 {
-    strLinePen.setColor(Qt::black);
+    strLinePen.setColor(Qt::red);
     strLinePen.setWidth(1.4);
 
     dottedPen.setColor(Qt::black);
     dottedPen.setWidth(1.4);
     dottedPen.setStyle(Qt::DotLine);
 
-    pointPen.setColor(Qt::black);
-    pointPen.setWidth(4);
+    pointPen.setColor(Qt::green);
+    pointPen.setWidth(10);
 }
 
 QPoint *pointToQPoint(twoDPoint *p)

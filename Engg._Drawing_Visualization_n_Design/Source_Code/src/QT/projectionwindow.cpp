@@ -6,10 +6,11 @@
 #include "include/2D/Edge.h"
 #include "include/2D/twoDProjection.h"
 #include "include/2D/twoDProjectionView.h"
+#include "include/2D/isometricView.h"
 
 #include <iostream>
 
-ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, QWidget *parent) : QWidget(parent),
+ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isometricView* isoView, QWidget *parent) : QWidget(parent),
                                                                                              ui(new Ui::ProjectionWindow)
 {
     ui->setupUi(this);
@@ -40,21 +41,34 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, QWidge
     // ui->TopView->setEdgeSet(edges);
     // ui->TopView->update();
 
-    twoDProjection *frontView = orthographicViews->frontview;
-    twoDProjection *topView = orthographicViews->topview;
-    twoDProjection *sideView = orthographicViews->sideview;
+    // Error checking
+    if (orthographicViews != NULL)
+    {
+        twoDProjection *frontView = orthographicViews->frontview;
+        twoDProjection *topView = orthographicViews->topview;
+        twoDProjection *sideView = orthographicViews->sideview;
 
-    ui->FrontView->setPointSet(frontView->PointSet);
-    ui->FrontView->setEdgeSet(frontView->EdgeSet);
-    ui->FrontView->update();
+        ui->FrontView->setPointSet(frontView->PointSet);
+        ui->FrontView->setEdgeSet(frontView->EdgeSet);
+        ui->FrontView->update();
 
-    ui->TopView->setPointSet(topView->PointSet);
-    ui->TopView->setEdgeSet(topView->EdgeSet);
-    ui->TopView->update();
+        ui->TopView->setPointSet(topView->PointSet);
+        ui->TopView->setEdgeSet(topView->EdgeSet);
+        ui->TopView->update();
 
-    ui->SideView->setPointSet(sideView->PointSet);
-    ui->SideView->setEdgeSet(sideView->EdgeSet);
-    ui->SideView->update();
+        if (sideView != NULL)
+        {
+            ui->SideView->setPointSet(sideView->PointSet);
+            ui->SideView->setEdgeSet(sideView->EdgeSet);
+            ui->SideView->update();
+        }
+    }
+
+    if (isoView != NULL) 
+    {
+        ui->IsoView->setPointSet(isoView->pointSet);
+        ui->IsoView->setEdgeSet(isoView->edgeSet);
+    }
 }
 
 ProjectionWindow::~ProjectionWindow()

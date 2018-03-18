@@ -9,7 +9,7 @@
 #include "include/2D/twoDProjection.h"
 #include "include/2D/twoDProjectionView.h"
 #include "include/QT/projectionwindow.h"
-
+#include "include/2D/isometricView.h"
 
 #include <QInputDialog>
 #include <QMessageBox>
@@ -278,12 +278,19 @@ void EnterData::on_start_clicked()
     if (mode == 3)
     {
         // Take 3D input
-        enter3DObject();
+        threeDObject *object = enter3DObject();
+
+        // isoView
+        isometricView *isoView = object->genIsoView();
+
+        // Draw the isometric view
+        ProjectionWindow *window = new ProjectionWindow(NULL, isoView);
+        window->show();
     }
     else
     {
         // Take 2D input
-        twoDProjectionView * projections = enter2DOrthographicViews();
+        twoDProjectionView *projections = enter2DOrthographicViews();
 
         ProjectionWindow *win = new ProjectionWindow(projections);
         win->show();
