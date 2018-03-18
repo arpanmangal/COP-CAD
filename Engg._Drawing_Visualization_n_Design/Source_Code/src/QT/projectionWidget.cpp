@@ -9,7 +9,7 @@
 ProjectionWidget::ProjectionWidget(QWidget *parent)
     : QWidget(parent)
 {
-    setFixedSize(700, 450);
+    setFixedSize(width, height);
 
     setPens();
 }
@@ -32,7 +32,57 @@ void ProjectionWidget::paintEvent(QPaintEvent *event)
 // Setters
 void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
 {
+    std::cout << "inside set Pointset \n";
     pointSet = pointVect;
+    
+    // Do a rescaling of points
+    PointVector2D points;
+
+    float max_a = -100000.0;
+    float min_a = 100000.0;
+
+    float max_b = -100000.0;
+    float min_b = 100000.0;
+
+    float a, b;
+
+    std::cout << "delete" <<std::endl;
+    for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
+    {
+        a = (*it)->a;
+        b = (*it)->b;
+
+        max_a = (max_a < a) ? a : max_a;
+        min_a = (a < min_a) ? a : min_a;
+
+        max_b = (max_b < b) ? b : max_b;
+        min_b = (b < min_b) ? b : min_b;
+    }
+
+    // map range (max_a - min_a) to width and corresponding b to height
+    // If f > 1 => Apply smaller factor
+    // If f < 1 => Apply smaller factor
+std::cout << "Ho";
+    float factor_a = (max_a - min_a < 0.1) ? 1 : (width - 10) / (max_a - min_a); // division by 0!!
+    float factor_b = (max_b - min_b < 0.1) ? 1 : (height - 10) /(max_b - min_b);
+
+    float factor = (factor_a < factor_b) ? factor_a : factor_b;
+    factor /= 2;
+
+    std::cout << "factor is " << factor << std::endl;
+    for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
+    {
+        a = (*it)->a;
+        a = (a - min_a) * factor + 10;
+
+        b = (*it)->b;
+        b = (b - min_b) * factor + 10;
+
+        points.push_back(new twoDPoint(a, b));
+    }
+
+    // Assign the point set
+    pointSet = points;
 }
 
 void ProjectionWidget::setEdgeSet(EdgeVector2D const &edgeVect)
@@ -43,15 +93,16 @@ void ProjectionWidget::setEdgeSet(EdgeVector2D const &edgeVect)
 // Functions for Painting
 void ProjectionWidget::setPens()
 {
-    strLinePen.setColor(Qt::red);
-    strLinePen.setWidth(1.4);
+    strLinePen.setColor(Qt::black);
+    strLinePen.setWidth(2);
 
     dottedPen.setColor(Qt::black);
     dottedPen.setWidth(1.4);
     dottedPen.setStyle(Qt::DotLine);
 
-    pointPen.setColor(Qt::green);
-    pointPen.setWidth(10);
+    pointPen.setColor(Qt::darkGreen);
+    pointPen.setCapStyle(Qt::RoundCap);
+    pointPen.setWidth(8);
 }
 
 QPoint *pointToQPoint(twoDPoint *p)

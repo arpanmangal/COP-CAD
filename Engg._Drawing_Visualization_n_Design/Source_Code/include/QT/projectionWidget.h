@@ -25,6 +25,9 @@ private:
   PointVector2D pointSet;
   EdgeVector2D edgeSet;
 
+  // Size
+  int width = 700;
+  int height = 450;
 
   // 2D Painter
   QPainter *painter2D;

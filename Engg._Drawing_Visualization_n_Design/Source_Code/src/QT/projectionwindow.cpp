@@ -44,6 +44,8 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
     // Error checking
     if (orthographicViews != NULL)
     {
+        std::cout << "setting ortho views\n";
+        
         twoDProjection *frontView = orthographicViews->frontview;
         twoDProjection *topView = orthographicViews->topview;
         twoDProjection *sideView = orthographicViews->sideview;
