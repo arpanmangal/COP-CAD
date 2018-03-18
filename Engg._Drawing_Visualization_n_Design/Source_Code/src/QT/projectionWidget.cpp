@@ -29,15 +29,6 @@ void ProjectionWidget::paintEvent(QPaintEvent *event)
     makeDrawing(); // Draw the edges and points
 }
 
-// void ProjectionWidget::draw()
-// {
-//     QPainter painter;
-//     painter.begin(this);
-//     painter.drawLine(30,30,40,200);
-//     painter.end();
-// }
-// //! [2]
-
 // Setters
 void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
 {

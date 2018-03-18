@@ -8,6 +8,8 @@
 #include "include/3D/threeDObject.h"
 #include "include/2D/twoDProjection.h"
 #include "include/2D/twoDProjectionView.h"
+#include "include/QT/projectionwindow.h"
+
 
 #include <QInputDialog>
 #include <QMessageBox>
@@ -224,7 +226,7 @@ twoDProjection *EnterData::enter2DProjection(int view)
     return projection;
 }
 
-twoDProjectionView* EnterData::enter2DOrthographicViews()
+twoDProjectionView *EnterData::enter2DOrthographicViews()
 {
     // Ask the user for the number of views
     int num_views = 0;
@@ -281,6 +283,9 @@ void EnterData::on_start_clicked()
     else
     {
         // Take 2D input
-        enter2DOrthographicViews();
+        twoDProjectionView * projections = enter2DOrthographicViews();
+
+        ProjectionWindow *win = new ProjectionWindow(projections);
+        win->show();
     }
 }

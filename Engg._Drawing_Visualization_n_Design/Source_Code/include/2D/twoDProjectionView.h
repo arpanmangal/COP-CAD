@@ -56,5 +56,8 @@ class twoDProjectionView
 
 	/**Writes the object to file*/
 	void filewriter(const char * path);
+
+	// Friend Classes
+	friend class ProjectionWindow;
 };
 #endif

@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
     // twoDWindow *win = new twoDWindow();
     // win->show();
 
-    ProjectionWindow * win = new ProjectionWindow;
-    win->show();
+    // ProjectionWindow * win = new ProjectionWindow;
+    // win->show();
 
     // QLabel w;
     // QPicture pi;

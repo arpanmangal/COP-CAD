@@ -42,6 +42,7 @@ class twoDProjection
 	void filewriter(const char * path);
 
 	friend class twoDProjectionView;
+	friend class ProjectionWindow;
 };
 
 #endif

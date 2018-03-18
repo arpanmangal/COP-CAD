@@ -3,6 +3,9 @@
 
 #include <QWidget>
 
+// Forward Declaration
+class twoDProjectionView;
+
 namespace Ui {
 class ProjectionWindow;
 }
@@ -12,7 +15,7 @@ class ProjectionWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit ProjectionWindow(QWidget *parent = 0);
+    explicit ProjectionWindow(twoDProjectionView* orthographicViews, QWidget *parent = 0);
     ~ProjectionWindow();
 
 private:
