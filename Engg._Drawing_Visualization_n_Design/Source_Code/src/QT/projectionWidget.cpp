@@ -46,7 +46,6 @@ void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
 
     float a, b;
 
-    std::cout << "delete" <<std::endl;
     for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
     {
         a = (*it)->a;
@@ -62,14 +61,12 @@ void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
     // map range (max_a - min_a) to width and corresponding b to height
     // If f > 1 => Apply smaller factor
     // If f < 1 => Apply smaller factor
-std::cout << "Ho";
     float factor_a = (max_a - min_a < 0.1) ? 1 : (width - 10) / (max_a - min_a); // division by 0!!
     float factor_b = (max_b - min_b < 0.1) ? 1 : (height - 10) /(max_b - min_b);
 
     float factor = (factor_a < factor_b) ? factor_a : factor_b;
     factor /= 2;
 
-    std::cout << "factor is " << factor << std::endl;
     for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
     {
         a = (*it)->a;

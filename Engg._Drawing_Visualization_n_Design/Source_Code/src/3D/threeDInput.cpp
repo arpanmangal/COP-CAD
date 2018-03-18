@@ -174,11 +174,13 @@ void threeDInput::inputData(const char * path)
     }
 
     file>>number_of_edges;
+    cout << number_of_edges << endl;
     for (int i=0;i<number_of_edges;i++){
         file>>start>>end;
+        cout << i << std::endl;
         try
         {
-            addEdge(start - 1, end - 1);
+            addEdge(start, end);
         }
         catch (std::string e)
         {
