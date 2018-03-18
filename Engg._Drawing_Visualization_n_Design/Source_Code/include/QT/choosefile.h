@@ -3,6 +3,12 @@
 
 #include <QWidget>
 
+// forward declarations
+class threeDObject;
+class threeDInput;
+class twoDProjectionView;
+class twoDInput;
+
 namespace Ui
 {
 class ChooseFile;
@@ -10,22 +16,25 @@ class ChooseFile;
 
 class ChooseFile : public QWidget
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    explicit ChooseFile(int mode, QWidget *parent = 0);
-    ~ChooseFile();
+public:
+  explicit ChooseFile(int mode, QWidget *parent = 0);
+  ~ChooseFile();
 
-  private slots:
-    void on_select_File_clicked();
+private slots:
+  void on_select_File_clicked();
 
-    void on_Cancel_clicked();
+  void on_Cancel_clicked();
 
-  private:
-    Ui::ChooseFile *ui;
+private:
+  Ui::ChooseFile *ui;
 
-    int mode;
-    QString type;
+  int mode;
+  QString type;
+
+  void chosenObject(threeDObject *object);
+  void chosenProjection(twoDProjectionView *projection);
 };
 
 #endif // CHOOSEFILE_H

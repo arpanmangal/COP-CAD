@@ -191,8 +191,11 @@ void threeDInput::inputData(const char * path)
 }
 
 // Generating the 3D Object
-void threeDInput::get3DObject(threeDObject *const &object)
+threeDObject* threeDInput::get3DObject()
 {
+    threeDObject * object = new threeDObject();
     object->addPointSet(pointSet);
     object->addEdgeSet(edgeSet);
+
+    return object;
 }

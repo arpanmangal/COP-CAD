@@ -2,6 +2,11 @@
 #include "ui_choosefile.h"
 #include "include/QT/inputmode.h"
 
+#include "include/3D/threeDObject.h"
+#include "include/3D/threeDInput.h"
+#include "include/2D/twoDProjection.h"
+#include "include/2D/twoDInput.h"
+
 #include <QFileDialog>
 #include <QMessageBox>
 
@@ -53,11 +58,33 @@ void ChooseFile::on_select_File_clicked()
         if (QMessageBox::Yes == QMessageBox::question(this, "File Name", "You have chosen: " + filename + "\nContinue?", QMessageBox::Yes | QMessageBox::No))
         {
             // Approved File Opening, Go Ahead
+            threeDInput input3d;
+            twoDInput input2d;
+
+            switch (mode)
+            {
+            case 3:
+                input3d.inputData(qPrintable(filename));
+                chosenObject(input3d.get3DObject());
+                break;
+            default:
+                chosenProjection(input2d.getProjectionDrawing(qPrintable(filename)));
+            }
 
             // Destroy itself
             this->~ChooseFile();
         }
     }
+}
+
+void ChooseFile::chosenObject(threeDObject *object)
+{
+    // Chosen Object
+}
+
+void ChooseFile::chosenProjection(twoDProjectionView *projection)
+{
+    // Chosen Projection
 }
 
 void ChooseFile::on_Cancel_clicked()

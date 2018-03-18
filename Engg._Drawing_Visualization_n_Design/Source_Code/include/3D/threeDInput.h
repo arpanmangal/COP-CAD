@@ -53,7 +53,7 @@ public:
   void inputData(const char* path);
 
   /** Return the object created, with edge set and point set as the corresponding sets of input object */
-  void get3DObject (threeDObject * const &object); 
+  threeDObject* get3DObject (); 
 };
 
 #endif // __THREE_D_INPUT__
