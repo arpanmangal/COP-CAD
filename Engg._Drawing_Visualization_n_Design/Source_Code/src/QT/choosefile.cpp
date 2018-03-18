@@ -6,6 +6,7 @@
 #include "include/3D/threeDInput.h"
 #include "include/2D/twoDProjection.h"
 #include "include/2D/twoDInput.h"
+#include "include/QT/twoDWindow.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -41,6 +42,8 @@ ChooseFile::~ChooseFile()
 
 void ChooseFile::on_select_File_clicked()
 {
+
+/*
     // Open a Select File Menu
     QString filename = QFileDialog::getOpenFileName(
         this,
@@ -74,7 +77,7 @@ void ChooseFile::on_select_File_clicked()
             // Destroy itself
             this->~ChooseFile();
         }
-    }
+    }*/
 }
 
 void ChooseFile::chosenObject(threeDObject *object)
@@ -85,6 +88,10 @@ void ChooseFile::chosenObject(threeDObject *object)
 void ChooseFile::chosenProjection(twoDProjectionView *projection)
 {
     // Chosen Projection
+
+    // See the projection
+    // ProjectionWindow *window = new ProjectionWindow(this);
+    // window->show();
 }
 
 void ChooseFile::on_Cancel_clicked()

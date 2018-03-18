@@ -5,7 +5,7 @@
 ProjectionWidget::ProjectionWidget(QWidget *parent)
     : QWidget(parent)
 {
-    setFixedSize(300, 300);
+    setFixedSize(700, 450);
 }
 
 void ProjectionWidget::paintEvent(QPaintEvent *event)
@@ -14,7 +14,7 @@ void ProjectionWidget::paintEvent(QPaintEvent *event)
     painter.begin(this);
     painter.drawLine(10, 10, 100, 100);
 
-    QRect rec(0, 0, 299, 299);
+    QRect rec(0, 0, 699, 449);
     painter.drawRect(rec);
     painter.end();
 }

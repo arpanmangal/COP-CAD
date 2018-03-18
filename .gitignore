@@ -237,6 +237,7 @@ TSWLatexianTemp*
 ################################ For C / C++ Project ##############################
 # Ignore the build and lib dirs
 build
+bin
 lib/*
 
 # Ignore any executables
@@ -251,3 +252,10 @@ runner
 
 #Custom
 .vscode
+
+#QT Specific
+*.pro.user
+.qmake.stash
+*/*.pro.user
+*/.qmake.stash
+*.pro.user*
