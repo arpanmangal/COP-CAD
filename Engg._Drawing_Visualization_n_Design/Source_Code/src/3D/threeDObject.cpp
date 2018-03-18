@@ -141,6 +141,7 @@ isometricView *threeDObject::genIsoView()
 
 void threeDObject::printer()
 {  
+    cout << "\n3D Printer Start\n";
 	threeDPoint *p;
 	Edge *e;
     for (int i=0;i<pointSet.size();i++){

@@ -5,6 +5,7 @@
 #include "include/3D/threeDObject.h"
 #include "include/3D/threeDInput.h"
 #include "include/2D/twoDProjection.h"
+#include "include/2D/twoDProjectionView.h"
 #include "include/2D/twoDInput.h"
 #include "include/QT/twoDWindow.h"
 
@@ -86,16 +87,43 @@ void ChooseFile::on_select_File_clicked()
 void ChooseFile::chosenObject(threeDObject *object)
 {
     // Chosen Object
-    isometricView* isoView = object->genIsoView();
+    isometricView *isoView = object->genIsoView();
+
+    twoDProjection *topView = object->genProjection(1);
+    twoDProjection *frontView = object->genProjection(3);
+    twoDProjection *sideView = object->genProjection(2);
+
+    twoDProjectionView *orthoProjections = new twoDProjectionView(frontView, topView, sideView);
 
     // Draw the isometric view
-    ProjectionWindow *window = new ProjectionWindow(NULL, isoView);
+    ProjectionWindow *window = new ProjectionWindow(orthoProjections, isoView);
     window->show();
+
+    if (QMessageBox::Yes == QMessageBox::question(this, "Save Orthographic Projections", "Do You wish to save the projections in a file?", QMessageBox::Yes | QMessageBox::No))
+    {
+        QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "2D Orthographic Views (*.cop2D)");
+
+        if (!filename.endsWith(".cop2D"))
+        {
+            filename = filename + ".cop2D";
+        }
+
+        QTextStream cout(stdout);
+        cout << filename;
+
+        // Write the data to the file
+        orthoProjections->filewriter(qPrintable(filename));
+    }
 }
 
 void ChooseFile::chosenProjection(twoDProjectionView *projection)
 {
     // Chosen Projection
+    threeDObject *object = projection->create3Dmodel();
+    object->printer();
+
+    // std::cout << "after printer \n";
+    // isometricView *isoView = object->genIsoView();
 
     // See the projection
     ProjectionWindow *window = new ProjectionWindow(projection);
