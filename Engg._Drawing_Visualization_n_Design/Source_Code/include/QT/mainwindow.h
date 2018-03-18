@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "include/QT/dialog2d.h"
-#include "include/QT/mydialog.h"
+// #include "include/QT/dialog2d.h"
+// #include "include/QT/mydialog.h"
 #include "include/QT/twoDWindow.h"
 #include "include/QT/inputmode.h"
 
@@ -42,7 +42,7 @@ class MainWindow : public QMainWindow
 
 private:
     Ui::MainWindow *ui;
-    Dialog2D *paint2d;
+    // Dialog2D *paint2d;
     void closeEvent(QCloseEvent *event);
 };
 

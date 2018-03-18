@@ -4,41 +4,37 @@
 #include <QMessageBox>
 #include <QInputDialog>
 
+#include <QtCore>
+#include <QtGui>
+#include <QLabel>
+
+// #include "include/QT/twoDWindow.h"
+#include "include/QT/projectionwindow.h"
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     MainWindow window;
     window.show();
 
+    // twoDWindow *win = new twoDWindow();
+    // win->show();
+
+    ProjectionWindow * win = new ProjectionWindow;
+    win->show();
+
+    // QLabel w;
+    // QPicture pi;
+    // QPainter p(&pi);
+
+    // // p.setRenderHint(QPainter::Antialiasing);
+    // p.setPen(QPen(Qt::black, 5));
+    // p.drawLine(0, 0, 200, 200);
+
+    // p.end();
+
+    // w.setPicture(pi);
+    // w.show();
+
     return app.exec();
-
-    QTextStream cout(stdout);
-
-    // Declarations of variables
-    int answer = 0;
-
-    do
-    {
-        // local variables to the loop:
-        int factArg = 0;
-        int fact(1);
-        factArg = QInputDialog::getInt(0, "Factorial Calculator",
-                                       "Factorial of:", 1);
-        factArg = QInputDialog::getInt(0, "Factorial Calculator",
-                                       "Factorial of:", 1);
-        cout << "User entered: " << factArg << endl;
-        int i = 2;
-        while (i <= factArg)
-        {
-            fact = fact * i;
-            ++i;
-        }
-        QString response = QString("The factorial of %1 is %2.\n%3")
-                               .arg(factArg)
-                               .arg(fact)
-                               .arg("Compute another factorial?");
-        answer = QMessageBox::question(0, "Play again?", response,
-                                       QMessageBox::Yes | QMessageBox::No);
-    } while (answer == QMessageBox::Yes);
-    return EXIT_SUCCESS;
 }

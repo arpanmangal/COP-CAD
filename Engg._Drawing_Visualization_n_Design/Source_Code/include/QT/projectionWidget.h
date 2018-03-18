@@ -2,18 +2,42 @@
 #define PROJECTION_WIDGET_H
 
 #include <QWidget>
+#include <QtGui>
+#include <QtCore>
+
+#include <include/common.h>
 
 class ProjectionWidget : public QWidget
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    ProjectionWidget(QWidget *parent);
+public:
+  ProjectionWidget(QWidget *parent);
 
-  protected:
-    void paintEvent(QPaintEvent *event) override;
+  void setPointSet(PointVector2D const &pointVect);
+  void setEdgeSet(EdgeVector2D const &edgeVect);
+  // void draw();
 
-  private:
+protected:
+  void paintEvent(QPaintEvent *event);
+
+private:
+  PointVector2D pointSet;
+  EdgeVector2D edgeSet;
+
+
+  // 2D Painter
+  QPainter *painter2D;
+  QPen strLinePen;
+  QPen dottedPen;
+  QPen pointPen;
+
+  // void test();
+  void setPens();
+  void makeDrawing();
+  void drawStrLine(QPoint p1, QPoint p2);
+  void drawDottedLine(QPoint p1, QPoint p2);
+  void drawPoint(QPoint p);
 };
 
 #endif // PROJECTION_WIDGET_H
