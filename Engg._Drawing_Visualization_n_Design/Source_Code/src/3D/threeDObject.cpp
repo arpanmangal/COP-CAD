@@ -104,7 +104,7 @@ twoDProjection *threeDObject::genProjection(int projectionPlane)
         // Drop X
         for (iterPoint3d point = pointSet.begin(); point != pointSet.end(); ++point)
         {
-            pointSet2D.push_back(new twoDPoint((*point)->y, (*point)->z));
+            pointSet2D.push_back(new twoDPoint((*point)->z, (*point)->y));
         }
     }
     else
@@ -173,7 +173,7 @@ void threeDObject::filewriter(const char * path)
 	file.close();
 }
 
-void rotationalTransformation(float alpha_x, float alpha_y, float alpha_z)
+void threeDObject::rotationalTransformation(float alpha_x, float alpha_y, float alpha_z)
 {
     float a[3][3];
     float cx = cos(alpha_x);

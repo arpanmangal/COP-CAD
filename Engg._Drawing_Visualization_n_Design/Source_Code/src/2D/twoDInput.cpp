@@ -245,7 +245,7 @@ twoDProjectionView *twoDInput::getProjectionDrawing(const char * path)
         for (int i = 0; i < number_of_points; i++)
         {
             file >> x >> y;
-            point = new twoDPoint(x, y);
+            point = new twoDPoint(y, x);
             pointSet.push_back(point);
         }
         cout<<pointSet.size()<<endl;
