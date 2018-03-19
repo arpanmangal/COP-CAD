@@ -282,6 +282,7 @@ twoDProjectionView *twoDInput::getProjectionDrawing(const char * path)
         sideview = new twoDProjection();
         sideview->add_pointSet(pointSet);
         sideview->add_edgeSet(edgeSet);
+        sideview->printer();
         cout<<"Added Side View\n";
     }
     else

@@ -31,17 +31,17 @@ PointVector3D twoDProjectionView::pointReconstruction()
 	twoDPoint topPointTemp = twoDPoint(0, 0);
 	twoDPoint sidePointTemp = twoDPoint(0, 0);
 	threeDPoint *retPoint;
-	PointVector3D retVal;
+	PointVector3D *retVal = new PointVector3D();
 	if (sideview == NULL)
 	{
 		for (int i = 0; i < frontview->PointSet.size(); i++)
 		{
 			frontPointTemp = *(frontview->PointSet.at(i));
 			topPointTemp = *(topview->PointSet.at(i));
-			if (abs(frontPointTemp.a - topPointTemp.b) < 0.01)
+			if (abs(frontPointTemp.a - topPointTemp.a) < 0.01)
 			{
 				retPoint = new threeDPoint(topPointTemp.a, frontPointTemp.a, frontPointTemp.b);
-				retVal.push_back(retPoint);
+				retVal->push_back(retPoint);
 			}
 			else
 			{
@@ -49,20 +49,20 @@ PointVector3D twoDProjectionView::pointReconstruction()
 				throw e;
 			}
 		}
-		return retVal;
+		return *retVal;
 	}
 	for (int i = 0; i < frontview->PointSet.size(); i++)
 	{
 		frontPointTemp = *(frontview->PointSet.at(i));
 		topPointTemp = *(topview->PointSet.at(i));
 		sidePointTemp = *(sideview->PointSet.at(i));
-		if ((abs(frontPointTemp.a - topPointTemp.b) < 0.001) && (abs(frontPointTemp.b - sidePointTemp.b) < 0.001) && (abs(sidePointTemp.a - topPointTemp.a) < 0.001))
+		if ((abs(frontPointTemp.a - topPointTemp.a) < 0.001) && (abs(frontPointTemp.b - sidePointTemp.a) < 0.001) && (abs(sidePointTemp.b - topPointTemp.b) < 0.001))
 		{
-			retPoint = new threeDPoint(topPointTemp.a, frontPointTemp.a, frontPointTemp.b);
-			retVal.push_back(retPoint);
+			retPoint = new threeDPoint(frontPointTemp.a, frontPointTemp.b, topPointTemp.b);
+			retVal->push_back(retPoint);
 		}
 	}
-	return retVal;
+	return *retVal;
 }
 
 bool twoDProjectionView::checkEdgeCompatibility_2views(Edge &e)
@@ -172,9 +172,9 @@ void twoDProjectionView::filewriter(const char *path)
 	file.open(path, ios::out);
 	
 	if (sideview!=NULL)
-		file<<"2\n";
-	else
 		file<<"3\n";
+	else
+		file<<"2\n";
 	
 	//printing frontview
 
@@ -214,7 +214,7 @@ void twoDProjectionView::filewriter(const char *path)
 	if (sideview != NULL)
 	{
 		file << endl;
-		temp = *topview;
+		temp = *sideview;
 		file << temp.PointSet.size();
 		for (int i = 0; i < temp.PointSet.size(); i++)
 		{

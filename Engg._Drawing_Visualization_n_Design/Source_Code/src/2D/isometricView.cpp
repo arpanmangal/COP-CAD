@@ -19,7 +19,7 @@ isometricView::isometricView(PointVector3D const & p, EdgeVector3D const & e)
     {
         temp3DPoint = *it;
         x = 0.707 * (temp3DPoint->x - temp3DPoint->z );
-        y =0.408 * (temp3DPoint->x + 2*temp3DPoint->y + temp3DPoint->z);
+        y =0.408 * (temp3DPoint->x - 2*temp3DPoint->y + temp3DPoint->z);
 
         pointSet.push_back(new twoDPoint (x, y));
     }

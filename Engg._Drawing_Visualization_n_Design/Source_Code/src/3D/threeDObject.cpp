@@ -90,7 +90,7 @@ twoDProjection *threeDObject::genProjection(int projectionPlane)
     // CAUTION: Create a new copy of edge set and DO NOT give pointers to the original edge set
     PointVector2D pointSet2D;
 
-    if (projectionPlane == 1)
+    if (projectionPlane == 3)
     {
         // Drop Z
         for (iterPoint3d point = pointSet.begin(); point != pointSet.end(); ++point)
@@ -111,7 +111,7 @@ twoDProjection *threeDObject::genProjection(int projectionPlane)
         // Drop Y
         for (iterPoint3d point = pointSet.begin(); point != pointSet.end(); ++point)
         {
-            pointSet2D.push_back(new twoDPoint((*point)->z, (*point)->x));
+            pointSet2D.push_back(new twoDPoint((*point)->x, (*point)->z));
         }
     }
 

@@ -94,7 +94,7 @@ void ChooseFile::chosenObject(threeDObject *object)
     twoDProjection *sideView = object->genProjection(2);
 
     twoDProjectionView *orthoProjections = new twoDProjectionView(frontView, topView, sideView);
-
+    
     // Draw the isometric view
     ProjectionWindow *window = new ProjectionWindow(orthoProjections, isoView);
     window->show();
@@ -123,10 +123,10 @@ void ChooseFile::chosenProjection(twoDProjectionView *projection)
     object->printer();
 
     // std::cout << "after printer \n";
-    // isometricView *isoView = object->genIsoView();
+    isometricView *isoView = object->genIsoView();
 
     // See the projection
-    ProjectionWindow *window = new ProjectionWindow(projection);
+    ProjectionWindow *window = new ProjectionWindow(projection, isoView);
     window->show();
 }
 
