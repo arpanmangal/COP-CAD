@@ -7,6 +7,7 @@
 #include "include/2D/twoDProjection.h"
 #include "include/2D/isometricView.h"
 #include <fstream>
+#include<math.h>
 using namespace std;
 
 // Constructor and Destructor
@@ -47,7 +48,7 @@ void threeDObject::translate(threeDPoint *const &O)
     }
 }
 
-void threeDObject::rotate(int rotMatrix[][3])
+void threeDObject::rotate(float rotMatrix[3][3])
 {
     /** Given a 3*3 rotation matrix M, a Point P (x, y, z) will translate to M*P
      * We iterate through each point in the pointSet to do the transformation.
@@ -170,4 +171,26 @@ void threeDObject::filewriter(const char * path)
 		file<<"\n"<<edgeSet.at(i)->start_index<<" "<<edgeSet.at(i)->end_index;
 	}
 	file.close();
+}
+
+void rotationalTransformation(float alpha_x, float alpha_y, float alpha_z)
+{
+    float a[3][3];
+    float cx = cos(alpha_x);
+    float cy = cos(alpha_y);
+    float cz = cos(alpha_z);
+    float sx = sin(alpha_x);
+    float sy = sin(alpha_y);
+    float sz = sin(alpha_z);
+
+    a[0][0] = cy*cz;
+    a[0][1] = sx*sy*cz - cx*sz;
+    a[0][2] = sx*sz + cx*sy*cz;
+    a[1][0] = cy*sz; 
+    a[1][1] = cx*cz + sx*sy*sz;
+    a[1][2] = cx*sy*sz - sx*cz;
+    a[2][0] = -sy;
+    a[2][1] = sx*cy;
+    a[2][2] = cx*cy;
+    rotate(a);
 }
