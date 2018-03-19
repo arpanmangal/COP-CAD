@@ -49,7 +49,7 @@ public:
    * Since points are pointers to actual points, it will modify actual points, in turn automatically modifying the edges and the current object.
    * It's the job of the controller to provide the rotation matrix 
    */
-  void rotate(int rotMatrix[][3]);
+  void rotate(float rotMatrix[3][3]);
 
   /** Yet to decide how flip matrix will look */
   void flip(int flipMatrix[][3]);
@@ -73,6 +73,9 @@ public:
 
   /**Writes the object to file*/
 	void filewriter(const char * path);
+
+  /**Accepts values of rotation along X, Y and Z axes and rotates the object accordingly*/
+  void rotationalTransformation(float alpha_x, float alpha_y, float alpha_z);
 };
 
 #endif // __THREEDOBJECT_H_INCLUDED__
