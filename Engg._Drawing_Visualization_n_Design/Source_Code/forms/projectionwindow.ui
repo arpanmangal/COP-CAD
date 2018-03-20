@@ -39,7 +39,7 @@
          <item>
           <widget class="QSlider" name="yaw">
            <property name="maximum">
-            <number>359</number>
+            <number>35</number>
            </property>
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -73,7 +73,7 @@
          <item>
           <widget class="QSlider" name="pitch">
            <property name="maximum">
-            <number>359</number>
+            <number>35</number>
            </property>
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -107,7 +107,7 @@
          <item>
           <widget class="QSlider" name="roll">
            <property name="maximum">
-            <number>359</number>
+            <number>35</number>
            </property>
            <property name="orientation">
             <enum>Qt::Vertical</enum>

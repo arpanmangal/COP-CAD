@@ -54,7 +54,7 @@ void threeDObject::rotate(float rotMatrix[3][3])
      * We iterate through each point in the pointSet to do the transformation.
      * Edge transformation follows automatically
      */
-
+    PointVector3D temp;
     for (iterPoint3d point = pointSet.begin(); point != pointSet.end(); ++point)
     {
         float _x, _y, _z;

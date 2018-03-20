@@ -186,11 +186,13 @@ void ProjectionWindow::createProjections()
     delete isoView;
 
     // Assign new Values
-    isometricView *isoView = object->genIsoView();
+    isoView = object->genIsoView();
 
-    twoDProjection *topView = object->genProjection(1);
-    twoDProjection *frontView = object->genProjection(3);
-    twoDProjection *sideView = object->genProjection(2);
+    topView = object->genProjection(1);
+    frontView = object->genProjection(3);
+    sideView = object->genProjection(2);
+
+    std::cout << "view generated" << std::endl;
 
     ui->FrontView->setPointSet(frontView->PointSet);
     ui->FrontView->setEdgeSet(frontView->EdgeSet);
@@ -206,16 +208,65 @@ void ProjectionWindow::createProjections()
 
     ui->IsoView->setPointSet(isoView->pointSet);
     ui->IsoView->setEdgeSet(isoView->edgeSet);
+    ui->IsoView->update();
+
+    std::cout << "Rendered views\n";
+    
 }
 
-void ProjectionWindow::on_yaw_valueChanged(int value)
+// void ProjectionWindow::on_yaw_valueChanged(int value)
+// {
+//     object->rotationalTransformation(value * 3.142 / 5, 0, 0);
+//     createProjections();
+//     // object->printer();
+// }
+
+// void ProjectionWindow::on_pitch_valueChanged(int value)
+// {
+// }
+
+// void ProjectionWindow::on_roll_valueChanged(int value)
+// {
+// }
+
+void ProjectionWindow::on_yaw_sliderPressed()
 {
+    yaw = ui->yaw->value();
 }
 
-void ProjectionWindow::on_pitch_valueChanged(int value)
+void ProjectionWindow::on_pitch_sliderPressed()
 {
+    pitch = ui->pitch->value();
 }
 
-void ProjectionWindow::on_roll_valueChanged(int value)
+void ProjectionWindow::on_roll_sliderPressed()
 {
+    roll = ui->roll->value();
+}
+
+void ProjectionWindow::on_yaw_sliderReleased()
+{
+    int old_yaw = yaw;
+    yaw = ui->yaw->value();
+    object->rotationalTransformation((yaw - old_yaw) * 3.142 / 18, 0, 0);
+    // object->printer();
+    createProjections();
+}
+
+void ProjectionWindow::on_pitch_sliderReleased()
+{
+    int old_pitch = pitch;
+    pitch = ui->pitch->value();
+    object->rotationalTransformation(0, (pitch - old_pitch) * 3.142 / 18, 0);
+    // object->printer();
+    createProjections();
+}
+
+void ProjectionWindow::on_roll_sliderReleased()
+{
+    int old_roll = roll;
+    roll = ui->roll->value();
+    object->rotationalTransformation(0, 0, (roll - old_roll) * 3.142 / 18);
+    // object->printer();
+    createProjections();
 }
