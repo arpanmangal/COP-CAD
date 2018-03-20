@@ -19,6 +19,13 @@ public:
     explicit ProjectionWindow(twoDProjectionView* orthographicViews, isometricView* isoView = NULL, QWidget *parent = 0);
     ~ProjectionWindow();
 
+private slots:
+    void on_yaw_valueChanged(int value);
+
+    void on_pitch_valueChanged(int value);
+
+    void on_roll_valueChanged(int value);
+
 private:
     Ui::ProjectionWindow *ui;
 };

@@ -8,10 +8,11 @@
 #include "include/2D/twoDProjectionView.h"
 #include "include/2D/isometricView.h"
 
+#include <QMenuBar>
 #include <iostream>
 
-ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isometricView* isoView, QWidget *parent) : QWidget(parent),
-                                                                                             ui(new Ui::ProjectionWindow)
+ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isometricView *isoView, QWidget *parent) : QWidget(parent),
+                                                                                                                     ui(new Ui::ProjectionWindow)
 {
     ui->setupUi(this);
 
@@ -19,6 +20,11 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
     // ui->FrontView->paintEvent();
 
     std::cout << "Success";
+
+    QMenuBar *menuBar = new QMenuBar(this);
+    QMenu *fileMenu = menuBar->addMenu("File");
+    QMenu *editMenu = menuBar->addMenu("Edit");
+    menuBar->show();
 
     // Generates a sample 2d data
     // twoDPoint *p1 = new twoDPoint(2.4, 3.4);
@@ -45,7 +51,7 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
     if (orthographicViews != NULL)
     {
         std::cout << "setting ortho views\n";
-        
+
         twoDProjection *frontView = orthographicViews->frontview;
         twoDProjection *topView = orthographicViews->topview;
         twoDProjection *sideView = orthographicViews->sideview;
@@ -66,7 +72,7 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
         }
     }
 
-    if (isoView != NULL) 
+    if (isoView != NULL)
     {
         ui->IsoView->setPointSet(isoView->pointSet);
         ui->IsoView->setEdgeSet(isoView->edgeSet);
@@ -76,4 +82,16 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
 ProjectionWindow::~ProjectionWindow()
 {
     delete ui;
+}
+
+void ProjectionWindow::on_yaw_valueChanged(int value)
+{
+}
+
+void ProjectionWindow::on_pitch_valueChanged(int value)
+{
+}
+
+void ProjectionWindow::on_roll_valueChanged(int value)
+{
 }
