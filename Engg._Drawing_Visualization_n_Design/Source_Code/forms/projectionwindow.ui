@@ -37,9 +37,9 @@
           </spacer>
          </item>
          <item>
-          <widget class="QSlider" name="yaw">
+          <widget class="QSlider" name="Xrotate">
            <property name="maximum">
-            <number>35</number>
+            <number>179</number>
            </property>
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -49,7 +49,7 @@
          <item>
           <widget class="QLabel" name="label_5">
            <property name="text">
-            <string>Yaw</string>
+            <string>X</string>
            </property>
           </widget>
          </item>
@@ -71,7 +71,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QSlider" name="pitch">
+          <widget class="QSlider" name="Yrotate">
            <property name="maximum">
             <number>35</number>
            </property>
@@ -83,7 +83,7 @@
          <item>
           <widget class="QLabel" name="label_6">
            <property name="text">
-            <string>Pitch</string>
+            <string>Y</string>
            </property>
           </widget>
          </item>
@@ -105,7 +105,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QSlider" name="roll">
+          <widget class="QSlider" name="Zrotate">
            <property name="maximum">
             <number>35</number>
            </property>
@@ -117,7 +117,7 @@
          <item>
           <widget class="QLabel" name="label_7">
            <property name="text">
-            <string>Roll</string>
+            <string>Z</string>
            </property>
           </widget>
          </item>

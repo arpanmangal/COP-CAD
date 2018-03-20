@@ -32,15 +32,12 @@ private slots:
   void helpProjec();
 
   // Slots for Rotation
-  void on_yaw_sliderPressed();
-  void on_pitch_sliderPressed();
-  void on_roll_sliderPressed();
-  void on_yaw_sliderReleased();
-  void on_pitch_sliderReleased();
-  void on_roll_sliderReleased();
-  // void on_yaw_valueChanged(int value);
-  // void on_pitch_valueChanged(int value);
-  // void on_roll_valueChanged(int value);
+
+  void on_Xrotate_valueChanged(int value);
+
+  void on_Yrotate_valueChanged(int value);
+
+  void on_Zrotate_valueChanged(int value);
 
 private:
   Ui::ProjectionWindow *ui;
