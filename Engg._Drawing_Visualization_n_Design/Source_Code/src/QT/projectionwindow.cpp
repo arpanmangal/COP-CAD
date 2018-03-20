@@ -248,7 +248,7 @@ void ProjectionWindow::on_yaw_sliderReleased()
 {
     int old_yaw = yaw;
     yaw = ui->yaw->value();
-    object->rotationalTransformation((yaw - old_yaw) * 3.142 / 18, 0, 0);
+    object->rotationalTransformationX((yaw - old_yaw) * 3.142 / 18 );
     // object->printer();
     createProjections();
 }
@@ -257,7 +257,7 @@ void ProjectionWindow::on_pitch_sliderReleased()
 {
     int old_pitch = pitch;
     pitch = ui->pitch->value();
-    object->rotationalTransformation(0, (pitch - old_pitch) * 3.142 / 18, 0);
+    object->rotationalTransformationY((pitch - old_pitch) * 3.142 / 18);
     // object->printer();
     createProjections();
 }
@@ -266,7 +266,7 @@ void ProjectionWindow::on_roll_sliderReleased()
 {
     int old_roll = roll;
     roll = ui->roll->value();
-    object->rotationalTransformation(0, 0, (roll - old_roll) * 3.142 / 18);
+    object->rotationalTransformationZ((roll - old_roll) * 3.142 / 18);
     // object->printer();
     createProjections();
 }

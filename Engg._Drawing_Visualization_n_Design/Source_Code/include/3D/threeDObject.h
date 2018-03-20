@@ -76,6 +76,12 @@ public:
 
   /**Accepts values of rotation along X, Y and Z axes and rotates the object accordingly*/
   void rotationalTransformation(float alpha_x, float alpha_y, float alpha_z);
+
+  void threeDObject::rotationalTransformationX(float alpha_x);
+
+  void threeDObject::rotationalTransformationY(float alpha_y);
+
+  void threeDObject::rotationalTransformationZ(float alpha_z);
 };
 
 #endif // __THREEDOBJECT_H_INCLUDED__

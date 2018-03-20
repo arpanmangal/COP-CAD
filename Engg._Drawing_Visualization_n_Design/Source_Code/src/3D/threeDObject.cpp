@@ -194,3 +194,51 @@ void threeDObject::rotationalTransformation(float alpha_x, float alpha_y, float 
     a[2][2] = cx*cy;
     rotate(a);
 }
+
+void threeDObject::rotationalTransformationX(float alpha_x)
+{
+    float cx = cos(alpha_x);
+    float sx = sin(alpha_x);
+
+    for (iterPoint3d point = pointSet.begin(); point != pointSet.end(); ++point)
+    {
+        float  _y, _z;
+        _y = (cx * (*point)->y) - (sx * (*point)->z);
+        _z = (sx * (*point)->y) + (cx * (*point)->z);
+        (*point)->y = _y;
+        (*point)->z = _z;
+    }
+
+}
+
+void threeDObject::rotationalTransformationY(float alpha_y)
+{
+    float cy = cos(alpha_y);
+    float sy = sin(alpha_y);
+
+    for (iterPoint3d point = pointSet.begin(); point != pointSet.end(); ++point)
+    {
+        float _x, _z;
+        _x = (cy * (*point)->x) + (sy * (*point)->z);
+        _z = (cy * (*point)->z) - (sy * (*point)->x);
+        (*point)->x = _x;
+        (*point)->z = _z;
+    }
+
+}
+
+void threeDObject::rotationalTransformationZ(float alpha_z)
+{
+    float cz = cos(alpha_z);
+    float sz = sin(alpha_z);
+
+    for (iterPoint3d point = pointSet.begin(); point != pointSet.end(); ++point)
+    {
+        float _x, _y;
+        _x = (cz * (*point)->x) - (sz * (*point)->y);
+        _y = (sz * (*point)->x) + (cz * (*point)->y);
+        (*point)->y = _y;
+        (*point)->x = _x;
+    }
+
+}
