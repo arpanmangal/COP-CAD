@@ -68,13 +68,6 @@ void threeDObject::rotate(float rotMatrix[3][3])
     }
 }
 
-void threeDObject::flip(int flipMatrix[][3])
-{
-    // Yet to decide how flip matrix will look
-
-    // Code here...
-}
-
 twoDProjection *threeDObject::genProjection(int projectionPlane)
 {
 
