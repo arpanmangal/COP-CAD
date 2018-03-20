@@ -8,7 +8,7 @@
 #include "include/2D/twoDProjectionView.h"
 #include "include/2D/isometricView.h"
 
-#include <QMenuBar>
+// #include <QMenuBar>
 #include <iostream>
 
 ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isometricView *isoView, QWidget *parent) : QWidget(parent),
@@ -19,12 +19,14 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
     // ui->TopView->show();
     // ui->FrontView->paintEvent();
 
+    this->setWindowTitle("COP CAD");
     std::cout << "Success";
 
-    QMenuBar *menuBar = new QMenuBar(this);
-    QMenu *fileMenu = menuBar->addMenu("File");
-    QMenu *editMenu = menuBar->addMenu("Edit");
-    menuBar->show();
+    // Set Menu
+    infoLabel = new QLabel(tr("<i style=color: red >Choose a menu option, or right-click to invoke a context menu</i>"));
+    createActions();
+    createMenus();
+    this->layout()->setMenuBar(menuBar);
 
     // Generates a sample 2d data
     // twoDPoint *p1 = new twoDPoint(2.4, 3.4);
@@ -48,7 +50,7 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
     // ui->TopView->update();
 
     // Error checking
-    if (orthographicViews != NULL)
+   /* if (orthographicViews != NULL)
     {
         std::cout << "setting ortho views\n";
 
@@ -76,7 +78,50 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
     {
         ui->IsoView->setPointSet(isoView->pointSet);
         ui->IsoView->setEdgeSet(isoView->edgeSet);
-    }
+    }*/
+}
+
+void ProjectionWindow::createMenus()
+{
+    menuBar = new QMenuBar();
+    fileMenu = new QMenu("File");
+    helpMenu = new QMenu("Help");
+
+    menuBar->addMenu(fileMenu);
+    menuBar->addMenu(helpMenu);
+
+    fileMenu->addAction(save2DAct);
+    fileMenu->addAction("Save the 2D Orthographic Projections");
+    fileMenu->addAction("Close");
+
+    helpMenu->addAction("Usage");
+    helpMenu->addAction("Orthographic Projections");
+}
+
+void ProjectionWindow::createActions()
+{
+
+    save2DAct = new QAction(tr("Save the 3D Object"), this);
+    // save2D->setShortcuts(QKeySequence::Save);
+    save2DAct->setStatusTip(tr("Save the current orthographic projections into a .cop2D file"));
+    connect(save2DAct, &QAction::triggered, this, &ProjectionWindow::save2D);
+}
+
+void ProjectionWindow::save2D()
+{
+    infoLabel->setText(tr("Invoked <b>Help|About Qt</b>"));
+}
+void ProjectionWindow::save3D()
+{
+}
+void ProjectionWindow::exit()
+{
+}
+void ProjectionWindow::helpUsage()
+{
+}
+void ProjectionWindow::helpProjec()
+{
 }
 
 ProjectionWindow::~ProjectionWindow()
