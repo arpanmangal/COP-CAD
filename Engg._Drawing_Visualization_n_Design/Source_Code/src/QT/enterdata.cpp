@@ -284,7 +284,7 @@ void EnterData::on_start_clicked()
         isometricView *isoView = object->genIsoView();
 
         // Draw the isometric view
-        ProjectionWindow *window = new ProjectionWindow(NULL, isoView);
+        ProjectionWindow *window = new ProjectionWindow(object);
         window->show();
     }
     else
@@ -292,7 +292,7 @@ void EnterData::on_start_clicked()
         // Take 2D input
         twoDProjectionView *projections = enter2DOrthographicViews();
 
-        ProjectionWindow *win = new ProjectionWindow(projections);
+        ProjectionWindow *win = new ProjectionWindow(projections->create3Dmodel());
         win->show();
     }
 }

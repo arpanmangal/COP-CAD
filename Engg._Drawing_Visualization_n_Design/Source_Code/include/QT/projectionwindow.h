@@ -5,9 +5,9 @@
 #include <QMenuBar>
 #include <QLabel>
 
-
 // Forward Declaration
-class twoDProjectionView;
+class threeDObject;
+class twoDProjection;
 class isometricView;
 
 namespace Ui
@@ -17,41 +17,52 @@ class ProjectionWindow;
 
 class ProjectionWindow : public QWidget
 {
-    Q_OBJECT
+  Q_OBJECT
 
-  public:
-    explicit ProjectionWindow(twoDProjectionView *orthographicViews, isometricView *isoView = NULL, QWidget *parent = 0);
-    ~ProjectionWindow();
+public:
+  explicit ProjectionWindow(threeDObject *object, QWidget *parent = 0);
+  ~ProjectionWindow();
 
-  private slots:
-    // Slots for Menu
-    void save3D();
-    void save2D();
-    void exit();
-    void helpUsage();
-    void helpProjec();
+private slots:
+  // Slots for Menu
+  void save3D();
+  void save2D();
+  void exit();
+  void helpUsage();
+  void helpProjec();
 
-    // Slots for Rotation
-    void on_yaw_valueChanged(int value);
-    void on_pitch_valueChanged(int value);
-    void on_roll_valueChanged(int value);
+  // Slots for Rotation
+  void on_yaw_valueChanged(int value);
+  void on_pitch_valueChanged(int value);
+  void on_roll_valueChanged(int value);
 
-  private:
-    Ui::ProjectionWindow *ui;
+private:
+  Ui::ProjectionWindow *ui;
 
-    void createActions();
-    void createMenus();
+  threeDObject *object;
+  twoDProjection *frontView;
+  twoDProjection *topView;
+  twoDProjection *sideView;
+  isometricView *isoView;
 
-    QMenuBar *menuBar;
-    QMenu *fileMenu;
-    QMenu *helpMenu;
+  /** Create Actions */
+  void createMenus();
+  /** Create Menu Actions */
+  void createActions();
 
-    QAction *save3DAct;
-    QAction *save2DAct;
-    QAction *exitAct;
-    QAction *helpUsageAct;
-    QAction *helpProjecAct;
-    QLabel *infoLabel;
+  QMenuBar *menuBar;
+  QMenu *fileMenu;
+  QMenu *helpMenu;
+
+  QAction *save3DAct;
+  QAction *save2DAct;
+  QAction *exitAct;
+  QAction *helpUsageAct;
+  QAction *helpProjecAct;
+  QLabel *infoLabel;
+
+  /** Creates the Projection of the 3D Object including Isometric View and Displays it */
+  void createProjections();
 };
 
 #endif // PROJECTIONWINDOW_H

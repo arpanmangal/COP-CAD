@@ -4,15 +4,19 @@
 #include "include/QT/projectionWidget.h"
 #include "include/2D/twoDPoint.h"
 #include "include/2D/Edge.h"
+#include "include/3D/threeDObject.h"
 #include "include/2D/twoDProjection.h"
 #include "include/2D/twoDProjectionView.h"
 #include "include/2D/isometricView.h"
 
+#include <QFileDialog>
+#include <QMessageBox>
+
 // #include <QMenuBar>
 #include <iostream>
 
-ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isometricView *isoView, QWidget *parent) : QWidget(parent),
-                                                                                                                     ui(new Ui::ProjectionWindow)
+ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWidget(parent),
+                                                                            ui(new Ui::ProjectionWindow)
 {
     ui->setupUi(this);
 
@@ -27,6 +31,16 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
     createActions();
     createMenus();
     this->layout()->setMenuBar(menuBar);
+
+    // Set the Object, and the views
+    this->object = object;
+    frontView = new twoDProjection(); // Empty dummpy value
+    topView = new twoDProjection();
+    sideView = new twoDProjection();
+    isoView = new isometricView();
+
+    // Display
+    createProjections();
 
     // Generates a sample 2d data
     // twoDPoint *p1 = new twoDPoint(2.4, 3.4);
@@ -50,7 +64,7 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
     // ui->TopView->update();
 
     // Error checking
-   /* if (orthographicViews != NULL)
+    /* if (orthographicViews != NULL)
     {
         std::cout << "setting ortho views\n";
 
@@ -81,6 +95,10 @@ ProjectionWindow::ProjectionWindow(twoDProjectionView *orthographicViews, isomet
     }*/
 }
 
+ProjectionWindow::~ProjectionWindow()
+{
+    delete ui;
+}
 void ProjectionWindow::createMenus()
 {
     menuBar = new QMenuBar();
@@ -90,8 +108,8 @@ void ProjectionWindow::createMenus()
     menuBar->addMenu(fileMenu);
     menuBar->addMenu(helpMenu);
 
+    fileMenu->addAction(save3DAct);
     fileMenu->addAction(save2DAct);
-    fileMenu->addAction("Save the 2D Orthographic Projections");
     fileMenu->addAction("Close");
 
     helpMenu->addAction("Usage");
@@ -101,18 +119,52 @@ void ProjectionWindow::createMenus()
 void ProjectionWindow::createActions()
 {
 
-    save2DAct = new QAction(tr("Save the 3D Object"), this);
+    save2DAct = new QAction(tr("Save the 2D Orthographic Projections"), this);
     // save2D->setShortcuts(QKeySequence::Save);
     save2DAct->setStatusTip(tr("Save the current orthographic projections into a .cop2D file"));
     connect(save2DAct, &QAction::triggered, this, &ProjectionWindow::save2D);
+
+    save3DAct = new QAction(tr("Save the 3D Object"), this);
+    save3DAct->setStatusTip(tr("Save the current 3D Object into a .cop3D file"));
+    connect(save3DAct, &QAction::triggered, this, &ProjectionWindow::save3D);
 }
 
 void ProjectionWindow::save2D()
 {
-    infoLabel->setText(tr("Invoked <b>Help|About Qt</b>"));
+    // Save the 2D Objects
+
+    // Create the ProjectionView Object
+    twoDProjectionView *orthoProjections = new twoDProjectionView(frontView, topView, sideView);
+
+    // Write into the File
+    QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "2D Orthographic Views (*.cop2D)");
+
+    if (!filename.endsWith(".cop2D"))
+    {
+        filename = filename + ".cop2D";
+    }
+
+    QTextStream cout(stdout);
+    cout << filename;
+
+    // Write the data to the file
+    orthoProjections->filewriter(qPrintable(filename));
 }
+
 void ProjectionWindow::save3D()
 {
+    // Save the Object
+    QString filename = QFileDialog::getSaveFileName(0, tr("Save File"), ".", "3D File (*.cop3D)");
+
+    if (!filename.endsWith(".cop3D"))
+    {
+        filename = filename + ".cop3D";
+    }
+    QTextStream cout(stdout);
+    cout << filename;
+
+    // Write the data to the file
+    object->filewriter(qPrintable(filename));
 }
 void ProjectionWindow::exit()
 {
@@ -124,9 +176,36 @@ void ProjectionWindow::helpProjec()
 {
 }
 
-ProjectionWindow::~ProjectionWindow()
+// Based on the 3D Object, makes its projections
+void ProjectionWindow::createProjections()
 {
-    delete ui;
+    // Delete the old Objects
+    delete frontView;
+    delete topView;
+    delete sideView;
+    delete isoView;
+
+    // Assign new Values
+    isometricView *isoView = object->genIsoView();
+
+    twoDProjection *topView = object->genProjection(1);
+    twoDProjection *frontView = object->genProjection(3);
+    twoDProjection *sideView = object->genProjection(2);
+
+    ui->FrontView->setPointSet(frontView->PointSet);
+    ui->FrontView->setEdgeSet(frontView->EdgeSet);
+    ui->FrontView->update();
+
+    ui->TopView->setPointSet(topView->PointSet);
+    ui->TopView->setEdgeSet(topView->EdgeSet);
+    ui->TopView->update();
+
+    ui->SideView->setPointSet(sideView->PointSet);
+    ui->SideView->setEdgeSet(sideView->EdgeSet);
+    ui->SideView->update();
+
+    ui->IsoView->setPointSet(isoView->pointSet);
+    ui->IsoView->setEdgeSet(isoView->edgeSet);
 }
 
 void ProjectionWindow::on_yaw_valueChanged(int value)

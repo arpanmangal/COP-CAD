@@ -96,7 +96,7 @@ void ChooseFile::chosenObject(threeDObject *object)
     twoDProjectionView *orthoProjections = new twoDProjectionView(frontView, topView, sideView);
     
     // Draw the isometric view
-    ProjectionWindow *window = new ProjectionWindow(orthoProjections, isoView);
+    ProjectionWindow *window = new ProjectionWindow(object);
     window->show();
 
     if (QMessageBox::Yes == QMessageBox::question(this, "Save Orthographic Projections", "Do You wish to save the projections in a file?", QMessageBox::Yes | QMessageBox::No))
@@ -126,7 +126,7 @@ void ChooseFile::chosenProjection(twoDProjectionView *projection)
     isometricView *isoView = object->genIsoView();
 
     // See the projection
-    ProjectionWindow *window = new ProjectionWindow(projection, isoView);
+    ProjectionWindow *window = new ProjectionWindow(object);
     window->show();
 }
 
