@@ -17,7 +17,7 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="InstructionLabel">
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -37,7 +37,7 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
-            <widget class="QLabel" name="label_10">
+            <widget class="QLabel" name="PointLabel_Front">
              <property name="text">
               <string>Enter Point Set for Front View:</string>
              </property>
@@ -68,7 +68,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+                <widget class="QDoubleSpinBox" name="frontA"/>
                </item>
               </layout>
              </item>
@@ -95,7 +95,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+                <widget class="QDoubleSpinBox" name="frontB"/>
                </item>
                <item>
                 <spacer name="horizontalSpacer_3">
@@ -130,14 +130,14 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_13">
              <item>
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="EnterPoint_Front">
                <property name="text">
                 <string>Enter Point</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_2">
+              <widget class="QPushButton" name="FinishPointAdd_Front">
                <property name="text">
                 <string>Point Set Added</string>
                </property>
@@ -163,7 +163,7 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
-            <widget class="QLabel" name="label_13">
+            <widget class="QLabel" name="EdgeLabel_Front">
              <property name="text">
               <string>Enter Edge Set for Front View:</string>
              </property>
@@ -194,7 +194,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBox"/>
+                <widget class="QSpinBox" name="frontStart"/>
                </item>
               </layout>
              </item>
@@ -221,7 +221,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBox_2"/>
+                <widget class="QSpinBox" name="frontEnd"/>
                </item>
                <item>
                 <spacer name="horizontalSpacer_5">
@@ -256,14 +256,14 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_17">
              <item>
-              <widget class="QPushButton" name="pushButton_3">
+              <widget class="QPushButton" name="EnterEdge_Front">
                <property name="text">
                 <string>Enter Edge</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_4">
+              <widget class="QPushButton" name="FinishEdgeAdd_Front">
                <property name="text">
                 <string>Edge Set Added</string>
                </property>
@@ -287,7 +287,7 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_8">
            <item>
-            <widget class="QLabel" name="label_14">
+            <widget class="QLabel" name="PointLabel_Top">
              <property name="text">
               <string>Enter Point Set for Top View:</string>
              </property>
@@ -318,7 +318,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
+                <widget class="QDoubleSpinBox" name="topA"/>
                </item>
               </layout>
              </item>
@@ -345,7 +345,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+                <widget class="QDoubleSpinBox" name="topB"/>
                </item>
                <item>
                 <spacer name="horizontalSpacer_9">
@@ -380,14 +380,14 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_21">
              <item>
-              <widget class="QPushButton" name="pushButton_5">
+              <widget class="QPushButton" name="EnterPoint_Top">
                <property name="text">
                 <string>Enter Point</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_6">
+              <widget class="QPushButton" name="FinishPointAdd_Top">
                <property name="text">
                 <string>Point Set Added</string>
                </property>
@@ -413,7 +413,7 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_9">
            <item>
-            <widget class="QLabel" name="label_17">
+            <widget class="QLabel" name="EdgeLabel_Top">
              <property name="text">
               <string>Enter Edge Set for Top View:</string>
              </property>
@@ -444,7 +444,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBox_3"/>
+                <widget class="QSpinBox" name="topStart"/>
                </item>
               </layout>
              </item>
@@ -471,7 +471,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBox_4"/>
+                <widget class="QSpinBox" name="topEnd"/>
                </item>
                <item>
                 <spacer name="horizontalSpacer_12">
@@ -506,14 +506,14 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_25">
              <item>
-              <widget class="QPushButton" name="pushButton_7">
+              <widget class="QPushButton" name="EnterEdge_Top">
                <property name="text">
                 <string>Enter Edge</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_8">
+              <widget class="QPushButton" name="FinishEdgeAdd_Top">
                <property name="text">
                 <string>Edge Set Added</string>
                </property>
@@ -554,7 +554,7 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_11">
            <item>
-            <widget class="QLabel" name="label_20">
+            <widget class="QLabel" name="PointLabel_Side">
              <property name="text">
               <string>Enter Point Set for Side View:</string>
              </property>
@@ -578,14 +578,14 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="label_21">
+                <widget class="QLabel" name="Alabel_Side">
                  <property name="text">
                   <string>A</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+                <widget class="QDoubleSpinBox" name="sideA"/>
                </item>
               </layout>
              </item>
@@ -605,14 +605,14 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_28">
                <item>
-                <widget class="QLabel" name="label_22">
+                <widget class="QLabel" name="Blabel_Side">
                  <property name="text">
                   <string>B</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
+                <widget class="QDoubleSpinBox" name="sideB"/>
                </item>
                <item>
                 <spacer name="horizontalSpacer_15">
@@ -647,14 +647,14 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_29">
              <item>
-              <widget class="QPushButton" name="pushButton_9">
+              <widget class="QPushButton" name="EnterPoint_Side">
                <property name="text">
                 <string>Enter Point</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_10">
+              <widget class="QPushButton" name="FinishPointAdd_Side">
                <property name="text">
                 <string>Point Set Added</string>
                </property>
@@ -680,7 +680,7 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_12">
            <item>
-            <widget class="QLabel" name="label_23">
+            <widget class="QLabel" name="EdgeLabel_Side">
              <property name="text">
               <string>Enter Edge Set for Side View:</string>
              </property>
@@ -704,14 +704,14 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="label_24">
+                <widget class="QLabel" name="StartLabel_Side">
                  <property name="text">
                   <string>Start</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBox_5"/>
+                <widget class="QSpinBox" name="sideStart"/>
                </item>
               </layout>
              </item>
@@ -731,14 +731,14 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="label_25">
+                <widget class="QLabel" name="EndLabel_Side">
                  <property name="text">
                   <string>End</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="spinBox_6"/>
+                <widget class="QSpinBox" name="sideEnd"/>
                </item>
                <item>
                 <spacer name="horizontalSpacer_18">
@@ -773,14 +773,14 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_33">
              <item>
-              <widget class="QPushButton" name="pushButton_11">
+              <widget class="QPushButton" name="EnterEdge_Side">
                <property name="text">
                 <string>Enter Edge</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_12">
+              <widget class="QPushButton" name="FinishEdgeAdd_Side">
                <property name="text">
                 <string>Edge Set Added</string>
                </property>
@@ -818,6 +818,13 @@
       </layout>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="ContinueButton">
+     <property name="text">
+      <string>Continue</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="Line" name="line_2">

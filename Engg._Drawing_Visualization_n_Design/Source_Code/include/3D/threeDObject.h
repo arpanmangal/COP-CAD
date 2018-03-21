@@ -66,13 +66,13 @@ public:
 	void filewriter(const char * path);
 
   /**Accepts values of rotation along X axis and rotates the object accordingly*/
-  void threeDObject::rotationalTransformationX(float alpha_x);
+  void rotationalTransformationX(float alpha_x);
 
   /**Accepts values of rotation along Y axis and rotates the object accordingly*/
-  void threeDObject::rotationalTransformationY(float alpha_y);
+  void rotationalTransformationY(float alpha_y);
 
   /**Accepts values of rotation along Z axis and rotates the object accordingly*/
-  void threeDObject::rotationalTransformationZ(float alpha_z);
+  void rotationalTransformationZ(float alpha_z);
 };
 
 #endif // __THREEDOBJECT_H_INCLUDED__

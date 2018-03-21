@@ -11,7 +11,7 @@ InputWindowThreeD::InputWindowThreeD(QWidget *parent) : QWidget(parent),
 {
     ui->setupUi(this);
 
-    QString instruction = ("<h3>Enter Data for 3D Object </h3> Please enter point set and edge set for the 3D Object after clicking 'Enter Data' <br>");
+    QString instruction = ("<h3>Enter Data for 3D Object </h3> Please enter point set and edge set for the 3D Object.<br>");
 
     ui->InstructionLabel->setText(instruction);
     setupButtons();
@@ -59,6 +59,8 @@ void InputWindowThreeD::on_finishPointAddition_clicked()
     ui->EndEdge->setEnabled(true);
     ui->enterEdge->setEnabled(true);
 
+    ui->StartEdge->setRange(1, points.size());
+    ui->EndEdge->setRange(1, points.size());
     ui->StartEdge->setValue(1);
     ui->EndEdge->setValue(points.size());
 }

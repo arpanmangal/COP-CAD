@@ -209,7 +209,7 @@
          <item>
           <widget class="QLabel" name="label_7">
            <property name="text">
-            <string>Enter Edge Set:</string>
+            <string>Enter Edge Set (no self loops):</string>
            </property>
           </widget>
          </item>
@@ -238,7 +238,14 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="StartEdge"/>
+              <widget class="QSpinBox" name="StartEdge">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>1</number>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -265,7 +272,17 @@
               </widget>
              </item>
              <item>
-              <widget class="QSpinBox" name="EndEdge"/>
+              <widget class="QSpinBox" name="EndEdge">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>1</number>
+               </property>
+               <property name="singleStep">
+                <number>0</number>
+               </property>
+              </widget>
              </item>
              <item>
               <spacer name="horizontalSpacer_5">

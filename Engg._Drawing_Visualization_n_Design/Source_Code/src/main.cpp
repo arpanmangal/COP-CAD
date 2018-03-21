@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     MainWindow window;
     window.show();
 
-    InputWindowTwoD w2;
+    InputWindowTwoD w2(2);
     w2.show();
 
     InputWindowThreeD *w3 = new InputWindowThreeD();
