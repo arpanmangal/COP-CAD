@@ -15,6 +15,17 @@ public:
     explicit InputWindowThreeD(QWidget *parent = 0);
     ~InputWindowThreeD();
 
+private slots:
+    void on_enterPoint_clicked();
+
+    void on_finishPointAddition_clicked();
+
+    void on_enterEdge_clicked();
+
+    void on_finishEdgeAddition_clicked();
+
+    void on_ContinueButton_clicked();
+
 private:
     Ui::InputWindowThreeD *ui;
 };
