@@ -19,11 +19,6 @@ twoDInput::~twoDInput()
     // empty destructor
 }
 
-void twoDInput::addPoint(twoDPoint *const &point)
-{
-    pointSet.push_back(point);
-}
-
 // TODO: Check duplicate Edge
 void twoDInput::addEdge(int start, int end)
 {
@@ -38,97 +33,6 @@ void twoDInput::addEdge(int start, int end)
         // valid points start and end
         edgeSet.push_back(new Edge(start, end));
     }
-}
-
-// Point input function
-void twoDInput::inputPoints()
-{
-    int n = 0;
-    float x, y;
-    //cout << "Please Enter the Points as x, y Pairs:\n(Enter x = -1.25 for stopping)" << std::endl;
-
-    // May need to do this => pointSet.resize(0);
-    twoDPoint *point;
-    do
-    {
-        cout << "\nEnter " + std::to_string(++n) + "th point:" << std::endl;
-
-        cout << "Enter x: ";
-        cin >> x;
-
-        cout << "Enter y: ";
-        cin >> y;
-
-        point = new twoDPoint(x, y);
-
-        pointSet.push_back(point);
-
-    } while (x != -1.25);
-
-    pointSet.pop_back();
-    twoDPoint *p;
-    for (int i = 0; i < pointSet.size(); i++)
-    {
-        p = pointSet.at(i);
-        cout << i << " " << p->a << " " << p->b << "\n";
-    }
-
-    // Ask user whether he is satisfied with his choices.
-    // If yes return, else retake the input;
-}
-
-// Edge input function
-void twoDInput::inputEdges()
-{
-    int n = 0;
-    int start, end;
-    cout << "Please Enter the Edges as (start, end) Pairs" << endl;
-
-    // May need to do this => edgeSet.resize(0);
-
-    int numPoints = pointSet.size();
-
-    if (numPoints < 2)
-    {
-        cout << "\nGo Away!!" << std::endl;
-        return;
-    }
-
-    do
-    {
-        cout << "\nEnter " + std::to_string(n + 1) + "th edge:" << std::endl;
-
-        cout << "Enter start: ";
-        cin >> start;
-
-        cout << "Enter end: ";
-        cin >> end;
-
-        if (start == end)
-        {
-            // End of Input
-            break;
-        }
-        else
-        {
-            try
-            {
-                addEdge(start - 1, end - 1);
-            }
-            catch (std::string e)
-            {
-                // invalid edge
-
-                cout << "Invalid Edge!!" << std::endl;
-                continue;
-            }
-        }
-
-        n++;
-    } while (true);
-
-    // Ask user whether he is satisfied with his choices.
-    // If yes return, else retake the input;
 }
 
 twoDProjectionView *twoDInput::getProjectionDrawing(const char * path)
@@ -199,12 +103,6 @@ twoDProjectionView *twoDInput::getProjectionDrawing(const char * path)
         pointSet.push_back(point);
     }
 
-    /* for (int i = 0; i < pointSet.size(); i++)
-    {
-        point = pointSet.at(i);
-        cout << i << " " << point->a << " " << point->b << "\n";
-    } */
-
     if (number_of_points < 2)
     {
         cout << "\nGo Away! Too Less points !!" << std::endl;
@@ -247,13 +145,6 @@ twoDProjectionView *twoDInput::getProjectionDrawing(const char * path)
             file >> x >> y;
             point = new twoDPoint(y, x);
             pointSet.push_back(point);
-        }
-        cout<<pointSet.size()<<endl;
-        for (int i = 0; i < pointSet.size(); i++)
-        {
-            point = pointSet.at(i);
-            cout<<i;
-            cout << i << " " << point->a << " " << point->b << "\n";
         }
         
         int start, end;

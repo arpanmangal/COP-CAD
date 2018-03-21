@@ -14,7 +14,3 @@ threeDPoint::~threeDPoint()
     // Empty Destructor
 }
 
-float threeDPoint::norm()
-{
-    return sqrt(x * x + y * y + z * z);
-}

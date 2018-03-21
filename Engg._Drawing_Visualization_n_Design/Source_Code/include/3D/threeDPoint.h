@@ -23,8 +23,6 @@ public:
   /** Destructor */
   ~threeDPoint();
 
-  /** returns norm of the point */
-  float norm();
 };
 
 #endif // __THREEDPOINT_H_INCLUDED__

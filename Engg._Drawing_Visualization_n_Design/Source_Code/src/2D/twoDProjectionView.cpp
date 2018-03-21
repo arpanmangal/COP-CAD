@@ -155,9 +155,6 @@ EdgeVector3D twoDProjectionView::edgeReconstruction()
 	return retVal;
 }
 
-/**removes edges which are redundant*/
-//EdgeVector3D pruneEdges(EdgeVector3D e);
-
 threeDObject *twoDProjectionView::create3Dmodel()
 {
 	threeDObject *retVal = new threeDObject();

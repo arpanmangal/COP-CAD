@@ -21,32 +21,6 @@ void twoDProjection::add_edgeSetfrom3D(EdgeVector2D const &a){
 	EdgeSet =a;
 }
 
-// void twoDProjection::cleanPointSet()
-// {
-// 	for (int i = 0; i < PointSet.size(); i++)
-// 	{
-// 		for (int j = i; j < PointSet.size(); j++)
-// 		{
-// 			if (*PointSet.at(i)==*PointSet.at(j)){
-// 				PointSet.erase(PointSet.begin() + j);
-// 			}
-// 		}
-// 	}
-// }
-
-// void twoDProjection::cleanEdgeSet()
-// {
-// 	for (int i = 0; i < EdgeSet.size(); i++)
-// 	{
-// 		for (int j = i; j < EdgeSet.size(); j++)
-// 		{
-// 			if (*EdgeSet.at(i)==*EdgeSet.at(j)){
-// 				EdgeSet.erase(EdgeSet.begin() + j);
-// 			}
-// 		}
-// 	}
-// }
-
 void twoDProjection::edgeCollinearityCheck()
 {
 	int start_ind, end_ind;
@@ -74,16 +48,7 @@ void twoDProjection::edgeCollinearityCheck()
 			}
 		}
 	}
-	/* std::cout<<"Printing coincidency\n";
-	for (int i=0;i<size;i++)
-	{
-		for (int j=0;j<size;j++)
-		{
-			std::cout<<coincidency_matrix[i][j]<<" ";
-			
-		}
-		std::cout<<std::endl;
-	} */
+
 
 	for (int i = 0; i < EdgeSet.size(); i++)
 	{
@@ -91,19 +56,7 @@ void twoDProjection::edgeCollinearityCheck()
 		end_ind = EdgeSet.at(i)->end_index;
 		adjacency_matrix[start_ind][end_ind] = 1;
 		adjacency_matrix[end_ind][start_ind] = 1;
-		/* for (int j = 0; j < size; j++)
-		{
-			if (coincidency_matrix[start_ind][j] == 1)
-			{
-				adjacency_matrix[j][end_ind] = 1;
-				adjacency_matrix[end_ind][j] = 1;
-			}
-			if (coincidency_matrix[end_ind][j] == 1)
-			{
-				adjacency_matrix[j][start_ind] = 1;
-				adjacency_matrix[start_ind][j] = 1;
-			}
-		} */
+
 		for (int j = 0; j < size; j++)
 		{
 			for (int k = 0; k < size; k++)

@@ -28,11 +28,8 @@ class twoDProjection
 	/**Accepts of edgevector from 3D object, and assigns straightaway without running collinearity check*/
 	void add_edgeSetfrom3D(EdgeVector2D const &a);
 
-	//void cleanEdgeSet();
-	/*finds all possible line segments in a 2D edge which can for edges in 3D*/
-	//EdgeVector2D edgeSegmentation();
 
-	/*finds all possible line segments in a 2D edge which can for edges in 3D*/
+	/*Finds all possible line segments in a 2D edge which can potentially be an edges in 3D object*/
 	void edgeCollinearityCheck();
 
 	/**Prints EdgeSet and PointSet of the projection*/

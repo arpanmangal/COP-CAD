@@ -30,14 +30,15 @@ class twoDProjectionView
 	twoDProjection *sideview;
 
   public:
+
+	/**Constructor for initiatilising object with three views*/
 	twoDProjectionView(twoDProjection *f, twoDProjection *t, twoDProjection *s);
+
+	/**Constructor for intialising object with two view*/
 	twoDProjectionView(twoDProjection *f, twoDProjection *t);
 
 	/**Projects a point in 3D space*/
 	PointVector3D pointReconstruction();
-
-	/*finds edges which are compatible in all the three views*/
-	//EdgeVector2D edgeIdentification();
 
 	/**Checks whether an edge is compatible across projections*/
 	bool checkEdgeCompatibility_2views(Edge &e);
@@ -48,7 +49,7 @@ class twoDProjectionView
 	/**Projects edges in 3D space*/
 	EdgeVector3D edgeReconstruction();
 
-	/**Removes edges which are redundant*/
+	/**Removes edges which are redundant - To be implemented in future versions if any*/
 	EdgeVector3D pruneEdges(EdgeVector3D const &e);
 
 	/**Function to convert an Orthographic Porojections Drawing to 3D Model*/
