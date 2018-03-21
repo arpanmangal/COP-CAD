@@ -14,6 +14,7 @@ InputWindowTwoD::InputWindowTwoD(int num_views, QWidget *parent) : QWidget(paren
 {
     ui->setupUi(this);
     this->num_views = (num_views == 2) ? 2 : 3;
+    setWindowTitle("Enter Orthographic Views");
 
     QString instruction = ("<h3>Enter Data for 2D Object </h3> Please enter point set and edge set for the 2D Object. <br>");
     ui->InstructionLabel->setText(instruction);

@@ -2,15 +2,17 @@
 #include "ui_inputmode.h"
 
 #include "include/QT/choosefile.h"
-#include "include/QT/enterdata.h"
+#include "include/QT/inputwindowtwod.h"
+#include "include/QT/inputwindowthreed.h"
 
+#include <QInputDialog>
 InputMode::InputMode(int mode, QWidget *parent) : QWidget(parent),
                                                   ui(new Ui::InputMode)
 {
     ui->setupUi(this);
     setWindowTitle(tr("Input Mode"));
 
-    this->mode = mode;
+    this->mode = (mode == 2) ? 2 : 3;
 }
 
 InputMode::~InputMode()
@@ -31,8 +33,25 @@ void InputMode::on_submit_clicked()
     else
     {
         // The User wants to enter the data manually
-        EnterData *enter_data = new EnterData(mode);
-        enter_data->show();
+        if (mode == 2)
+        {
+            // Ask the user for the number of views
+            int num_views = 0;
+            while (num_views != 2 && num_views != 3)
+            {
+                num_views = QInputDialog::getInt(0, "View Count", "Please enter number of views: (2 or 3)", 2);
+            }
+
+            // Create a 2D input window
+            InputWindowTwoD* window2D = new InputWindowTwoD(num_views);
+            window2D->show();
+        }
+        else
+        {
+            // The user wants to enter 3D Object
+            InputWindowThreeD *window3D = new InputWindowThreeD();
+            window3D->show();
+        }
     }
 
     // Destroy Self

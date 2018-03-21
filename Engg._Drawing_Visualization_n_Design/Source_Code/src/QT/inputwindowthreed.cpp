@@ -10,6 +10,7 @@ InputWindowThreeD::InputWindowThreeD(QWidget *parent) : QWidget(parent),
                                                         ui(new Ui::InputWindowThreeD)
 {
     ui->setupUi(this);
+    setWindowTitle("Enter 3D Object");
 
     QString instruction = ("<h3>Enter Data for 3D Object </h3> Please enter point set and edge set for the 3D Object.<br>");
 

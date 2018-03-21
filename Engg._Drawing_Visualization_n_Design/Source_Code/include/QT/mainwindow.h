@@ -2,8 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "include/QT/twoDWindow.h"
-#include "include/QT/inputmode.h"
 
 namespace Ui
 {

@@ -9,7 +9,6 @@
 
 #include <QFileDialog>
 #include <QMessageBox>
-#include <iostream>
 
 ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWidget(parent),
                                                                             ui(new Ui::ProjectionWindow)

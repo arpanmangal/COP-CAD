@@ -4,6 +4,8 @@
 #include <QCloseEvent>
 #include <QMessageBox>
 
+#include "include/QT/inputmode.h"
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
                                           ui(new Ui::MainWindow)
 {

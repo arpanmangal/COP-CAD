@@ -1,10 +1,7 @@
 #include "include/QT/projectionWidget.h"
 
-// #include <QPainter>
 #include "include/2D/twoDPoint.h"
 #include "include/2D/Edge.h"
-
-#include <iostream>
 
 ProjectionWidget::ProjectionWidget(QWidget *parent)
     : QWidget(parent)
@@ -18,13 +15,9 @@ void ProjectionWidget::paintEvent(QPaintEvent *event)
 {
     // Assign the QPainter
     painter2D = new QPainter(this);
-    // QPainter painter;
-    // painter.begin(this);
-    // painter.drawLine(10, 10, 100, 100);
 
     QRect rec(0, 0, 699, 449);
     painter2D->drawRect(rec);
-    // painter.end();
 
     makeDrawing(); // Draw the edges and points
 }
