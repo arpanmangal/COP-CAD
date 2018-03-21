@@ -40,7 +40,7 @@ void InputWindowThreeD::on_enterPoint_clicked()
     ui->Ypoint->setValue(0);
     ui->Zpoint->setValue(0);
 
-    if (points.size() > 2)
+    if (points.size() >= 2)
     {
         // Minimum 2 points required
         ui->finishPointAddition->setEnabled(true);
@@ -81,10 +81,10 @@ void InputWindowThreeD::on_enterEdge_clicked()
     {
         // Push it
         edges.push_back(new Edge(start - 1, end - 1));
-    }
 
-    // Unlock end edge
-    ui->finishEdgeAddition->setEnabled(true);
+        // Unlock end edge
+        ui->finishEdgeAddition->setEnabled(true);
+    }
 }
 
 void InputWindowThreeD::on_finishEdgeAddition_clicked()
@@ -100,11 +100,11 @@ void InputWindowThreeD::on_finishEdgeAddition_clicked()
 void InputWindowThreeD::on_ContinueButton_clicked()
 {
     // Generate the 3D Object, and send to projection window
-    threeDObject * object = new threeDObject();
+    threeDObject *object = new threeDObject();
     object->addPointSet(points);
     object->addEdgeSet(edges);
 
-    ProjectionWindow * window = new ProjectionWindow(object);
+    ProjectionWindow *window = new ProjectionWindow(object);
     window->show();
 
     // Self Destruct
