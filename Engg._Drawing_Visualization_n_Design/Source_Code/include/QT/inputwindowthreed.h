@@ -2,6 +2,7 @@
 #define INPUTWINDOWTHREED_H
 
 #include <QWidget>
+#include "include/common.h"
 
 namespace Ui {
 class InputWindowThreeD;
@@ -28,6 +29,13 @@ private slots:
 
 private:
     Ui::InputWindowThreeD *ui;
+
+    // Objects
+    PointVector3D points;
+    EdgeVector3D edges;
+
+    /** Sets up buttons */
+    void setupButtons();
 };
 
 #endif // INPUTWINDOWTHREED_H

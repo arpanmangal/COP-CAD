@@ -289,7 +289,7 @@
            <item>
             <widget class="QLabel" name="label_14">
              <property name="text">
-              <string>Enter Point Set for Front View:</string>
+              <string>Enter Point Set for Top View:</string>
              </property>
             </widget>
            </item>
@@ -415,7 +415,7 @@
            <item>
             <widget class="QLabel" name="label_17">
              <property name="text">
-              <string>Enter Edge Set for Front View:</string>
+              <string>Enter Edge Set for Top View:</string>
              </property>
             </widget>
            </item>
@@ -556,7 +556,7 @@
            <item>
             <widget class="QLabel" name="label_20">
              <property name="text">
-              <string>Enter Point Set for Front View:</string>
+              <string>Enter Point Set for Side View:</string>
              </property>
             </widget>
            </item>
@@ -682,7 +682,7 @@
            <item>
             <widget class="QLabel" name="label_23">
              <property name="text">
-              <string>Enter Edge Set for Front View:</string>
+              <string>Enter Edge Set for Side View:</string>
              </property>
             </widget>
            </item>

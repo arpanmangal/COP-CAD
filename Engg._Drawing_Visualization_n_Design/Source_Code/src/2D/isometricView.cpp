@@ -34,5 +34,5 @@ isometricView::isometricView(PointVector3D const & p, EdgeVector3D const & e)
 
     edgeSet = e;
 
-    std::cout << "in iso view, num_points = " << pointSet.size() << ", num_edges = " << edgeSet.size() << std::endl;
+    // std::cout << "in iso view, num_points = " << pointSet.size() << ", num_edges = " << edgeSet.size() << std::endl;
 }

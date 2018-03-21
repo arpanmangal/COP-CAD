@@ -12,7 +12,7 @@
 #include "include/QT/projectionwindow.h"
 #include "include/QT/inputwindowtwod.h"
 #include "include/QT/inputwindowthreed.h"
-
+#include <iostream>
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
     InputWindowTwoD w2;
     w2.show();
 
-    InputWindowThreeD w3;
-    w3.show();
+    InputWindowThreeD *w3 = new InputWindowThreeD();
+    w3->show();
 
     // twoDWindow *win = new twoDWindow();
     // win->show();

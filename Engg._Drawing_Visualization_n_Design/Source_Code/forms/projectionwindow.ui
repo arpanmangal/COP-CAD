@@ -19,7 +19,7 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -73,7 +73,7 @@
          <item>
           <widget class="QSlider" name="Yrotate">
            <property name="maximum">
-            <number>35</number>
+            <number>179</number>
            </property>
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -107,7 +107,7 @@
          <item>
           <widget class="QSlider" name="Zrotate">
            <property name="maximum">
-            <number>35</number>
+            <number>179</number>
            </property>
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -138,7 +138,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">

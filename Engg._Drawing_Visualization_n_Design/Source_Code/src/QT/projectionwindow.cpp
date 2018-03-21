@@ -9,6 +9,7 @@
 
 #include <QFileDialog>
 #include <QMessageBox>
+#include <iostream>
 
 ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWidget(parent),
                                                                             ui(new Ui::ProjectionWindow)
@@ -29,6 +30,9 @@ ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWid
     topView = new twoDProjection();
     sideView = new twoDProjection();
     isoView = new isometricView();
+
+    // Initialisations
+    Xval = Yval = Zval = 0;
 
     // Display
     createProjections();
@@ -164,18 +168,22 @@ void ProjectionWindow::createProjections()
 // Slots
 void ProjectionWindow::on_Xrotate_valueChanged(int value)
 {
-    object->rotationalTransformationX(value * 3.142 / 90);
+
+    object->rotationalTransformationX((value - Xval) * 3.142 / 90);
+    Xval = value;
     createProjections();
 }
 
 void ProjectionWindow::on_Yrotate_valueChanged(int value)
 {
-    object->rotationalTransformationY(value * 3.142 / 90);
+    object->rotationalTransformationY((value - Yval) * 3.142 / 90);
+    Yval = value;
     createProjections();
 }
 
 void ProjectionWindow::on_Zrotate_valueChanged(int value)
 {
-    object->rotationalTransformationZ(value * 3.142 / 90);
+    object->rotationalTransformationZ((value - Zval) * 3.142 / 90);
+    Zval = value;
     createProjections();
 }

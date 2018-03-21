@@ -32,7 +32,6 @@ void ProjectionWidget::paintEvent(QPaintEvent *event)
 // Setters
 void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
 {
-    std::cout << "inside set Pointset \n";
     pointSet = pointVect;
     
     // Do a rescaling of points

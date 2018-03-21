@@ -49,9 +49,9 @@ private:
   isometricView *isoView;
 
   // Object Angles
-  int yaw;
-  int pitch;
-  int roll;
+  int Xval;
+  int Yval;
+  int Zval;
 
   /** Create Actions */
   void createMenus();
