@@ -17,7 +17,7 @@ public:
   EdgeVector2D edgeSet; // Should ONLY have points from pointSet
 
   // functions
-  /** Empty Constructor */
+  /** Default Constructor */
   isometricView(){};
 
   /** Constructs the Isometric View from given 3D Point Set and Edge Set */

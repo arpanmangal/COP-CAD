@@ -22,10 +22,10 @@ private:
 public:
   // functions
 
-  /** constructor: initialises pointSet and edgeSet to empty vectors */
+  /** Constructor: initialises pointSet and edgeSet to empty vectors */
   threeDObject();
 
-  /** destructor: simply let pointSet and edgeSet go out of scope */
+  /** Destructor: simply let pointSet and edgeSet go out of scope */
   ~threeDObject();
 
 
@@ -44,16 +44,7 @@ public:
   void translate(threeDPoint * const &O);
 
 
-  /** The Rotate function takes a rotation matrix as input as a 3*3 array
-   * It applies the rotation matrix to each and every point of the point Set.
-   * Since points are pointers to actual points, it will modify actual points, in turn automatically modifying the edges and the current object.
-   * It's the job of the controller to provide the rotation matrix 
-   */
-  void rotate(float rotMatrix[3][3]);
-
-  /** Yet to decide how flip matrix will look */
-  void flip(int flipMatrix[][3]);
-
+  /**Prints the object onto console*/
   void printer();
 
   /* Projections */
@@ -74,13 +65,13 @@ public:
   /**Writes the object to file*/
 	void filewriter(const char * path);
 
-  /**Accepts values of rotation along X, Y and Z axes and rotates the object accordingly*/
-  void rotationalTransformation(float alpha_x, float alpha_y, float alpha_z);
-
+  /**Accepts values of rotation along X axis and rotates the object accordingly*/
   void threeDObject::rotationalTransformationX(float alpha_x);
 
+  /**Accepts values of rotation along Y axis and rotates the object accordingly*/
   void threeDObject::rotationalTransformationY(float alpha_y);
 
+  /**Accepts values of rotation along Z axis and rotates the object accordingly*/
   void threeDObject::rotationalTransformationZ(float alpha_z);
 };
 
