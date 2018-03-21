@@ -10,12 +10,20 @@
 
 // #include "include/QT/twoDWindow.h"
 #include "include/QT/projectionwindow.h"
+#include "include/QT/inputwindowtwod.h"
+#include "include/QT/inputwindowthreed.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     MainWindow window;
     window.show();
+
+    InputWindowTwoD w2;
+    w2.show();
+
+    InputWindowThreeD w3;
+    w3.show();
 
     // twoDWindow *win = new twoDWindow();
     // win->show();

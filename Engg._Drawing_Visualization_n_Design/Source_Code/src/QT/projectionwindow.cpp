@@ -2,8 +2,6 @@
 #include "ui_projectionwindow.h"
 
 #include "include/QT/projectionWidget.h"
-#include "include/2D/twoDPoint.h"
-#include "include/2D/Edge.h"
 #include "include/3D/threeDObject.h"
 #include "include/2D/twoDProjection.h"
 #include "include/2D/twoDProjectionView.h"
@@ -12,22 +10,15 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
-// #include <QMenuBar>
-#include <iostream>
-
 ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWidget(parent),
                                                                             ui(new Ui::ProjectionWindow)
 {
     ui->setupUi(this);
 
-    // ui->TopView->show();
-    // ui->FrontView->paintEvent();
-
     this->setWindowTitle("COP CAD");
-    std::cout << "Success";
 
     // Set Menu
-    infoLabel = new QLabel(tr("<i style=color: red >Choose a menu option, or right-click to invoke a context menu</i>"));
+    // infoLabel = new QLabel(tr("<i style=color: red >Choose a menu option, or right-click to invoke a context menu</i>"));
     createActions();
     createMenus();
     this->layout()->setMenuBar(menuBar);
@@ -41,58 +32,6 @@ ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWid
 
     // Display
     createProjections();
-
-    // Generates a sample 2d data
-    // twoDPoint *p1 = new twoDPoint(2.4, 3.4);
-    // twoDPoint *p2 = new twoDPoint(50.4, 10.6);
-    // twoDPoint *p3 = new twoDPoint(20.45, 50.34);
-    // twoDPoint *p4 = new twoDPoint(180.23, 269.3);
-
-    // PointVector2D points;
-    // points.push_back(p1);
-    // points.push_back(p2);
-    // points.push_back(p3);
-    // points.push_back(p4);
-
-    // EdgeVector2D edges;
-    // edges.push_back (new Edge(0, 1));
-    // edges.push_back (new Edge(1, 2));
-    // edges.push_back (new Edge(1, 3));
-
-    // ui->TopView->setPointSet(points);
-    // ui->TopView->setEdgeSet(edges);
-    // ui->TopView->update();
-
-    // Error checking
-    /* if (orthographicViews != NULL)
-    {
-        std::cout << "setting ortho views\n";
-
-        twoDProjection *frontView = orthographicViews->frontview;
-        twoDProjection *topView = orthographicViews->topview;
-        twoDProjection *sideView = orthographicViews->sideview;
-
-        ui->FrontView->setPointSet(frontView->PointSet);
-        ui->FrontView->setEdgeSet(frontView->EdgeSet);
-        ui->FrontView->update();
-
-        ui->TopView->setPointSet(topView->PointSet);
-        ui->TopView->setEdgeSet(topView->EdgeSet);
-        ui->TopView->update();
-
-        if (sideView != NULL)
-        {
-            ui->SideView->setPointSet(sideView->PointSet);
-            ui->SideView->setEdgeSet(sideView->EdgeSet);
-            ui->SideView->update();
-        }
-    }
-
-    if (isoView != NULL)
-    {
-        ui->IsoView->setPointSet(isoView->pointSet);
-        ui->IsoView->setEdgeSet(isoView->edgeSet);
-    }*/
 }
 
 ProjectionWindow::~ProjectionWindow()
@@ -110,10 +49,10 @@ void ProjectionWindow::createMenus()
 
     fileMenu->addAction(save3DAct);
     fileMenu->addAction(save2DAct);
-    fileMenu->addAction("Close");
+    fileMenu->addAction(exitAct);
 
-    helpMenu->addAction("Usage");
-    helpMenu->addAction("Orthographic Projections");
+    helpMenu->addAction(helpUsageAct);
+    helpMenu->addAction(helpProjecAct);
 }
 
 void ProjectionWindow::createActions()
@@ -125,8 +64,22 @@ void ProjectionWindow::createActions()
     connect(save2DAct, &QAction::triggered, this, &ProjectionWindow::save2D);
 
     save3DAct = new QAction(tr("Save the 3D Object"), this);
+    save3DAct->setShortcuts(QKeySequence::Save);
     save3DAct->setStatusTip(tr("Save the current 3D Object into a .cop3D file"));
     connect(save3DAct, &QAction::triggered, this, &ProjectionWindow::save3D);
+
+    exitAct = new QAction(tr("Close"), this);
+    exitAct->setShortcuts(QKeySequence::Quit);
+    exitAct->setStatusTip(tr("Exit the Views"));
+    connect(exitAct, &QAction::triggered, this, &ProjectionWindow::exit);
+
+    helpUsageAct = new QAction(tr("Usage"), this);
+    helpUsageAct->setStatusTip(tr("How to use"));
+    connect(helpUsageAct, &QAction::triggered, this, &ProjectionWindow::helpUsage);
+
+    helpProjecAct = new QAction(tr("Orthographic Projections"), this);
+    helpProjecAct->setStatusTip(tr("About Orthographic Projections"));
+    connect(helpProjecAct, &QAction::triggered, this, &ProjectionWindow::helpProjec);
 }
 
 void ProjectionWindow::save2D()
@@ -144,9 +97,6 @@ void ProjectionWindow::save2D()
         filename = filename + ".cop2D";
     }
 
-    QTextStream cout(stdout);
-    cout << filename;
-
     // Write the data to the file
     orthoProjections->filewriter(qPrintable(filename));
 }
@@ -160,20 +110,22 @@ void ProjectionWindow::save3D()
     {
         filename = filename + ".cop3D";
     }
-    QTextStream cout(stdout);
-    cout << filename;
 
     // Write the data to the file
     object->filewriter(qPrintable(filename));
 }
 void ProjectionWindow::exit()
 {
+    // Self Destruct
+    this->~ProjectionWindow();
 }
 void ProjectionWindow::helpUsage()
 {
+    QMessageBox::information(this, "Usage", "Information");
 }
 void ProjectionWindow::helpProjec()
 {
+    QMessageBox::information(this, "About Orthographic Projections", "Help");
 }
 
 // Based on the 3D Object, makes its projections
@@ -192,8 +144,6 @@ void ProjectionWindow::createProjections()
     frontView = object->genProjection(3);
     sideView = object->genProjection(2);
 
-    std::cout << "view generated" << std::endl;
-
     ui->FrontView->setPointSet(frontView->PointSet);
     ui->FrontView->setEdgeSet(frontView->EdgeSet);
     ui->FrontView->update();
@@ -209,64 +159,23 @@ void ProjectionWindow::createProjections()
     ui->IsoView->setPointSet(isoView->pointSet);
     ui->IsoView->setEdgeSet(isoView->edgeSet);
     ui->IsoView->update();
-
-    std::cout << "Rendered views\n";
-    
 }
 
-// void ProjectionWindow::on_yaw_valueChanged(int value)
-// {
-//     object->rotationalTransformation(value * 3.142 / 5, 0, 0);
-//     createProjections();
-//     // object->printer();
-// }
-
-// void ProjectionWindow::on_pitch_valueChanged(int value)
-// {
-// }
-
-// void ProjectionWindow::on_roll_valueChanged(int value)
-// {
-// }
-
-void ProjectionWindow::on_yaw_sliderPressed()
+// Slots
+void ProjectionWindow::on_Xrotate_valueChanged(int value)
 {
-    yaw = ui->yaw->value();
-}
-
-void ProjectionWindow::on_pitch_sliderPressed()
-{
-    pitch = ui->pitch->value();
-}
-
-void ProjectionWindow::on_roll_sliderPressed()
-{
-    roll = ui->roll->value();
-}
-
-void ProjectionWindow::on_yaw_sliderReleased()
-{
-    int old_yaw = yaw;
-    yaw = ui->yaw->value();
-    object->rotationalTransformationX((yaw - old_yaw) * 3.142 / 18 );
-    // object->printer();
+    object->rotationalTransformationX(value * 3.142 / 90);
     createProjections();
 }
 
-void ProjectionWindow::on_pitch_sliderReleased()
+void ProjectionWindow::on_Yrotate_valueChanged(int value)
 {
-    int old_pitch = pitch;
-    pitch = ui->pitch->value();
-    object->rotationalTransformationY((pitch - old_pitch) * 3.142 / 18);
-    // object->printer();
+    object->rotationalTransformationY(value * 3.142 / 90);
     createProjections();
 }
 
-void ProjectionWindow::on_roll_sliderReleased()
+void ProjectionWindow::on_Zrotate_valueChanged(int value)
 {
-    int old_roll = roll;
-    roll = ui->roll->value();
-    object->rotationalTransformationZ((roll - old_roll) * 3.142 / 18);
-    // object->printer();
+    object->rotationalTransformationZ(value * 3.142 / 90);
     createProjections();
 }

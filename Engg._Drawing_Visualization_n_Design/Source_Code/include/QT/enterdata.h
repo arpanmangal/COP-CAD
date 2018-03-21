@@ -22,13 +22,28 @@ class EnterData : public QWidget
     ~EnterData();
 
   private slots:
-    void on_start_clicked();
+    // void on_start_clicked();
 
-  private:
+    // void on_pushButton_clicked();
+
+    void on_ContinueButton_clicked();
+
+    void on_enterPoint_clicked();
+
+    void on_finishPointAddition_clicked();
+
+    void on_enterEdge_clicked();
+
+    void on_finishEdgeAddition_clicked();
+
+private:
     Ui::EnterData *ui;
 
     QWidget *my_parent;
     int mode;
+
+    /** Sets appropriate buttons as disabled in the start */
+    void setupButtons();
 
     /** Prompts User for entering an Edge */
     Edge *enterEdge(int index, int pointSetSize);
