@@ -147,7 +147,7 @@
            <item>
             <widget class="QLabel" name="label">
              <property name="text">
-              <string>Side View</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Side View&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -161,12 +161,12 @@
            <item>
             <widget class="QLabel" name="label_4">
              <property name="text">
-              <string>Top View</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Front View&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="ProjectionWidget" name="TopView" native="true"/>
+            <widget class="ProjectionWidget" name="FrontView" native="true"/>
            </item>
           </layout>
          </item>
@@ -192,7 +192,7 @@
            <item>
             <widget class="QLabel" name="label_2">
              <property name="text">
-              <string>Isometric View</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Isometric View&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -206,12 +206,12 @@
            <item>
             <widget class="QLabel" name="label_3">
              <property name="text">
-              <string>Front View</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Top View&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="ProjectionWidget" name="FrontView" native="true"/>
+            <widget class="ProjectionWidget" name="TopView" native="true"/>
            </item>
           </layout>
          </item>

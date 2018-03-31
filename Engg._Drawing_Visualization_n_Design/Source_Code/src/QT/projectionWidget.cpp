@@ -22,23 +22,31 @@ void ProjectionWidget::paintEvent(QPaintEvent *event)
     makeDrawing(); // Draw the edges and points
 }
 
-// Setters
-void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
+// Set Width and Height
+void ProjectionWidget::setHeightWidth(int width, int height)
 {
-    pointSet = pointVect;
-    
-    // Do a rescaling of points
-    PointVector2D points;
+    this->width = width;
+    this->height = height;
+}
 
-    float max_a = -100000.0;
-    float min_a = 100000.0;
+// Calculating Scaling Factor
+void ProjectionWidget::setFactor(float fact)
+{
+    factor = fact;
+}
 
-    float max_b = -100000.0;
-    float min_b = 100000.0;
+float ProjectionWidget::getFactor()
+{
+    return factor;
+}
+
+void ProjectionWidget::analysePoints(PointVector2D points)
+{
+    // The Job of this function is to compute the bounds on x and y coordinates of points of the given pointSet
 
     float a, b;
 
-    for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
+    for (iterPoint2d it = points.begin(); it != points.end(); it++)
     {
         a = (*it)->a;
         b = (*it)->b;
@@ -49,16 +57,42 @@ void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
         max_b = (max_b < b) ? b : max_b;
         min_b = (b < min_b) ? b : min_b;
     }
+}
+
+float ProjectionWidget::calculateFactor()
+{
+    // Calculate the scaling factor based on the range data of the points
 
     // map range (max_a - min_a) to width and corresponding b to height
     // If f > 1 => Apply smaller factor
     // If f < 1 => Apply smaller factor
     float factor_a = (max_a - min_a < 0.1) ? 1 : (width - 10) / (max_a - min_a); // division by 0!!
-    float factor_b = (max_b - min_b < 0.1) ? 1 : (height - 10) /(max_b - min_b);
+    float factor_b = (max_b - min_b < 0.1) ? 1 : (height - 10) / (max_b - min_b);
 
-    float factor = (factor_a < factor_b) ? factor_a : factor_b;
-    factor /= 2;
+    float fact = (factor_a < factor_b) ? factor_a : factor_b;
+    fact /= 2;
 
+    return fact;
+}
+
+// Setters
+void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
+{
+    pointSet = pointVect;
+
+    applyFactor();
+}
+
+void ProjectionWidget::applyFactor()
+{
+
+    // Do a rescaling of points
+    PointVector2D points;
+
+    analysePoints(pointSet);
+    setFactor(calculateFactor());
+
+    float a, b;
     for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
     {
         a = (*it)->a;

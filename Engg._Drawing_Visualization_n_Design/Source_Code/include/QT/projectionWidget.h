@@ -16,7 +16,16 @@ public:
 
   void setPointSet(PointVector2D const &pointVect);
   void setEdgeSet(EdgeVector2D const &edgeVect);
-  // void draw();
+
+  // Set Width and Height
+  void setHeightWidth (int width, int height);
+  
+  // Scaling Factor Calculation
+  void analysePoints(PointVector2D points);
+  float calculateFactor();
+  void setFactor(float fact);
+  float getFactor();
+  void applyFactor();
 
 protected:
   void paintEvent(QPaintEvent *event);
@@ -28,6 +37,13 @@ private:
   // Size
   int width = 700;
   int height = 450;
+
+  // Factor
+  float factor = 1;
+  float max_a = -100000.0;
+  float min_a = 100000.0;
+  float max_b = -100000.0;
+  float min_b = 100000.0;
 
   // 2D Painter
   QPainter *painter2D;
