@@ -210,6 +210,6 @@ float threeDObject::calculateFactor(int height, int width)
         max_dist=1.0;
     float limit = std::min(height,width);
     max_dist = (limit-10)/max_dist;
-    max_dist/=1.5;
-    return std::max(1.0f,max_dist);
+    max_dist/=3.0;
+    return std::max(0.5f,max_dist);
 }

@@ -122,10 +122,10 @@ void ProjectionWidget::applyFactor()
     for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
     {
         a = (*it)->a;
-        a = (a - min_a) * factor + 10;
+        a = (a -min_a) * factor + 10;
 
         b = (*it)->b;
-        b = (b - min_b) * factor + 10;
+        b = (b -min_b) * factor + 10;
 
         // Do the transformations
         if (type == 0)
@@ -167,11 +167,11 @@ void ProjectionWidget::setViewType(int type)
 void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
 {
     pointSet = pointVect;
-    analysePoints(pointSet);
+    //analysePoints(pointSet);
 
     // applyFactor();
-    setFactor(calculateFactor());
-    applyFactor();
+    //setFactor(calculateFactor());
+    //applyFactor();
 }
 
 void ProjectionWidget::setEdgeSet(EdgeVector2D const &edgeVect)
