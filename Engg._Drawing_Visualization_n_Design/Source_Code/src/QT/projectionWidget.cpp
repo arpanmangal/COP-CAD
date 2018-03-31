@@ -115,9 +115,6 @@ void ProjectionWidget::applyFactor()
     // Do a rescaling of points
     PointVector2D points;
 
-    // analysePoints(pointSet);
-    setFactor(calculateFactor());
-
     float a, b;
     for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
     {
