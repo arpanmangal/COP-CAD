@@ -21,7 +21,7 @@ class twoDPoint
 	/** Overloaded bool operator == */
 	bool operator==(twoDPoint &p)
 	{
-		return ((abs(a-p.a)<0.001) && (abs(b- p.b)<0.001));
+		return ((std::abs(a-p.a)<0.001) && (std::abs(b- p.b)<0.001));
 	}
 };
 

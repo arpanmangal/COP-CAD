@@ -88,8 +88,8 @@ twoDProjectionView *twoDInput::getProjectionDrawing(const char * path)
     frontview = new twoDProjection();
     frontview->add_pointSet(pointSet);
     frontview->add_edgeSet(edgeSet);
-    frontview->printer();
-    std::cout<<"Added front view\n";
+    //frontview->printer();
+    //std::cout<<"Added front view\n";
 
     //reading top view
     edgeSet = EdgeVector2D();
@@ -129,8 +129,8 @@ twoDProjectionView *twoDInput::getProjectionDrawing(const char * path)
     topview = new twoDProjection();
     topview->add_pointSet(pointSet);
     topview->add_edgeSet(edgeSet);
-    topview->printer();
-    std::cout<<"Added top view\n";
+    //topview->printer();
+    //std::cout<<"Added top view\n";
 
     //reading side view
     if (number_of_views == 3)
@@ -173,8 +173,8 @@ twoDProjectionView *twoDInput::getProjectionDrawing(const char * path)
         sideview = new twoDProjection();
         sideview->add_pointSet(pointSet);
         sideview->add_edgeSet(edgeSet);
-        sideview->printer();
-        cout<<"Added Side View\n";
+        //sideview->printer();
+        //cout<<"Added Side View\n";
     }
     else
     {

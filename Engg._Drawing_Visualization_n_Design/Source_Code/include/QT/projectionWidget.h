@@ -38,8 +38,8 @@ private:
   EdgeVector2D edgeSet;
 
   // Size
-  int width = 700;
-  int height = 450;
+  int width = 500;
+  int height = 350;
 
   // type
   int type = 1; // Front by default

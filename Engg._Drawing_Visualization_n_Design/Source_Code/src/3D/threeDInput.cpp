@@ -160,11 +160,11 @@ void threeDInput::inputData(const char * path)
         addPoint(point);
     }
 
-    for (int i = 0; i < pointSet.size(); i++)
+    /*for (int i = 0; i < pointSet.size(); i++)
     {
         point = pointSet.at(i);
         cout << i << " " << point->x << " " << point->y <<" "<<point->z<< "\n";
-    }
+    }*/
 
     int start,end;
     if (number_of_points< 2)
@@ -174,10 +174,10 @@ void threeDInput::inputData(const char * path)
     }
 
     file>>number_of_edges;
-    cout << number_of_edges << endl;
+    //cout << number_of_edges << endl;
     for (int i=0;i<number_of_edges;i++){
         file>>start>>end;
-        cout << i << std::endl;
+        //cout << i << std::endl;
         try
         {
             addEdge(start, end);
