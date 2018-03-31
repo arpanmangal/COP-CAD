@@ -16,6 +16,8 @@ ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWid
     ui->setupUi(this);
 
     this->setWindowTitle("COP CAD");
+    this->setStyleSheet("background-color:#2f4f4f;");
+
 
     // Set Menu
     // infoLabel = new QLabel(tr("<i style=color: red >Choose a menu option, or right-click to invoke a context menu</i>"));

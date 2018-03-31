@@ -17,42 +17,9 @@ void ProjectionWidget::paintEvent(QPaintEvent *event)
     painter2D = new QPainter(this);
 
     // Draw the lines
-    if (type == 0)
-    {
-        // Iso View
-        QRect rec(0, 0, 399, 299);
-        painter2D->drawRect(rec);
-    }
-    else if (type == 1)
-    {
-        // Front View
-        QPoint *p1 = new QPoint(0, 0);
-        QPoint *p2 = new QPoint(0, height);
-        QPoint *p3 = new QPoint(width, height);
 
-        drawThinLine(*p1, *p2);
-        drawThinLine(*p2, *p3);
-    }
-    else if (type == 2)
-    {
-        // Top View
-        QPoint *p1 = new QPoint(0, 0);
-        QPoint *p2 = new QPoint(0, height);
-        QPoint *p3 = new QPoint(width, 0);
-
-        drawThinLine(*p1, *p2);
-        drawThinLine(*p1, *p3);
-    }
-    else
-    {
-        // Side View
-        QPoint *p1 = new QPoint(width, height);
-        QPoint *p2 = new QPoint(0, height);
-        QPoint *p3 = new QPoint(width, 0);
-
-        drawThinLine(*p1, *p2);
-        drawThinLine(*p1, *p3);
-    }
+    QRect rec(0, 0, width - 1, height - 1);
+    painter2D->drawRect(rec);
 
     makeDrawing(); // Draw the edges and points
 }
@@ -122,10 +89,10 @@ void ProjectionWidget::applyFactor()
     for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
     {
         a = (*it)->a;
-        a = (a ) * factor + 150;
+        a = (a)*factor + 150;
 
         b = (*it)->b;
-        b = (b ) * factor +150;
+        b = (b)*factor + 150;
 
         // Do the transformations
         if (type == 0)
