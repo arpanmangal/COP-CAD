@@ -7,7 +7,7 @@
 #include "include/2D/twoDProjection.h"
 #include "include/2D/isometricView.h"
 #include <fstream>
-#include<math.h>
+#include <math.h>
 using namespace std;
 
 // Constructor and Destructor
@@ -47,7 +47,6 @@ void threeDObject::translate(threeDPoint *const &O)
         (*point)->z = (*point)->z - O->z;
     }
 }
-
 
 twoDProjection *threeDObject::genProjection(int projectionPlane)
 {
@@ -110,41 +109,45 @@ twoDProjection *threeDObject::genProjection(int projectionPlane)
 
 isometricView *threeDObject::genIsoView()
 {
-    isometricView * retVal = new isometricView(pointSet,edgeSet);
+    isometricView *retVal = new isometricView(pointSet, edgeSet);
     return retVal;
 }
 
 void threeDObject::printer()
-{  
+{
     cout << "\n3D Printer Start\n";
-	threeDPoint *p;
-	Edge *e;
-    for (int i=0;i<pointSet.size();i++){
+    threeDPoint *p;
+    Edge *e;
+    for (int i = 0; i < pointSet.size(); i++)
+    {
         p = pointSet.at(i);
-        cout<<i<<" "<<p->x<<" "<<p->y<<" "<<p->z<<"\n";
+        cout << i << " " << p->x << " " << p->y << " " << p->z << "\n";
     }
-	for (int i=0;i<edgeSet.size();i++){
-		e = edgeSet.at(i);
-		cout<<e->start_index<<" "<<e->end_index<<"\n";
-	}
-
+    for (int i = 0; i < edgeSet.size(); i++)
+    {
+        e = edgeSet.at(i);
+        cout << e->start_index << " " << e->end_index << "\n";
+    }
 }
 
-void threeDObject::filewriter(const char * path)
+void threeDObject::filewriter(const char *path)
 {
-	ofstream file;
-	file.open(path,ios::out);
-	file<<pointSet.size();
-	for (int i= 0;i<pointSet.size();i++)
-	{
-		file<<"\n"<<pointSet.at(i)->x<<" "<<pointSet.at(i)->y<<" "<<pointSet.at(i)->z;	}
-	file<<endl;
-	file<<edgeSet.size();
-	for (int i=0; i<edgeSet.size();i++)
-	{
-		file<<"\n"<<edgeSet.at(i)->start_index<<" "<<edgeSet.at(i)->end_index;
-	}
-	file.close();
+    ofstream file;
+    file.open(path, ios::out);
+    file << pointSet.size();
+    for (int i = 0; i < pointSet.size(); i++)
+    {
+        file << "\n"
+             << pointSet.at(i)->x << " " << pointSet.at(i)->y << " " << pointSet.at(i)->z;
+    }
+    file << endl;
+    file << edgeSet.size();
+    for (int i = 0; i < edgeSet.size(); i++)
+    {
+        file << "\n"
+             << edgeSet.at(i)->start_index << " " << edgeSet.at(i)->end_index;
+    }
+    file.close();
 }
 
 void threeDObject::rotationalTransformationX(float alpha_x)
@@ -154,13 +157,12 @@ void threeDObject::rotationalTransformationX(float alpha_x)
 
     for (iterPoint3d point = pointSet.begin(); point != pointSet.end(); ++point)
     {
-        float  _y, _z;
+        float _y, _z;
         _y = (cx * (*point)->y) - (sx * (*point)->z);
         _z = (sx * (*point)->y) + (cx * (*point)->z);
         (*point)->y = _y;
         (*point)->z = _z;
     }
-
 }
 
 void threeDObject::rotationalTransformationY(float alpha_y)
@@ -176,7 +178,6 @@ void threeDObject::rotationalTransformationY(float alpha_y)
         (*point)->x = _x;
         (*point)->z = _z;
     }
-
 }
 
 void threeDObject::rotationalTransformationZ(float alpha_z)
@@ -192,25 +193,26 @@ void threeDObject::rotationalTransformationZ(float alpha_z)
         (*point)->y = _y;
         (*point)->x = _x;
     }
-
 }
 float threeDObject::calculateFactor(int height, int width)
 {
     float max_dist = 0.0;
-    for (int i = 0; i<pointSet.size();i++)
+    for (int i = 0; i < pointSet.size(); i++)
     {
-        for (int j=0; j<pointSet.size();j++)
+        for (int j = 0; j < pointSet.size(); j++)
         {
-            max_dist = std::max(max_dist,(pointSet.at(i)->x - pointSet.at(j)->x));
-            max_dist = std::max(max_dist,(pointSet.at(i)->y - pointSet.at(j)->y));
-            max_dist = std::max(max_dist,(pointSet.at(i)->z - pointSet.at(j)->z));
+            max_dist = std::max(max_dist, (pointSet.at(i)->x - pointSet.at(j)->x));
+            max_dist = std::max(max_dist, (pointSet.at(i)->y - pointSet.at(j)->y));
+            max_dist = std::max(max_dist, (pointSet.at(i)->z - pointSet.at(j)->z));
         }
     }
-    if (max_dist<0.5f)
-        max_dist=0.5f;
-    float limit = std::min(height,width);
-    max_dist = (limit-10)/max_dist;
-    max_dist/=3.0;
-    std::cout<<max_dist<<endl;
-    return std::max(0.5f,max_dist);
+    if (max_dist < 0.5f)
+        max_dist = 0.5f;
+    float limit = std::min(height, width);
+
+    float factor = (limit - 10) / max_dist;
+    factor /= 3.0;
+    std::cout << factor << endl;
+    // return std::max(0.5f, factor);
+    return factor;
 }

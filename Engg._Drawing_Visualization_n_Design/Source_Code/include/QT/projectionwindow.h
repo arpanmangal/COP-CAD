@@ -54,7 +54,7 @@ private:
   int Zval;
 
   // Calculation factor
-  int calc_factor;
+  float calc_factor;
 
   /** Create Actions */
   void createMenus();
