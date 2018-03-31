@@ -206,10 +206,11 @@ float threeDObject::calculateFactor(int height, int width)
             max_dist = std::max(max_dist,(pointSet.at(i)->z - pointSet.at(j)->z));
         }
     }
-    if (max_dist<1.0)
-        max_dist=1.0;
+    if (max_dist<0.5f)
+        max_dist=0.5f;
     float limit = std::min(height,width);
     max_dist = (limit-10)/max_dist;
     max_dist/=3.0;
+    std::cout<<max_dist<<endl;
     return std::max(0.5f,max_dist);
 }

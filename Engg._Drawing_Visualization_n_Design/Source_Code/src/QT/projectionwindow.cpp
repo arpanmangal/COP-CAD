@@ -6,7 +6,7 @@
 #include "include/2D/twoDProjection.h"
 #include "include/2D/twoDProjectionView.h"
 #include "include/2D/isometricView.h"
-
+#include <iostream>
 #include <QFileDialog>
 #include <QMessageBox>
 

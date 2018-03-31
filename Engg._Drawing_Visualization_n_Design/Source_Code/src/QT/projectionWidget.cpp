@@ -20,7 +20,7 @@ void ProjectionWidget::paintEvent(QPaintEvent *event)
     if (type == 0)
     {
         // Iso View
-        QRect rec(0, 0, 699, 449);
+        QRect rec(0, 0, 399, 299);
         painter2D->drawRect(rec);
     }
     else if (type == 1)
@@ -122,10 +122,10 @@ void ProjectionWidget::applyFactor()
     for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
     {
         a = (*it)->a;
-        a = (a -min_a) * factor + 10;
+        a = (a ) * factor + 150;
 
         b = (*it)->b;
-        b = (b -min_b) * factor + 10;
+        b = (b ) * factor +150;
 
         // Do the transformations
         if (type == 0)
