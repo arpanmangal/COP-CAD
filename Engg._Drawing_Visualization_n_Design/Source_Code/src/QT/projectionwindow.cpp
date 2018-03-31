@@ -30,6 +30,12 @@ ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWid
     sideView = new twoDProjection();
     isoView = new isometricView();
 
+    // Initialise types of the different Views
+    ui->IsoView->setViewType(0);
+    ui->FrontView->setViewType(1);
+    ui->TopView->setViewType(2);
+    ui->SideView->setViewType(3);
+
     // Initialisations
     Xval = Yval = Zval = 0;
 
@@ -147,21 +153,31 @@ void ProjectionWindow::createProjections()
     frontView = object->genProjection(3);
     sideView = object->genProjection(2);
 
+    ui->IsoView->setPointSet(isoView->pointSet);
+    ui->IsoView->setEdgeSet(isoView->edgeSet);
+
+    float factor = ui->IsoView->calculateFactor();
+    ui->IsoView->setFactor(factor);
+    ui->IsoView->applyFactor();
+    ui->IsoView->update();
+
     ui->FrontView->setPointSet(frontView->PointSet);
     ui->FrontView->setEdgeSet(frontView->EdgeSet);
+    ui->FrontView->setFactor(factor);
+    ui->FrontView->applyFactor();
     ui->FrontView->update();
 
     ui->TopView->setPointSet(topView->PointSet);
     ui->TopView->setEdgeSet(topView->EdgeSet);
+    ui->TopView->setFactor(factor);
+    ui->TopView->applyFactor();
     ui->TopView->update();
 
     ui->SideView->setPointSet(sideView->PointSet);
     ui->SideView->setEdgeSet(sideView->EdgeSet);
+    ui->SideView->setFactor(factor);
+    ui->SideView->applyFactor();
     ui->SideView->update();
-
-    ui->IsoView->setPointSet(isoView->pointSet);
-    ui->IsoView->setEdgeSet(isoView->edgeSet);
-    ui->IsoView->update();
 }
 
 // Slots

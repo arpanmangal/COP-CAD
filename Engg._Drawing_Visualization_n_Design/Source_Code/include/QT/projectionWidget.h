@@ -18,14 +18,17 @@ public:
   void setEdgeSet(EdgeVector2D const &edgeVect);
 
   // Set Width and Height
-  void setHeightWidth (int width, int height);
-  
+  void setHeightWidth(int width, int height);
+
   // Scaling Factor Calculation
   void analysePoints(PointVector2D points);
   float calculateFactor();
   void setFactor(float fact);
   float getFactor();
-  void applyFactor();
+  void applyFactor(); // Will also do the neccessary transformations
+
+  // Set type of view, 0 for iso, 1 for front, 2 for top, rest for side
+  void setViewType(int type);
 
 protected:
   void paintEvent(QPaintEvent *event);
@@ -38,6 +41,9 @@ private:
   int width = 700;
   int height = 450;
 
+  // type
+  int type = 1; // Front by default
+
   // Factor
   float factor = 1;
   float max_a = -100000.0;
@@ -48,6 +54,7 @@ private:
   // 2D Painter
   QPainter *painter2D;
   QPen strLinePen;
+  QPen thinPen;
   QPen dottedPen;
   QPen pointPen;
 
@@ -55,6 +62,7 @@ private:
   void setPens();
   void makeDrawing();
   void drawStrLine(QPoint p1, QPoint p2);
+  void drawThinLine(QPoint p1, QPoint p2);
   void drawDottedLine(QPoint p1, QPoint p2);
   void drawPoint(QPoint p);
 };

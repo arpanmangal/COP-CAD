@@ -16,8 +16,43 @@ void ProjectionWidget::paintEvent(QPaintEvent *event)
     // Assign the QPainter
     painter2D = new QPainter(this);
 
-    QRect rec(0, 0, 699, 449);
-    painter2D->drawRect(rec);
+    // Draw the lines
+    if (type == 0)
+    {
+        // Iso View
+        QRect rec(0, 0, 699, 449);
+        painter2D->drawRect(rec);
+    }
+    else if (type == 1)
+    {
+        // Front View
+        QPoint *p1 = new QPoint(0, 0);
+        QPoint *p2 = new QPoint(0, height);
+        QPoint *p3 = new QPoint(width, height);
+
+        drawThinLine(*p1, *p2);
+        drawThinLine(*p2, *p3);
+    }
+    else if (type == 2)
+    {
+        // Top View
+        QPoint *p1 = new QPoint(0, 0);
+        QPoint *p2 = new QPoint(0, height);
+        QPoint *p3 = new QPoint(width, 0);
+
+        drawThinLine(*p1, *p2);
+        drawThinLine(*p1, *p3);
+    }
+    else
+    {
+        // Side View
+        QPoint *p1 = new QPoint(width, height);
+        QPoint *p2 = new QPoint(0, height);
+        QPoint *p3 = new QPoint(width, 0);
+
+        drawThinLine(*p1, *p2);
+        drawThinLine(*p1, *p3);
+    }
 
     makeDrawing(); // Draw the edges and points
 }
@@ -70,26 +105,17 @@ float ProjectionWidget::calculateFactor()
     float factor_b = (max_b - min_b < 0.1) ? 1 : (height - 10) / (max_b - min_b);
 
     float fact = (factor_a < factor_b) ? factor_a : factor_b;
-    fact /= 2;
+    fact /= 1.5;
 
     return fact;
 }
 
-// Setters
-void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
-{
-    pointSet = pointVect;
-
-    applyFactor();
-}
-
 void ProjectionWidget::applyFactor()
 {
-
     // Do a rescaling of points
     PointVector2D points;
 
-    analysePoints(pointSet);
+    // analysePoints(pointSet);
     setFactor(calculateFactor());
 
     float a, b;
@@ -101,11 +127,49 @@ void ProjectionWidget::applyFactor()
         b = (*it)->b;
         b = (b - min_b) * factor + 10;
 
+        // Do the transformations
+        if (type == 0)
+        {
+            // Isometric View
+            // b = height - b;
+        }
+        else if (type == 1)
+        {
+            // Front View
+            b = height - b;
+        }
+        else if (type == 2)
+        {
+            // Top View
+            // No transformation Reqd.
+        }
+        else
+        {
+            // Side View
+            a = width - a;
+            b = height - b;
+        }
+
         points.push_back(new twoDPoint(a, b));
     }
 
     // Assign the point set
     pointSet = points;
+}
+
+// Set type of view, 0 for iso, 1 for front, 2 for top, rest for side
+void ProjectionWidget::setViewType(int type)
+{
+    this->type = type;
+}
+
+// Setters
+void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
+{
+    pointSet = pointVect;
+    analysePoints(pointSet);
+
+    // applyFactor();
 }
 
 void ProjectionWidget::setEdgeSet(EdgeVector2D const &edgeVect)
@@ -118,6 +182,9 @@ void ProjectionWidget::setPens()
 {
     strLinePen.setColor(Qt::black);
     strLinePen.setWidth(2);
+
+    thinPen.setColor(Qt::black);
+    thinPen.setWidth(2);
 
     dottedPen.setColor(Qt::black);
     dottedPen.setWidth(1.4);
@@ -164,6 +231,11 @@ void ProjectionWidget::drawStrLine(QPoint p1, QPoint p2)
     painter2D->drawLine(p1, p2);
 }
 
+void ProjectionWidget::drawThinLine(QPoint p1, QPoint p2)
+{
+    painter2D->setPen(thinPen);
+    painter2D->drawLine(p1, p2);
+}
 void ProjectionWidget::drawDottedLine(QPoint p1, QPoint p2)
 {
     painter2D->setPen(dottedPen);
