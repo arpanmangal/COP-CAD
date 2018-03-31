@@ -73,6 +73,9 @@ public:
 
   /**Accepts values of rotation along Z axis and rotates the object accordingly*/
   void rotationalTransformationZ(float alpha_z);
+
+  /**Calculate scaling factor for projections*/
+  float calculateFactor(int height, int width);
 };
 
 #endif // __THREEDOBJECT_H_INCLUDED__

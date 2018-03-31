@@ -25,6 +25,7 @@ ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWid
 
     // Set the Object, and the views
     this->object = object;
+    calc_factor = object->calculateFactor(400,300);
     frontView = new twoDProjection(); // Empty dummpy value
     topView = new twoDProjection();
     sideView = new twoDProjection();
@@ -156,26 +157,25 @@ void ProjectionWindow::createProjections()
     ui->IsoView->setPointSet(isoView->pointSet);
     ui->IsoView->setEdgeSet(isoView->edgeSet);
 
-    float factor = ui->IsoView->calculateFactor();
-    ui->IsoView->setFactor(factor);
+    ui->IsoView->setFactor(calc_factor);
     ui->IsoView->applyFactor();
     ui->IsoView->update();
 
     ui->FrontView->setPointSet(frontView->PointSet);
     ui->FrontView->setEdgeSet(frontView->EdgeSet);
-    ui->FrontView->setFactor(factor);
+    ui->FrontView->setFactor(calc_factor);
     ui->FrontView->applyFactor();
     ui->FrontView->update();
 
     ui->TopView->setPointSet(topView->PointSet);
     ui->TopView->setEdgeSet(topView->EdgeSet);
-    ui->TopView->setFactor(factor);
+    ui->TopView->setFactor(calc_factor);
     ui->TopView->applyFactor();
     ui->TopView->update();
 
     ui->SideView->setPointSet(sideView->PointSet);
     ui->SideView->setEdgeSet(sideView->EdgeSet);
-    ui->SideView->setFactor(factor);
+    ui->SideView->setFactor(calc_factor);
     ui->SideView->applyFactor();
     ui->SideView->update();
 }

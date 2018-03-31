@@ -53,6 +53,9 @@ private:
   int Yval;
   int Zval;
 
+  // Calculation factor
+  int calc_factor;
+
   /** Create Actions */
   void createMenus();
   /** Create Menu Actions */

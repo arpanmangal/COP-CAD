@@ -194,3 +194,22 @@ void threeDObject::rotationalTransformationZ(float alpha_z)
     }
 
 }
+float threeDObject::calculateFactor(int height, int width)
+{
+    float max_dist = 0.0;
+    for (int i = 0; i<pointSet.size();i++)
+    {
+        for (int j=0; j<pointSet.size();j++)
+        {
+            max_dist = std::max(max_dist,(pointSet.at(i)->x - pointSet.at(j)->x));
+            max_dist = std::max(max_dist,(pointSet.at(i)->y - pointSet.at(j)->y));
+            max_dist = std::max(max_dist,(pointSet.at(i)->z - pointSet.at(j)->z));
+        }
+    }
+    if (max_dist<1.0)
+        max_dist=1.0;
+    float limit = std::min(height,width);
+    max_dist = (limit-10)/max_dist;
+    max_dist/=1.5;
+    return std::max(1.0f,max_dist);
+}
