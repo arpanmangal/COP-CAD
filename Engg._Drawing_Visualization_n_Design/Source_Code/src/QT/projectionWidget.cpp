@@ -97,6 +97,7 @@ void ProjectionWidget::analysePoints(PointVector2D points)
 float ProjectionWidget::calculateFactor()
 {
     // Calculate the scaling factor based on the range data of the points
+    analysePoints(pointSet);
 
     // map range (max_a - min_a) to width and corresponding b to height
     // If f > 1 => Apply smaller factor
@@ -114,6 +115,8 @@ void ProjectionWidget::applyFactor()
 {
     // Do a rescaling of points
     PointVector2D points;
+
+    analysePoints(pointSet); // to calculate new min_a and min_b
 
     float a, b;
     for (iterPoint2d it = pointSet.begin(); it != pointSet.end(); it++)
@@ -167,6 +170,8 @@ void ProjectionWidget::setPointSet(PointVector2D const &pointVect)
     analysePoints(pointSet);
 
     // applyFactor();
+    setFactor(calculateFactor());
+    applyFactor();
 }
 
 void ProjectionWidget::setEdgeSet(EdgeVector2D const &edgeVect)
