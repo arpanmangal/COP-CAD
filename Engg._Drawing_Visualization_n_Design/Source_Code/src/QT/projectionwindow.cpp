@@ -16,7 +16,7 @@ ProjectionWindow::ProjectionWindow(threeDObject *object, QWidget *parent) : QWid
     ui->setupUi(this);
 
     this->setWindowTitle("COP CAD");
-    this->setStyleSheet("background-color:#2f4f4f;");
+    this->setStyleSheet("background-color:#f0c7fc;");
 
 
     // Set Menu
@@ -177,8 +177,8 @@ void ProjectionWindow::createProjections()
 
     ui->SideView->setPointSet(sideView->PointSet);
     ui->SideView->setEdgeSet(sideView->EdgeSet);
-     ui->SideView->setFactor(calc_factor);
-     ui->SideView->applyFactor();
+    ui->SideView->setFactor(calc_factor);
+    ui->SideView->applyFactor();
     ui->SideView->update();
 }
 

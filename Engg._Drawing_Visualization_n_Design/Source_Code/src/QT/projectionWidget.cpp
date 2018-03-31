@@ -98,7 +98,8 @@ void ProjectionWidget::applyFactor()
         if (type == 0)
         {
             // Isometric View
-            // b = height - b;
+
+             a += 20;
         }
         else if (type == 1)
         {
