@@ -76,6 +76,9 @@ public:
 
   /**Calculate scaling factor for projections*/
   float calculateFactor(int height, int width);
+
+  /**Translates origin to a suitable point so as to render the object properly*/
+  void correctTranslation();
 };
 
 #endif // __THREEDOBJECT_H_INCLUDED__

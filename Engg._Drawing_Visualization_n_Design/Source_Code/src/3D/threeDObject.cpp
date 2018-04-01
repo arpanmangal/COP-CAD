@@ -24,6 +24,7 @@ threeDObject::~threeDObject()
 void threeDObject::addPointSet(vector<threeDPoint *> const &pSet)
 {
     pointSet = pSet;
+    correctTranslation();
 }
 
 void threeDObject::addEdgeSet(vector<Edge *> const &eSet)
@@ -215,4 +216,24 @@ float threeDObject::calculateFactor(int height, int width)
     std::cout << factor << endl;
     // return std::max(0.5f, factor);
     return factor;
+}
+
+void threeDObject::correctTranslation()
+{
+    float minx,miny,minz;
+    minx=pointSet.at(0)->x;
+    miny=pointSet.at(0)->y;
+    minz=pointSet.at(0)->z;
+    for (int i = 1; i<pointSet.size();i++)
+    {
+        minx = std::min(pointSet.at(i)->x,minx);
+        miny = std::min(pointSet.at(i)->y,miny);
+        minz = std::min(pointSet.at(i)->z,minz);
+    }
+    for (int i =0; i<pointSet.size();i++)
+    {
+        pointSet.at(i)->x -=minx;
+        pointSet.at(i)->y -=miny;
+        pointSet.at(i)->z -=minz; 
+    }
 }
