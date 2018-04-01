@@ -213,7 +213,7 @@ float threeDObject::calculateFactor(int height, int width)
 
     float factor = (limit - 10) / max_dist;
     factor /= 3.0;
-    std::cout << factor << endl;
+    //std::cout << factor << endl;
     // return std::max(0.5f, factor);
     return factor;
 }
