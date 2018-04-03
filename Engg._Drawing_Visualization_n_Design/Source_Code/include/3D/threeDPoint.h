@@ -17,7 +17,7 @@ public:
   float z;
 
   // functions
-  /** constructor */
+  /** Constructor accepts coordinate as parameters */
   threeDPoint(float X, float Y, float Z);
 
   /** Destructor */

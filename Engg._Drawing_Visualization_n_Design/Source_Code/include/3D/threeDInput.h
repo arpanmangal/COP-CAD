@@ -40,14 +40,6 @@ public:
   /** destructor: simply let pointSet and edgeSet go out of scope */
   ~threeDInput();
 
-  /** Function for taking points as input.
-   * Has implementation of deleting a point if user wants. The point is deleted from pointSet and the corresponding edge is deleted from the edgeSet
-   *  Will be calling the function addPoint and finally threeDObject::addPointSet() */
-  void inputPoints();
-
-  /** Function for taking edges as input.
-   * Will be calling the function addEdge and finally threeDObject::addEdgeSet() */
-  void inputEdges();
 
   /**Functions takes file as input and constructs point and edge sets */
   void inputData(const char* path);
