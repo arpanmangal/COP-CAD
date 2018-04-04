@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['edge',['Edge',['../class_edge.html#ad81fe964df4927e52241726f0eb723f9',1,'Edge']]],
-  ['edgereconstruction',['edgeReconstruction',['../classtwo_d_projection_view.html#adf84faca2b28d9b76046402c7d5ef6b0',1,'twoDProjectionView']]]
+  ['edge',['Edge',['../class_edge.html#a127884972ecf82a00b113d02a093caca',1,'Edge']]],
+  ['edgecollinearitycheck',['edgeCollinearityCheck',['../classtwo_d_projection.html#aae8d39d5ff5eb9447b898917657780bf',1,'twoDProjection']]],
+  ['edgereconstruction',['edgeReconstruction',['../classtwo_d_projection_view.html#ad72a02decb3d1b3ff530587c0e836630',1,'twoDProjectionView']]]
 ];

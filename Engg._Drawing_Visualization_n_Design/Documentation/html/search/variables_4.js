@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pointset',['pointSet',['../classisometric_view.html#a59468f7d43c785f37c86d96901fa4678',1,'isometricView']]],
-  ['projecplane',['projecPlane',['../classortho_projection.html#a244ab9e49a864a5f3766f248078baff8',1,'orthoProjection']]]
+  ['start_5findex',['start_index',['../class_edge.html#a559a1d26d36ec391d98bca4d3aa9be0e',1,'Edge']]]
 ];

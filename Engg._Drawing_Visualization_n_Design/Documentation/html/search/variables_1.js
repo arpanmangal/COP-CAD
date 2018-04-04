@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['b',['b',['../classtwo_d_point.html#aabff63f18f6d0915e7bfd0761bd093ca',1,'twoDPoint::b()'],['../classthree_ddrawing.html#a427873f450fdc980755a0e963540aa61',1,'threeDdrawing::b()']]]
+  ['b',['b',['../classtwo_d_point.html#a83fc1af92e29717b4513d121b0c72c7d',1,'twoDPoint']]]
 ];

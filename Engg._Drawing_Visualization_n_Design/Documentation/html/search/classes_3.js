@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['plane',['plane',['../classplane.html',1,'']]]
+  ['mainwindow',['MainWindow',['../class_main_window.html',1,'']]]
 ];
