@@ -1,3 +1,5 @@
+/** Defines a QT Widget which shows various orthographic projections and the isometric view of the threeD object */
+
 #ifndef PROJECTIONWINDOW_H
 #define PROJECTIONWINDOW_H
 
@@ -20,6 +22,7 @@ class ProjectionWindow : public QWidget
   Q_OBJECT
 
 public:
+  /** Constructor */
   explicit ProjectionWindow(threeDObject *object, QWidget *parent = 0);
   ~ProjectionWindow();
 

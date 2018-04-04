@@ -43,6 +43,18 @@ public:
   /** Translate the current three dimensional object to origin specified by point P */
   void translate(threeDPoint * const &O);
 
+  /**Accepts values of rotation along X axis and rotates the object accordingly*/
+  void rotationalTransformationX(float alpha_x);
+
+  /**Accepts values of rotation along Y axis and rotates the object accordingly*/
+  void rotationalTransformationY(float alpha_y);
+
+  /**Accepts values of rotation along Z axis and rotates the object accordingly*/
+  void rotationalTransformationZ(float alpha_z);
+
+  /**Translates origin to a suitable point so as to render the object properly*/
+  void correctTranslation();
+
 
   /**Prints the object onto console*/
   void printer();
@@ -65,20 +77,10 @@ public:
   /**Writes the object to file*/
 	void filewriter(const char * path);
 
-  /**Accepts values of rotation along X axis and rotates the object accordingly*/
-  void rotationalTransformationX(float alpha_x);
-
-  /**Accepts values of rotation along Y axis and rotates the object accordingly*/
-  void rotationalTransformationY(float alpha_y);
-
-  /**Accepts values of rotation along Z axis and rotates the object accordingly*/
-  void rotationalTransformationZ(float alpha_z);
 
   /**Calculate scaling factor for projections*/
   float calculateFactor(int height, int width);
 
-  /**Translates origin to a suitable point so as to render the object properly*/
-  void correctTranslation();
 };
 
 #endif // __THREEDOBJECT_H_INCLUDED__

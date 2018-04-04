@@ -1,10 +1,13 @@
+/** Defines a QT Widget which allows user to manually enter data for a 2D object */
+
 #ifndef INPUTWINDOWTWOD_H
 #define INPUTWINDOWTWOD_H
 
 #include <QWidget>
 #include "include/common.h"
 
-namespace Ui {
+namespace Ui
+{
 class InputWindowTwoD;
 }
 
@@ -12,11 +15,12 @@ class InputWindowTwoD : public QWidget
 {
     Q_OBJECT
 
-public:
+  public:
+    /** Constructor */
     explicit InputWindowTwoD(int num_views, QWidget *parent = 0);
     ~InputWindowTwoD();
 
-private slots:
+  private slots:
     void on_EnterPoint_Front_clicked();
 
     void on_FinishPointAdd_Front_clicked();
@@ -43,7 +47,7 @@ private slots:
 
     void on_ContinueButton_clicked();
 
-private:
+  private:
     Ui::InputWindowTwoD *ui;
 
     int num_views;
