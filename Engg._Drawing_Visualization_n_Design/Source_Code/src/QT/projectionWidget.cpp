@@ -7,6 +7,7 @@ ProjectionWidget::ProjectionWidget(QWidget *parent)
     : QWidget(parent)
 {
     setFixedSize(width, height);
+    this->setStyleSheet("background-color:#f0c7fc;");
 
     setPens();
 }
