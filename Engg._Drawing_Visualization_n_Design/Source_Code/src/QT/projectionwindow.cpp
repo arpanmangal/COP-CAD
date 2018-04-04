@@ -133,11 +133,11 @@ void ProjectionWindow::exit()
 }
 void ProjectionWindow::helpUsage()
 {
-    QMessageBox::information(this, "Usage", "Information");
+    QMessageBox::information(this, "Usage", "Object can be rotated by moving the Sliders X, Y, or Z. \nYou can save your 2D as well as 3D drawings in the file menu.");
 }
 void ProjectionWindow::helpProjec()
 {
-    QMessageBox::information(this, "About Orthographic Projections", "Help");
+    QMessageBox::information(this, "About Orthographic Projections", "Orthographic projections of the 3D object are being rendered in the 1st angle of projection.");
 }
 
 // Based on the 3D Object, makes its projections
