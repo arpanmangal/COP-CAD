@@ -1,10 +1,13 @@
+/** Defines a QT Widget which allows user to manually enter data for a 3D object */
+
 #ifndef INPUTWINDOWTHREED_H
 #define INPUTWINDOWTHREED_H
 
 #include <QWidget>
 #include "include/common.h"
 
-namespace Ui {
+namespace Ui
+{
 class InputWindowThreeD;
 }
 
@@ -12,11 +15,12 @@ class InputWindowThreeD : public QWidget
 {
     Q_OBJECT
 
-public:
+  public:
+    /** Constructor */
     explicit InputWindowThreeD(QWidget *parent = 0);
     ~InputWindowThreeD();
 
-private slots:
+  private slots:
     void on_enterPoint_clicked();
 
     void on_finishPointAddition_clicked();
@@ -27,7 +31,7 @@ private slots:
 
     void on_ContinueButton_clicked();
 
-private:
+  private:
     Ui::InputWindowThreeD *ui;
 
     // Objects

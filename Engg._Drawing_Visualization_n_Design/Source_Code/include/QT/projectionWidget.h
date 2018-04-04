@@ -1,3 +1,5 @@
+/** Defines a QT Widget which given point set and edge set renders the drawing, with proper scaling */
+
 #ifndef PROJECTION_WIDGET_H
 #define PROJECTION_WIDGET_H
 
